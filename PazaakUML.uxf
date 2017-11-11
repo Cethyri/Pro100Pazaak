@@ -121,10 +121,9 @@ void UpdateSum()</panel_attributes>
     <panel_attributes>Player
 -
 +bool isActive
-+int score
 +int wins
 +string name
-+Deck deck
++Deck sideDeck
 +Hand hand
 +Board board
 
@@ -323,13 +322,13 @@ SwitchActivePlayer()</panel_attributes>
     <coordinates>
       <x>1070</x>
       <y>500</y>
-      <w>150</w>
+      <w>170</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>E CardType
 -
-ONE_VALUE,
-TWO_VALUE,
+SINGLE_VALUE,
+DOUBLE_VALUE,
 FLIP,
 ONE_TWO,
 DOUBLE,</panel_attributes>
