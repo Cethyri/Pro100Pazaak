@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< Updated upstream
 using System.ComponentModel;
-=======
->>>>>>> Stashed changes
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pazaak
 {
-<<<<<<< Updated upstream
     class Player : INotifyPropertyChanged
     {
         //Methods
@@ -42,15 +38,5 @@ namespace Pazaak
         public Board Board { get => board; set { board = value; FieldChanged("Board"); } }
         */
         public event PropertyChangedEventHandler PropertyChanged;
-=======
-    class Player
-    {
-        public bool isActive;
-        public int wins;
-        public string name;
-        Deck sideDeck;
-        Hand hand;
-        Board board;
->>>>>>> Stashed changes
     }
 }
