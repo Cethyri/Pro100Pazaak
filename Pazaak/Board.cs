@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    class Board
+    public class Board //: INotifyPropertyChanged
     {
+		private Card[] cards = new Card[9];
+		private int sum = 0;
+
+		public Card[] Cards {
+			get => cards; 
+			set {
+				cards = value;
+			}
+		}
+
+		public int Sum
+		{
+			get => sum;
+			set {
+				sum = value;
+			}
+		}
     }
 }
