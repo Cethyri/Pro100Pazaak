@@ -54,9 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MultiplyLastCard.cs" />
+    <Compile Include="MultiValueSignCard.cs" />
+    <Compile Include="SignCard.cs" />
     <Compile Include="UserControls\PlayerStatusControl.xaml.cs">
       <DependentUpon>PlayerStatusControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueCard.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,7 +70,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Board.cs" />
-    <Compile Include="Card.cs" />
+    <Compile Include="ICard.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="MainWindow.xaml.cs">
