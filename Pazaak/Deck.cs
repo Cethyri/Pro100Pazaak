@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    class Deck
+    public class Deck
     {
-        List<Card> cards;
-    }
+        private List<ICard> cards;
+
+		public List<ICard> Cards { get => cards; set => cards = value; }
+	}
 }
