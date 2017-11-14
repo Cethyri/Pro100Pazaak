@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    interface ICard: INotifyPropertyChanged
+    public interface ICard: INotifyPropertyChanged
     {
         string Display { get; }
         int GetValue(Board board);
