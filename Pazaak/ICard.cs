@@ -10,6 +10,11 @@ namespace Pazaak
     public interface ICard: INotifyPropertyChanged
     {
         string Display { get; }
-        int GetValue(Board board);
+
+        /// <summary>
+        /// Method to be called when a card is played. Allows card to affect the board
+        /// </summary>
+        /// <param name="board"></param>
+        void DoCardEffect(Board board);
     }
 }

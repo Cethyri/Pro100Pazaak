@@ -9,8 +9,6 @@ namespace Pazaak
 {
     class Player : INotifyPropertyChanged
     {
-        //Methods
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>

@@ -11,11 +11,10 @@ namespace Pazaak
 
     public class Board : INotifyPropertyChanged
     {
-        private ICard[] cards = new ICard[9];
-        private int sum = 0;
+        private ICard[] cards;
+        private int sum;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        //Methods
 
         /// <summary>
         /// Notifies all bindings that a property has changed
@@ -32,6 +31,7 @@ namespace Pazaak
             set
             {
                 cards = value;
+                FieldChanged("Cards");
             }
         }
 
@@ -41,7 +41,14 @@ namespace Pazaak
             set
             {
                 sum = value;
+                FieldChanged("Sum");
             }
+        }
+
+        public Board()
+        {
+            Cards = new ICard[9];
+            Sum = 0;
         }
     }
 }

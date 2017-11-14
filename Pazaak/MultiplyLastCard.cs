@@ -9,11 +9,11 @@ namespace Pazaak
 {
     class MultiplyLastCard : ICard
     {
-        public string Display => throw new NotImplementedException();
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int GetValue(Board board)
+        public string Display => throw new NotImplementedException();
+
+        public int DoCardEffect(Board board)
         {
             throw new NotImplementedException();
         }
