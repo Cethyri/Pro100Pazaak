@@ -28,24 +28,24 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1070</x>
-      <y>230</y>
-      <w>210</w>
+      <x>890</x>
+      <y>250</y>
+      <w>310</w>
       <h>240</h>
     </coordinates>
-    <panel_attributes>Card
+    <panel_attributes>ICard
 -
-+int value
-+CardType type
++string Display
 
--</panel_attributes>
+-
++void DoCardEffect(Board)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1300</x>
-      <y>230</y>
+      <x>1220</x>
+      <y>250</y>
       <w>320</w>
       <h>240</h>
     </coordinates>
@@ -54,14 +54,14 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +Card[4] cards
 
 -
-void AddToBoard(int card)</panel_attributes>
++void AddToBoard(int card)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1640</x>
-      <y>230</y>
+      <x>1560</x>
+      <y>250</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -71,14 +71,14 @@ void AddToBoard(int card)</panel_attributes>
 +int sum
 
 -
-void UpdateSum()</panel_attributes>
++void UpdateSum()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>830</y>
+      <x>210</x>
+      <y>850</y>
       <w>360</w>
       <h>240</h>
     </coordinates>
@@ -89,8 +89,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>830</y>
+      <x>820</x>
+      <y>850</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -101,8 +101,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>830</y>
+      <x>590</x>
+      <y>850</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -113,8 +113,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>230</y>
+      <x>180</x>
+      <y>250</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -133,8 +133,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>880</x>
-      <y>830</y>
+      <x>1050</x>
+      <y>850</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -145,8 +145,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1110</x>
-      <y>830</y>
+      <x>1280</x>
+      <y>850</y>
       <w>360</w>
       <h>240</h>
     </coordinates>
@@ -157,8 +157,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1060</x>
-      <y>1060</y>
+      <x>1230</x>
+      <y>1080</y>
       <w>80</w>
       <h>60</h>
     </coordinates>
@@ -168,8 +168,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>1060</y>
+      <x>1000</x>
+      <y>1080</y>
       <w>330</w>
       <h>80</h>
     </coordinates>
@@ -179,8 +179,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>1060</y>
+      <x>770</x>
+      <y>1080</y>
       <w>580</w>
       <h>100</h>
     </coordinates>
@@ -190,8 +190,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>1060</y>
+      <x>540</x>
+      <y>1080</y>
       <w>830</w>
       <h>120</h>
     </coordinates>
@@ -201,8 +201,8 @@ void UpdateSum()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>590</x>
-      <y>230</y>
+      <x>410</x>
+      <y>250</y>
       <w>460</w>
       <h>240</h>
     </coordinates>
@@ -211,18 +211,18 @@ void UpdateSum()</panel_attributes>
 +List&lt;Card&gt; cards
 
 -
-void InitializeAsMaindDeck()
-void InitializeAsSideDeck(List&lt;Card&gt;)
-void Shuffle()
-Card DrawNextCard()
-void AddCard(Card)</panel_attributes>
++void InitializeAsMaindDeck()
++void InitializeAsSideDeck(List&lt;Card&gt;)
++void Shuffle()
++Card DrawNextCard()
++void AddCard(Card)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>190</y>
+      <x>360</x>
+      <y>210</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -232,30 +232,30 @@ void AddCard(Card)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>150</y>
-      <w>860</w>
+      <x>320</x>
+      <y>170</y>
+      <w>960</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>840.0;80.0;840.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>940.0;80.0;940.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
-      <y>130</y>
-      <w>1190</w>
+      <x>300</x>
+      <y>150</y>
+      <w>1290</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1170.0;100.0;1170.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>1270.0;100.0;1270.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>360</x>
-      <y>530</y>
+      <x>180</x>
+      <y>550</y>
       <w>330</w>
       <h>240</h>
     </coordinates>
@@ -270,14 +270,14 @@ void AddCard(Card)</panel_attributes>
 +Deck mainDeck
 
 -
-SwitchActivePlayer()</panel_attributes>
++SwitchActivePlayer()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>240</y>
+      <x>110</x>
+      <y>260</y>
       <w>90</w>
       <h>330</h>
     </coordinates>
@@ -287,19 +287,19 @@ SwitchActivePlayer()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>740</y>
-      <w>840</w>
+      <x>500</x>
+      <y>760</y>
+      <w>1200</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>790.0;110.0;820.0;110.0;820.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>1140.0;110.0;1180.0;110.0;1180.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1020</x>
-      <y>190</y>
+      <x>840</x>
+      <y>210</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -309,8 +309,8 @@ SwitchActivePlayer()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1250</x>
-      <y>190</y>
+      <x>1170</x>
+      <y>210</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -318,38 +318,10 @@ SwitchActivePlayer()</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0;70.0;10.0;70.0;40.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1070</x>
-      <y>500</y>
-      <w>170</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>E CardType
--
-SINGLE_VALUE,
-DOUBLE_VALUE,
-FLIP,
-ONE_TWO,
-DOUBLE,</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
-      <y>460</y>
-      <w>30</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>680</x>
-      <y>460</y>
+      <x>500</x>
+      <y>480</y>
       <w>50</w>
       <h>110</h>
     </coordinates>
@@ -359,12 +331,106 @@ DOUBLE,</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1250</x>
-      <y>460</y>
+      <x>1170</x>
+      <y>480</y>
       <w>430</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0;410.0;40.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>950</x>
+      <y>560</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>ValueCard
+-
++int value</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>560</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MultiplyLastCard
+-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>480</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>480</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>560</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>SignCard
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1350</x>
+      <y>560</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MultiValueSignCard
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1090</x>
+      <y>560</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1280</x>
+      <y>560</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
