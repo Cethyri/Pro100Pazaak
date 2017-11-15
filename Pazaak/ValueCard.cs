@@ -11,6 +11,10 @@ namespace Pazaak
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Notifies all bindings that a property has changed
+        /// </summary>
+        /// <param name="field"> Name of property changed </param>
         protected void FieldChanged(string field = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
@@ -39,7 +43,7 @@ namespace Pazaak
             {
                 return display;
             }
-            private set
+            protected set
             {
                 this.display = value;
                 FieldChanged("Display");
@@ -51,9 +55,6 @@ namespace Pazaak
             Value = value;
         }
 
-        public int GetValue(Board board)
-        {
-            return value;
-        }
+        public void DoCardEffect(Board board) { }
     }
 }

@@ -9,11 +9,48 @@ namespace Pazaak
 {
     class MultiplyLastCard : ICard
     {
-        public string Display => throw new NotImplementedException();
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int GetValue(Board board)
+        /// <summary>
+        /// Notifies all bindings that a property has changed
+        /// </summary>
+        /// <param name="field"> Name of property changed </param>
+        protected void FieldChanged(string field = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+        }
+
+        private int value;
+        private string display;
+
+        public int Value
+        {
+            get
+            {
+                return value;
+            }
+            set
+            {
+                this.value = value;
+                Display = value > 0 ? ("+" + value): ("" + value);
+                FieldChanged("Value");
+            }
+        }
+
+        public string Display
+        {
+            get
+            {
+                return display;
+            }
+            protected set
+            {
+                this.display = value;
+                FieldChanged("Display");
+            }
+        }
+
+        public void DoCardEffect(Board board)
         {
             throw new NotImplementedException();
         }
