@@ -60,6 +60,9 @@
     <Compile Include="MultiplyLastCard.cs" />
     <Compile Include="MultiValueSignCard.cs" />
     <Compile Include="SignCard.cs" />
+    <Compile Include="UserControls\BoardControl.xaml.cs">
+      <DependentUpon>BoardControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PlayerStatusControl.xaml.cs">
       <DependentUpon>PlayerStatusControl.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\BoardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\PlayerStatusControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

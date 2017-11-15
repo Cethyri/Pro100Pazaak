@@ -46,7 +46,7 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>1220</x>
       <y>250</y>
-      <w>320</w>
+      <w>350</w>
       <h>240</h>
     </coordinates>
     <panel_attributes>Hand
@@ -54,13 +54,13 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +Card[4] cards
 
 -
-+void AddToBoard(int card)</panel_attributes>
++void AddToBoard(int, Board)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1560</x>
+      <x>1590</x>
       <y>250</y>
       <w>210</w>
       <h>240</h>
@@ -170,22 +170,22 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>1000</x>
       <y>1080</y>
-      <w>330</w>
-      <h>80</h>
+      <w>90</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;310.0;60.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;70.0;40.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>770</x>
+      <x>740</x>
       <y>1080</y>
-      <w>580</w>
-      <h>100</h>
+      <w>610</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0;560.0;80.0;560.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;590.0;60.0;590.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -193,10 +193,10 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
       <x>540</x>
       <y>1080</y>
       <w>830</w>
-      <h>120</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0;810.0;100.0;810.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;810.0;80.0;810.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -245,11 +245,11 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>300</x>
       <y>150</y>
-      <w>1290</w>
+      <w>1320</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1270.0;100.0;1270.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>1300.0;100.0;1300.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -333,11 +333,11 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>1170</x>
       <y>480</y>
-      <w>430</w>
+      <w>460</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;410.0;40.0;410.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;440.0;40.0;440.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -432,5 +432,16 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>1080</y>
+      <w>90</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
