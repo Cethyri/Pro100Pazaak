@@ -50,5 +50,21 @@ namespace Pazaak
             Cards = new ICard[9];
             Sum = 0;
         }
+        public void UpdateSum()
+        {
+
+            for (int i = 0; i < cards.Length; i++)
+            {
+                if (cards[i] != null)
+                {
+                    sum = sum + cards[i].Value;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+        }
     }
 }
