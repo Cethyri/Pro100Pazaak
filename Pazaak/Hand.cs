@@ -8,7 +8,7 @@ namespace Pazaak
 {
     class Hand
     {
-        private ICard[] cards = new ICard[4];
+        private ICard[] cards;
 
         public ICard[] Cards { get => cards; set { cards = value; } }
 
@@ -32,6 +32,11 @@ namespace Pazaak
                     break;
                 }
             }
+        }
+
+        public Hand()
+        {
+            cards = new ICard[4];
         }
     }
 }
