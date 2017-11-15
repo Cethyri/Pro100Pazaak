@@ -43,7 +43,7 @@ namespace Pazaak
             {
                 return display;
             }
-            private set
+            protected set
             {
                 this.display = value;
                 FieldChanged("Display");
