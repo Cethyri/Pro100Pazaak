@@ -36,11 +36,17 @@ namespace Pazaak
 			int n = 0;
 			bool[] hasBeenShuffledBackIn = new bool[cards.Count];
 
+			for (int i = 0; i < hasBeenShuffledBackIn.Length; i++)
+			{
+				hasBeenShuffledBackIn[i] = false;
+			}
+
 			while (n < this.cards.Count)
 			{
 				int k = rand.Next(cards.Count);
-				if (hasBeenShuffledBackIn[k])
+				if (!hasBeenShuffledBackIn[k])
 				{
+					hasBeenShuffledBackIn[k] = true;
 					shuffled.Add(cards.ElementAt(k));
 					n++;
 				}
