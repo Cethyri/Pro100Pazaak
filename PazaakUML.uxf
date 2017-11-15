@@ -46,7 +46,7 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>1220</x>
       <y>250</y>
-      <w>320</w>
+      <w>350</w>
       <h>240</h>
     </coordinates>
     <panel_attributes>Hand
@@ -54,13 +54,13 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +Card[4] cards
 
 -
-+void AddToBoard(int card)</panel_attributes>
++void AddToBoard(int, Board)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1560</x>
+      <x>1590</x>
       <y>250</y>
       <w>210</w>
       <h>240</h>
@@ -245,11 +245,11 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>300</x>
       <y>150</y>
-      <w>1290</w>
+      <w>1320</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1270.0;100.0;1270.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>1300.0;100.0;1300.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -333,11 +333,11 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <coordinates>
       <x>1170</x>
       <y>480</y>
-      <w>430</w>
+      <w>460</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;410.0;40.0;410.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;440.0;40.0;440.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
