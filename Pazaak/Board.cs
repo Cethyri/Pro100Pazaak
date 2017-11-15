@@ -11,9 +11,6 @@ namespace Pazaak
 
     public class Board : INotifyPropertyChanged
     {
-        private ICard[] cards;
-        private int sum;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -24,6 +21,9 @@ namespace Pazaak
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
+
+        private ICard[] cards;
+        private int sum;
 
         public ICard[] Cards
         {
