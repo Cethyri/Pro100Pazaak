@@ -23,8 +23,6 @@ namespace Pazaak
         public MainWindow()
         {
             InitializeComponent();
-
-            this.AddChild(new CardControl(new ValueCard(5)));
         }
     }
 }
