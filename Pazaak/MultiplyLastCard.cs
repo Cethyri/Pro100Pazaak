@@ -21,6 +21,7 @@ namespace Pazaak
         }
 
         private int value;
+        private int multValue;
         private string display;
 
         public int Value
@@ -32,7 +33,19 @@ namespace Pazaak
             set
             {
                 this.value = value;
-                Display = value > 0 ? ("+" + value): ("" + value);
+                FieldChanged("Value");
+            }
+        }
+
+        public int MultValue
+        {
+            get
+            {
+                return multValue;
+            }
+            set
+            {
+                this.multValue = value;
                 FieldChanged("Value");
             }
         }
@@ -48,6 +61,13 @@ namespace Pazaak
                 this.display = value;
                 FieldChanged("Display");
             }
+        }
+
+        public MultiplyLastCard(int multValue)
+        {
+            value = 0;
+            this.multValue = multValue;
+            display = $"Mult ({multValue})";
         }
 
         public void DoCardEffect(Board board)

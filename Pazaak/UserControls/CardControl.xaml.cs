@@ -16,15 +16,17 @@ using System.Windows.Shapes;
 namespace Pazaak
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CardControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CardControl : UserControl
     {
-        public MainWindow()
+        ICard card;
+        public CardControl(ICard card)
         {
             InitializeComponent();
 
-            this.AddChild(new CardControl(new ValueCard(5)));
+            this.card = card;
+            this.DataContext = card;
         }
     }
 }
