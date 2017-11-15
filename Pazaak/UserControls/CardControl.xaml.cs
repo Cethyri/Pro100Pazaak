@@ -13,16 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pazaak.UserControls
+namespace Pazaak
 {
     /// <summary>
-    /// Interaction logic for PlayerControl.xaml
+    /// Interaction logic for CardControl.xaml
     /// </summary>
-    public partial class PlayerStatusControl : UserControl
+    public partial class CardControl : UserControl
     {
-        public PlayerStatusControl()
+        ICard card;
+        public CardControl(ICard card)
         {
             InitializeComponent();
+
+            this.card = card;
+            this.DataContext = card;
         }
     }
 }
