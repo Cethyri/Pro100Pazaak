@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Pazaak.UserControls
 {
     /// <summary>
-    /// Interaction logic for PlayerControl.xaml
+    /// Interaction logic for HandControl.xaml
     /// </summary>
-    public partial class PlayerStatusControl : UserControl
+    public partial class HandControl : UserControl
     {
-        public PlayerStatusControl()
+        public HandControl()
         {
             InitializeComponent();
         }
