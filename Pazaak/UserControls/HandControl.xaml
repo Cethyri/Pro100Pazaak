@@ -7,6 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Orientation="Horizontal">
-        
+        <local:CardControl x:Name="cardControl0"/>
+        <local:CardControl x:Name="cardControl1"/>
+        <local:CardControl x:Name="cardControl2"/>
+        <local:CardControl x:Name="cardControl3"/>
     </StackPanel>
 </UserControl>

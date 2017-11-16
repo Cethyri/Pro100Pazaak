@@ -23,6 +23,11 @@ namespace Pazaak.UserControls
         public HandControl()
         {
             InitializeComponent();
+
+            cardControl0.DataContext = ((Hand)DataContext).Cards[0];
+            cardControl1.DataContext = ((Hand)DataContext).Cards[1];
+            cardControl2.DataContext = ((Hand)DataContext).Cards[2];
+            cardControl3.DataContext = ((Hand)DataContext).Cards[3];
         }
     }
 }
