@@ -7,8 +7,5 @@
         xmlns:local="clr-namespace:Pazaak"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <UniformGrid Columns="2">
-        <uc:PlayerControl x:Name="pctrlPlayerOne"/>
-        <uc:PlayerControl x:Name="pctrlPlayerTwo"/>
-    </UniformGrid>
+    <uc:GameControl/>
 </Window>
