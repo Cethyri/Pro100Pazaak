@@ -49,7 +49,6 @@ namespace Pazaak
         {
             Cards = new ValueCard[9];
 
-            Console.WriteLine(Cards[0]);
             Sum = 0;
         }
     }
