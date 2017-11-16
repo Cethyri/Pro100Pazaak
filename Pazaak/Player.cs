@@ -48,7 +48,7 @@ namespace Pazaak
             get => name;
             set
             {
-                Name = value;
+                name = value;
                 FieldChanged("Name");
             }
         }

@@ -7,9 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left">
-            <local:PlayerStatusControl/>
-        </StackPanel>
+        <local:PlayerStatusControl x:Name="pstsControl" DockPanel.Dock="Top"/>
         <local:BoardControl x:Name="brdControl" DockPanel.Dock="Top"/>
         <local:HandControl x:Name="hndControl" DockPanel.Dock="Top"/>
     </DockPanel>

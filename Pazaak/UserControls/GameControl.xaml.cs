@@ -16,17 +16,27 @@ using System.Windows.Shapes;
 namespace Pazaak.UserControls
 {
     /// <summary>
-    /// Interaction logic for CardControl.xaml
+    /// Interaction logic for GameControl.xaml
     /// </summary>
-    public partial class CardControl : UserControl
+    public partial class GameControl : UserControl
     {
-        ICard card;
-        public CardControl(ICard card)
+        public GameControl()
         {
             InitializeComponent();
 
-            this.card = card;
-            this.DataContext = card;
+            Player playerOne = new Player
+            {
+                Name = "Player One",
+                Wins = 0,
+            };
+            Player playerTwo = new Player
+            {
+                Name = "Player Two",
+                Wins = 0,
+            };
+
+            pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerTwo.DataContext = playerTwo;
         }
     }
 }
