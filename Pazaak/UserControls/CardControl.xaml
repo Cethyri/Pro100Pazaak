@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              Height="200" Width="150">
     <Grid>
+<<<<<<< HEAD
+        <Label Content="{Binding Display}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+=======
         <Label Content="{Binding Display}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
+>>>>>>> 69d4ea107cdc4f6946257972b51d8fcf1667a3b2
     </Grid>
 </UserControl>
