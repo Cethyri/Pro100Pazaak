@@ -21,11 +21,10 @@ namespace Pazaak.UserControls
     public partial class CardControl : UserControl
     {
         ICard card;
-        public CardControl(ICard card)
+        public CardControl()
         {
             InitializeComponent();
 
-            this.card = card;
             this.DataContext = card;
         }
     }
