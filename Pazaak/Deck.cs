@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pazaak
 {
@@ -12,7 +10,9 @@ namespace Pazaak
 
 		private List<ICard> cards;
 		
-
+		/// <summary>
+		/// Initializes this deck as the main deck.
+		/// </summary>
 		public void InitializeAsMainDeck()
 		{
 			for(int i = 0; i < 4; i++)
@@ -24,11 +24,18 @@ namespace Pazaak
 			}
 		}
 
+		/// <summary>
+		/// Initializes this deck as a player's deck.
+		/// </summary>
+		/// <param name="personalDeck">List of player's cards</param>
 		public void InitializeAsSideDeck(List<ICard> personalDeck)
 		{
 			cards = personalDeck;
 		}
 
+		/// <summary>
+		/// Shuffles this deck.
+		/// </summary>
 		public void Shuffle()
 		{
 			List<ICard> shuffled = new List<ICard>();
@@ -55,6 +62,10 @@ namespace Pazaak
 			cards = shuffled;
 		}
 
+		/// <summary>
+		/// Draws next card while also removing it from this deck.
+		/// </summary>
+		/// <returns>ICard</returns>
 		public ICard DrawNextCard()
 		{
 			ICard returned = cards.First();
@@ -62,6 +73,10 @@ namespace Pazaak
 			return returned;
 		}
 
+		/// <summary>
+		/// Adds a new card to this deck
+		/// </summary>
+		/// <param name="addedCard">Self-explanatory</param>
 		public void AddCard(ICard addedCard)
 		{
 			cards.Add(addedCard);
