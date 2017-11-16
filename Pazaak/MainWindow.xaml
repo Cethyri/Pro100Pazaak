@@ -7,5 +7,8 @@
         xmlns:local="clr-namespace:Pazaak"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <uc:GameControl/>
+
+    <Grid x:Name="gridMain">
+        
+    </Grid>
 </Window>
