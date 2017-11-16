@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pazaak
 {
@@ -67,7 +65,7 @@ namespace Pazaak
 		/// <summary>
 		/// Draws next card while also removing it from this deck.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>ICard</returns>
 		public ICard DrawNextCard()
 		{
 			ICard returned = cards.First();
@@ -78,7 +76,7 @@ namespace Pazaak
 		/// <summary>
 		/// Adds a new card to this deck
 		/// </summary>
-		/// <param name="addedCard">Card to be added</param>
+		/// <param name="addedCard">Self-explanatory</param>
 		public void AddCard(ICard addedCard)
 		{
 			cards.Add(addedCard);
