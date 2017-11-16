@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    class ValueCard : ICard
+    public class ValueCard : ICard
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

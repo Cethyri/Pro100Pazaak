@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    class MultiplyLastCard : ICard
+    public class MultiplyLastCard : ICard
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
