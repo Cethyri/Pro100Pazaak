@@ -22,10 +22,10 @@ namespace Pazaak
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
 
-        private ICard[] cards;
+        private ValueCard[] cards;
         private int sum;
 
-        public ICard[] Cards
+        public ValueCard[] Cards
         {
             get => cards;
             set
@@ -47,7 +47,9 @@ namespace Pazaak
 
         public Board()
         {
-            Cards = new ICard[9];
+            Cards = new ValueCard[9];
+
+            Console.WriteLine(Cards[0]);
             Sum = 0;
         }
     }
