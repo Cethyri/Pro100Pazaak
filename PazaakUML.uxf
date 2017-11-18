@@ -28,25 +28,25 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>890</x>
-      <y>250</y>
-      <w>310</w>
+      <x>1030</x>
+      <y>100</y>
+      <w>210</w>
       <h>240</h>
     </coordinates>
-    <panel_attributes>ICard
+    <panel_attributes>Card
 -
-+string Display
++int value
++CardType type
 
--
-+void DoCardEffect(Board)</panel_attributes>
+-</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1220</x>
-      <y>250</y>
-      <w>350</w>
+      <x>1260</x>
+      <y>100</y>
+      <w>320</w>
       <h>240</h>
     </coordinates>
     <panel_attributes>Hand
@@ -54,14 +54,14 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +Card[4] cards
 
 -
-+void AddToBoard(int, Board)</panel_attributes>
+void AddToBoard(int card)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1590</x>
-      <y>250</y>
+      <x>1600</x>
+      <y>100</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -71,14 +71,14 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +int sum
 
 -
-+void UpdateSum()</panel_attributes>
+void UpdateSum()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>850</y>
+      <x>0</x>
+      <y>700</y>
       <w>360</w>
       <h>240</h>
     </coordinates>
@@ -89,8 +89,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>820</x>
-      <y>850</y>
+      <x>610</x>
+      <y>700</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -101,8 +101,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>590</x>
-      <y>850</y>
+      <x>380</x>
+      <y>700</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -113,8 +113,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
-      <y>250</y>
+      <x>320</x>
+      <y>100</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -133,8 +133,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>850</y>
+      <x>840</x>
+      <y>700</y>
       <w>210</w>
       <h>240</h>
     </coordinates>
@@ -145,8 +145,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1280</x>
-      <y>850</y>
+      <x>1070</x>
+      <y>700</y>
       <w>360</w>
       <h>240</h>
     </coordinates>
@@ -157,8 +157,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>1080</y>
+      <x>1020</x>
+      <y>930</y>
       <w>80</w>
       <h>60</h>
     </coordinates>
@@ -168,41 +168,41 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>1080</y>
-      <w>90</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;70.0;40.0;70.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>740</x>
-      <y>1080</y>
-      <w>610</w>
+      <x>790</x>
+      <y>930</y>
+      <w>330</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;590.0;60.0;590.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;310.0;60.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>1080</y>
-      <w>830</w>
+      <x>560</x>
+      <y>930</y>
+      <w>580</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0;810.0;80.0;810.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;560.0;80.0;560.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>930</y>
+      <w>830</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;810.0;100.0;810.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
-      <y>250</y>
+      <x>550</x>
+      <y>100</y>
       <w>460</w>
       <h>240</h>
     </coordinates>
@@ -211,18 +211,18 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +List&lt;Card&gt; cards
 
 -
-+void InitializeAsMaindDeck()
-+void InitializeAsSideDeck(List&lt;Card&gt;)
-+void Shuffle()
-+Card DrawNextCard()
-+void AddCard(Card)</panel_attributes>
+void InitializeAsMaindDeck()
+void InitializeAsSideDeck(List&lt;Card&gt;)
+void Shuffle()
+Card DrawNextCard()
+void AddCard(Card)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>210</y>
+      <x>500</x>
+      <y>60</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -232,30 +232,30 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>170</y>
-      <w>960</w>
+      <x>460</x>
+      <y>20</y>
+      <w>860</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>940.0;80.0;940.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>840.0;80.0;840.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>150</y>
-      <w>1320</w>
+      <x>440</x>
+      <y>0</y>
+      <w>1190</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1300.0;100.0;1300.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>1170.0;100.0;1170.0;10.0;10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
-      <y>550</y>
+      <x>320</x>
+      <y>400</y>
       <w>330</w>
       <h>240</h>
     </coordinates>
@@ -270,14 +270,14 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
 +Deck mainDeck
 
 -
-+SwitchActivePlayer()</panel_attributes>
+SwitchActivePlayer()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
-      <y>260</y>
+      <x>250</x>
+      <y>110</y>
       <w>90</w>
       <h>330</h>
     </coordinates>
@@ -287,19 +287,19 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>760</y>
-      <w>1200</w>
+      <x>640</x>
+      <y>610</y>
+      <w>840</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1140.0;110.0;1180.0;110.0;1180.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>790.0;110.0;820.0;110.0;820.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>210</y>
+      <x>980</x>
+      <y>60</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -309,8 +309,8 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
-      <y>210</y>
+      <x>1210</x>
+      <y>60</y>
       <w>90</w>
       <h>60</h>
     </coordinates>
@@ -318,10 +318,38 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
     <additional_attributes>10.0;40.0;10.0;10.0;70.0;10.0;70.0;40.0</additional_attributes>
   </element>
   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1030</x>
+      <y>370</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>E CardType
+-
+SINGLE_VALUE,
+DOUBLE_VALUE,
+FLIP,
+ONE_TWO,
+DOUBLE,</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>500</x>
-      <y>480</y>
+      <x>1040</x>
+      <y>330</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>330</y>
       <w>50</w>
       <h>110</h>
     </coordinates>
@@ -331,117 +359,12 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
-      <y>480</y>
-      <w>460</w>
+      <x>1210</x>
+      <y>330</y>
+      <w>430</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0;440.0;40.0;440.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>950</x>
-      <y>560</y>
-      <w>150</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>ValueCard
--
-+int value</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>720</x>
-      <y>560</y>
-      <w>210</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>MultiplyLastCard
--
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>900</x>
-      <y>480</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>960</x>
-      <y>480</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1160</x>
-      <y>560</y>
-      <w>130</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>SignCard
--</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1350</x>
-      <y>560</y>
-      <w>250</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>MultiValueSignCard
--</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1090</x>
-      <y>560</y>
-      <w>90</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1280</x>
-      <y>560</y>
-      <w>90</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>770</x>
-      <y>1080</y>
-      <w>90</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;70.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;410.0;40.0;410.0;10.0</additional_attributes>
   </element>
 </diagram>
