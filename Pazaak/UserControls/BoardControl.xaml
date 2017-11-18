@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Pazaak.UserControls.BoardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pazaak.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UniformGrid Columns="3" Rows="3" Background="White">
+		<Rectangle Name="rect_slot0" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot1" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot2" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot3" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot4" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot5" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot6" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot7" Fill="LightGray" Stroke="Gray"></Rectangle>
+		<Rectangle Name="rect_slot8" Fill="LightGray" Stroke="Gray"></Rectangle>
+	</UniformGrid>
+</UserControl>

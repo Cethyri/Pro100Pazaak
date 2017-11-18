@@ -9,7 +9,7 @@ namespace Pazaak
 {
     public interface ICard: INotifyPropertyChanged
     {
-        int Value { get; set; }
+        int Value { get; }
 
         string Display { get; }
 

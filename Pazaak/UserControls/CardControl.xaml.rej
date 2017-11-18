@@ -1,0 +1,8 @@
+diff a/Pazaak/UserControls/CardControl.xaml b/Pazaak/UserControls/CardControl.xaml	(rejected hunks)
+@@ -8,6 +8,5 @@
+              d:DesignHeight="400" d:DesignWidth="300">
+     <Grid>
+         <Label Content="{Binding Display}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+-
+     </Grid>
+ </UserControl>

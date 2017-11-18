@@ -18,9 +18,9 @@ namespace Pazaak.UserControls
     /// <summary>
     /// Interaction logic for PlayerControl.xaml
     /// </summary>
-    public partial class PlayerControl : UserControl
+    public partial class PlayerStatusControl : UserControl
     {
-        public PlayerControl()
+        public PlayerStatusControl()
         {
             InitializeComponent();
         }
