@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazaak
+namespace Pazaak.Cards
 {
     public class ValueCard : ICard
     {
@@ -20,10 +20,10 @@ namespace Pazaak
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
 
-        private int value;
-        private string display;
+        protected int value;
+        protected string display;
 
-        public int Value
+        virtual public int Value
         {
             get
             {
@@ -37,7 +37,7 @@ namespace Pazaak
             }
         }
 
-        public string Display
+        virtual public string Display
         {
             get
             {
@@ -50,11 +50,13 @@ namespace Pazaak
             }
         }
 
+        public bool IsTieBreaker { get; set; }
+
         public ValueCard(int value)
         {
             Value = value;
         }
 
-        public void DoCardEffect(Board board) { }
+        virtual public void DoCardEffect(Board board) { }
     }
 }

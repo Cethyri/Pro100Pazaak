@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Cards;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Pazaak
 
         private ValueCard[] cards;
         private int sum;
-        private Value lastCard;
+        private ValueCard lastCard;
 
         public ValueCard[] Cards
         {

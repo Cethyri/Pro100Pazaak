@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazaak
+namespace Pazaak.Cards
 {
     public interface ICard: INotifyPropertyChanged
     {
         int Value { get; }
 
         string Display { get; }
+
+        bool IsTieBreaker { get; set;  }
 
         /// <summary>
         /// Method to be called when a card is played. Allows card to affect the board

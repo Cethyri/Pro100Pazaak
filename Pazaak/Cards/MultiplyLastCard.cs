@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazaak
+namespace Pazaak.Cards
 {
     public class MultiplyLastCard : ICard
     {
@@ -46,6 +46,7 @@ namespace Pazaak
             set
             {
                 this.multValue = value;
+                Display = $"{multValue}";
                 FieldChanged("Value");
             }
         }
@@ -56,23 +57,24 @@ namespace Pazaak
             {
                 return display;
             }
-            protected set
+            set
             {
-                this.display = value;
+                display = $"Mult ({value})";
                 FieldChanged("Display");
             }
         }
 
+        public bool IsTieBreaker { get; set; }
+
         public MultiplyLastCard(int multValue)
         {
-            value = 0;
-            this.multValue = multValue;
-            display = $"Mult ({multValue})";
+            Value = 0;
+            MultValue = multValue;
         }
 
         public void DoCardEffect(Board board)
         {
-            throw new NotImplementedException();
+            board.LastCard.Value *= multValue;
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazaak
+namespace Pazaak.Cards
 {
-    class SignCard: ValueCard
+    public class SignCard: ValueCard
     {
         public SignCard(int value) : base(value) { }
 

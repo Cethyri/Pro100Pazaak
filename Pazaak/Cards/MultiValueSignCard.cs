@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pazaak
+namespace Pazaak.Cards
 {
-    class MultiValueSignCard : SignCard
+    public class MultiValueSignCard : SignCard
     {
         private int[] possibleValues;
         private int count;
