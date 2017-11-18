@@ -24,6 +24,7 @@ namespace Pazaak
 
         private ValueCard[] cards;
         private int sum;
+		private ICard lastCard;
 
         public ValueCard[] Cards
         {
@@ -45,7 +46,22 @@ namespace Pazaak
             }
         }
 
-        public Board()
+		public ICard LastCard { get => GetLastCard(); set => lastCard = value; }
+
+		
+		private ICard GetLastCard()
+		{
+			for (int i = 8; i >= 0; i--)
+			{
+				if(cards[i] != null)
+				{
+					return cards[i];
+				}
+			}
+			return null;
+		}
+		
+		public Board()
         {
             Cards = new ValueCard[9];
 
