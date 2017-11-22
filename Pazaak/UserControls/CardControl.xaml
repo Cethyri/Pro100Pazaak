@@ -7,11 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="50">
     <Grid>
-        <!--<Label Content="{Binding Display}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>-->
-        
-        <Label 
-            Content="{Binding Display}" Height="75" Width="50"
-            FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="labelDisplay" BorderBrush="Black" BorderThickness="1"
+               Content="{Binding Display}" 
+               FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

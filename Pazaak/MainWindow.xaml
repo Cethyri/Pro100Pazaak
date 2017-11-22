@@ -9,6 +9,7 @@
         Title="MainWindow" Height="600" Width="800">
 
     <Grid x:Name="gridMain">
-        <uc:GameControl x:Name="gamecontrolGame"/>
+        <!--<uc:GameControl x:Name="gamecontrolGame"/>-->
+        <uc:CardControl x:Name="cardcontrolCard"/>
     </Grid>
 </Window>

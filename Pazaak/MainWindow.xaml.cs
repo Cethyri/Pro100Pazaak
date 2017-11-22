@@ -24,6 +24,23 @@ namespace Pazaak
         public MainWindow()
         {
             InitializeComponent();
+
+            cardcontrolCard.DataContext = new Cards.ValueCard(7);
+
+            Button button = new Button
+            {
+                Content = "Change Size",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Top,
+            };
+            button.Click += Button_Click;
+
+            gridMain.Children.Add(button);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cardcontrolCard.Height = 150;
         }
     }
 }
