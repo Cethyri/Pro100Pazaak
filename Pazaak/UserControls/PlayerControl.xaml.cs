@@ -24,5 +24,10 @@ namespace Pazaak.UserControls
         {
             InitializeComponent();
         }
-    }
+
+		private void button_stand_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }

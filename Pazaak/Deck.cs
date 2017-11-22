@@ -10,7 +10,10 @@ namespace Pazaak
 		//Remember, this is an instanced class.
 
 		private List<ICard> cards;
-		
+		private List<ICard> removedCards;
+
+		public List<ICard> RemovedCards { get => removedCards; set => removedCards = value; }
+
 		/// <summary>
 		/// Initializes this deck as the main deck.
 		/// </summary>
@@ -39,6 +42,14 @@ namespace Pazaak
 		/// </summary>
 		public void Shuffle()
 		{
+			//First, replace the cards in removedCards back into cards
+			foreach (ICard x in removedCards)
+			{
+				cards.Add(x);
+			}
+			removedCards.Clear();
+
+			//
 			List<ICard> shuffled = new List<ICard>();
 			Random rand = new Random();
 			int n = 0;
@@ -70,6 +81,7 @@ namespace Pazaak
 		public ICard DrawNextCard()
 		{
 			ICard returned = cards.First();
+			removedCards.Add(returned);
 			cards.RemoveAt(0);
 			return returned;
 		}
