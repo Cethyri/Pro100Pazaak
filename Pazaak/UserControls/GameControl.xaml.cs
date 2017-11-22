@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace Pazaak.UserControls
             pctrlPlayerOne.hndControl.DataContext = playerOne.Hand;
 
             pctrlPlayerTwo.DataContext = playerTwo;
+            pctrlPlayerTwo.hndControl.DataContext = playerTwo.Hand;
         }
     }
 }

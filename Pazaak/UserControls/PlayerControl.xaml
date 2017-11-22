@@ -6,9 +6,17 @@
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <local:PlayerStatusControl x:Name="pstsControl" DockPanel.Dock="Top"/>
-        <local:BoardControl x:Name="brdControl" DockPanel.Dock="Top"/>
-        <local:HandControl x:Name="hndControl" DockPanel.Dock="Top"/>
-    </DockPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <local:PlayerStatusControl x:Name="pstsControl"
+                                   Grid.Row="0"/>
+        <local:BoardControl x:Name="brdControl"
+                            Grid.Row="1"/>
+        <local:HandControl x:Name="hndControl"
+                           Grid.Row="2"/>
+    </Grid>
 </UserControl>
