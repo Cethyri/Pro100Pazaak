@@ -23,7 +23,7 @@ namespace Pazaak
     {
         public MainWindow()
         {
-
+            InitializeComponent();
         }
     }
 }

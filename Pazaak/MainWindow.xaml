@@ -6,9 +6,9 @@
         xmlns:uc="clr-namespace:Pazaak.UserControls"
         xmlns:local="clr-namespace:Pazaak"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
 
     <Grid x:Name="gridMain">
-        
+        <uc:GameControl x:Name="gamecontrolGame"/>
     </Grid>
 </Window>

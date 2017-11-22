@@ -23,6 +23,16 @@ namespace Pazaak.UserControls
         public HandControl()
         {
             InitializeComponent();
+
+            SizeChanged += HandControl_SizeChanged;
+        }
+
+        private void HandControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            foreach(CardControl cc in listBoxCards.Items)
+            {
+                
+            }
         }
     }
 }
