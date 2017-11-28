@@ -29,15 +29,18 @@ namespace Pazaak.UserControls
 
         private void CardControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if(e.HeightChanged)
+            if (Height != 0 && Width != 0)
             {
-                Width = Height / 2 * 3;
+                if (e.HeightChanged)
+                {
+                    Width = Height / 2 * 3;
+                }
+                else
+                {
+                    Height = Width * 3 / 2;
+                }
+                if (Height > 0) { labelDisplay.FontSize = Height / 3; }
             }
-            else
-            {
-                Height = Width * 3 / 2;
-            }
-            if (Height > 0) { labelDisplay.FontSize = Height / 3; }
         }
     }
 }
