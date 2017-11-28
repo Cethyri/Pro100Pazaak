@@ -23,23 +23,29 @@ namespace Pazaak.UserControls
         public CardControl()
         {
             InitializeComponent();
-
             SizeChanged += CardControl_SizeChanged;
         }
 
+        bool hasSizeChanged = false;
         private void CardControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (Height != 0 && Width != 0)
+            if (e.NewSize.Height != 0 && e.NewSize.Width != 0 && !Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width) && !hasSizeChanged)
             {
+                hasSizeChanged = true;
                 if (e.HeightChanged)
                 {
-                    Width = Height / 2 * 3;
+                    
+                    Width = Math.Max(e.NewSize.Height / 3 * 2, MinWidth);
                 }
                 else
                 {
-                    Height = Width * 3 / 2;
+                    Height = Math.Max(e.NewSize.Width / 2 * 3, MinHeight);
+                    //This never actually happens because the only thing that updates is Height
                 }
-                if (Height > 0) { labelDisplay.FontSize = Height / 3; }
+                if (Width > 0) { labelDisplay.FontSize = Width / 2; }
+            } else
+            {
+                hasSizeChanged = false;
             }
         }
     }
