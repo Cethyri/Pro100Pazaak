@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,10 +30,7 @@ namespace Pazaak.UserControls
 
         private void HandControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            foreach(CardControl cc in listBoxCards.Items)
-            {
-                
-            }
+            
         }
     }
 }

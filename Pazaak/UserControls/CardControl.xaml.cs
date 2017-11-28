@@ -23,6 +23,24 @@ namespace Pazaak.UserControls
         public CardControl()
         {
             InitializeComponent();
+
+            SizeChanged += CardControl_SizeChanged;
+        }
+
+        private void CardControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (Height != 0 && Width != 0)
+            {
+                if (e.HeightChanged)
+                {
+                    Width = Height / 2 * 3;
+                }
+                else
+                {
+                    Height = Width * 3 / 2;
+                }
+                if (Height > 0) { labelDisplay.FontSize = Height / 3; }
+            }
         }
     }
 }
