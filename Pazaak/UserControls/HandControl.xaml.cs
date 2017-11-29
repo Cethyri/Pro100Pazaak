@@ -21,9 +21,22 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class HandControl : UserControl
     {
-        public HandControl()
+
+		public HandControl()
         {
             InitializeComponent();
         }
-    }
+
+		private void CardControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			Player thisPlayer = (Player)this.DataContext;
+			ICard thisCard = (ICard)((CardControl)sender).DataContext;
+
+			//TODO Change Player.Hand.Cards into a List
+			thisPlayer.Board.AddCard(thisCard);
+			//thisPlayer.Hand.Cards.r
+
+//			thisPlayer.Hand.AddToBoard(thisCard, thisPlayer.Board);		
+		}
+	}
 }

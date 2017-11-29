@@ -57,9 +57,6 @@ namespace Pazaak.UserControls
             ((Grid)sender).Background = new SolidColorBrush(Colors.White);
         }
 
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //whatever happens when the card is clicked
-        }
+
     }
 }
