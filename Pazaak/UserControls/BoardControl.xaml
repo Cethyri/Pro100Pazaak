@@ -6,15 +6,16 @@
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UniformGrid Columns="3" Rows="3" Background="White">
-		<Rectangle Name="rect_slot0" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot1" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot2" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot3" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot4" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot5" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot6" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot7" Fill="LightGray" Stroke="Gray"></Rectangle>
-		<Rectangle Name="rect_slot8" Fill="LightGray" Stroke="Gray"></Rectangle>
-	</UniformGrid>
+    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid IsItemsHost="True"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <local:CardControl/>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>
