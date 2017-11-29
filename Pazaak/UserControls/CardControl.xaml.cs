@@ -34,13 +34,11 @@ namespace Pazaak.UserControls
                 hasSizeChanged = true;
                 if (e.HeightChanged)
                 {
-                    
                     Width = Math.Max(e.NewSize.Height / 3 * 2, MinWidth);
                 }
                 else
                 {
                     Height = Math.Max(e.NewSize.Width / 2 * 3, MinHeight);
-                    //This never actually happens because the only thing that updates is Height
                 }
                 if (Width > 0) { labelDisplay.FontSize = Width / 2; }
             } else
