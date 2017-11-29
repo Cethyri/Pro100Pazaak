@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}">
+    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}" >
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <UniformGrid IsItemsHost="True"/>
+                <UniformGrid IsItemsHost="True" SizeChanged="UniformGrid_SizeChanged"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <local:CardControl/>
+                <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
