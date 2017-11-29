@@ -57,10 +57,8 @@ namespace Pazaak.UserControls
             };
 
             pctrlPlayerOne.DataContext = playerOne;
-            pctrlPlayerOne.hndControl.DataContext = playerOne.Hand;
 
             pctrlPlayerTwo.DataContext = playerTwo;
-            pctrlPlayerTwo.hndControl.DataContext = playerTwo.Hand;
         }
     }
 }
