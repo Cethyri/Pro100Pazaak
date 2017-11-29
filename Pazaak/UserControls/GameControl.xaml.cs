@@ -55,6 +55,21 @@ namespace Pazaak.UserControls
                         new ValueCard(3),
                     },
                 },
+                Board = new Board
+                {
+                    Cards = new ValueCard[9]
+                    {
+                        new ValueCard(0),
+                        new ValueCard(1),
+                        new ValueCard(2),
+                        new ValueCard(3),
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                    },
+                }
             };
 
             pctrlPlayerOne.DataContext = playerOne;

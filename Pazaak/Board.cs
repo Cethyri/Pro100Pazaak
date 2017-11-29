@@ -83,7 +83,19 @@ namespace Pazaak
                     break;
                 }
             }
+        }
 
+        public void AddCard(ICard card)
+        {
+            for (int i = 0; i < cards.Length; i++)
+            {
+                if (cards[i] == null)
+                {
+                    card.DoCardEffect(this);
+                    cards[i] = new ValueCard(card.Value);
+                    break;
+                }
+            }
         }
     }
 }
