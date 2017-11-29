@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
-    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Cards}">
+    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Hand.Cards}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
