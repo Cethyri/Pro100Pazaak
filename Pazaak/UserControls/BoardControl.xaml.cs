@@ -25,24 +25,27 @@ namespace Pazaak.UserControls
 			InitializeComponent();
 		}
 
-        bool hasSizeChanged = false;
+        bool hasWidthChanged = false;
+        bool hasHeightChanged = false;
         private void UniformGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (e.NewSize.Height != 0 && e.NewSize.Width != 0 && !Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width) && !hasSizeChanged)
+            if (e.NewSize.Height != 0 && e.NewSize.Width != 0 && !Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
             {
-                hasSizeChanged = true;
-                if (e.HeightChanged)
+                if (e.HeightChanged && !hasHeightChanged)
                 {
+                    hasWidthChanged = true;
                     Width = Math.Max(e.NewSize.Height / 3 * 2, MinWidth);
                 }
-                else
+                else if (e.WidthChanged && !hasWidthChanged)
                 {
+                    hasHeightChanged = true;
                     Height = Math.Max(e.NewSize.Width / 2 * 3, MinHeight);
                 }
             }
             else
             {
-                hasSizeChanged = false;
+                hasWidthChanged = false;
+                hasHeightChanged = false;
             }
         }
     }
