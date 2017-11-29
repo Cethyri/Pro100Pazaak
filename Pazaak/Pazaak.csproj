@@ -77,6 +77,9 @@
       <DependentUpon>PlayerStatusControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cards\ValueCard.cs" />
+    <Compile Include="UserControls\TurnControl.xaml.cs">
+      <DependentUpon>TurnControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="UserControls\CardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +117,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PlayerStatusControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TurnControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

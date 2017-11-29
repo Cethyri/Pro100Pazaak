@@ -10,13 +10,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="65*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
-        <local:PlayerStatusControl x:Name="pstsControl"
+        <local:PlayerStatusControl x:Name="playerstatusControl"
                                    Grid.Row="0"/>
-        <local:BoardControl x:Name="brdControl"
+        <local:BoardControl x:Name="boardControl"
                             Grid.Row="1"/>
-        <local:HandControl x:Name="hndControl"
+        <local:TurnControl x:Name="turnControl"
                            Grid.Row="2"/>
+        <local:HandControl x:Name="handControl"
+                           Grid.Row="3"/>
     </Grid>
 </UserControl>
