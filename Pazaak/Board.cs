@@ -93,6 +93,7 @@ namespace Pazaak
                 {
                     card.DoCardEffect(this);
                     cards[i] = new ValueCard(card.Value);
+                    FieldChanged("Board.Cards");
                     break;
                 }
             }

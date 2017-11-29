@@ -9,6 +9,8 @@ namespace Pazaak
 {
     class Player : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -24,7 +26,7 @@ namespace Pazaak
         private Deck sideDeck;
         private Hand hand;
         private Board board;
-        
+
 
         public bool IsActive
         {
@@ -36,7 +38,8 @@ namespace Pazaak
             }
         }
         public int Wins
-        { get => wins;
+        {
+            get => wins;
             set
             {
                 wins = value;
@@ -79,6 +82,11 @@ namespace Pazaak
                 FieldChanged("Board");
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public Player()
+        {
+            sideDeck = new Deck();
+            hand = new Hand();
+            board = new Board();
+        }
     }
 }
