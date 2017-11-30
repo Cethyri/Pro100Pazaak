@@ -29,10 +29,8 @@ namespace Pazaak
         public void BeginTurn()
         {
             IsActive = true;
-
-            Cards.ICard newCard = /*random card from main deck*/ new Cards.ValueCard(0);
-            //remove newCard from main deck
-            Board.AddCard(newCard);
+            
+            Board.AddCard(MainDeck.DrawNextCard());
         }
 
         /// <summary>
@@ -50,8 +48,10 @@ namespace Pazaak
         /// Add's the nextPlayer's begin turn method to the delegate called in EndTurn()
         /// </summary>
         /// <param name="nextPlayer"> the next player in turn order </param>
-        public void RegisterNextPlayer(Player nextPlayer)
+        /// <param name="mainDeck"> a reference to the main deck to draw cards from </param>
+        public void Initialize(Player nextPlayer, Deck mainDeck)
         {
+            MainDeck = mainDeck;
             nextPlayerBeginTurn += nextPlayer.BeginTurn;
         }
 
@@ -59,6 +59,7 @@ namespace Pazaak
         private int wins;
         private string name;
         private Deck sideDeck;
+        private Deck mainDeck;
         private Hand hand;
         private Board board;
         private NextPlayerBeginTurn nextPlayerBeginTurn;
@@ -97,6 +98,16 @@ namespace Pazaak
             {
                 sideDeck = value;
                 FieldChanged("SideDeck");
+            }
+        }
+
+        public Deck MainDeck
+        {
+            get => mainDeck;
+            set
+            {
+                mainDeck = value;
+                FieldChanged("MainDeck");
             }
         }
         public Hand Hand

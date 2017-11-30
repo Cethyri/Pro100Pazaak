@@ -21,9 +21,22 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class GameControl : UserControl
     {
+        private Deck mainDeck;
+        public Deck MainDeck
+        {
+            get =>mainDeck;
+            set
+            {
+                mainDeck = value;
+            }
+        }
+
         public GameControl()
         {
             InitializeComponent();
+
+            MainDeck = new Deck();
+            MainDeck.InitializeAsMainDeck();
 
             Player playerOne = new Player
             {
@@ -31,7 +44,7 @@ namespace Pazaak.UserControls
                 Wins = 0,
                 Hand = new Hand
                 {
-                    Cards = new ICard[]
+                    Cards = new System.Collections.ObjectModel.ObservableCollection<ICard>
                     {
                         new ValueCard(0),
                         new ValueCard(1),
@@ -46,7 +59,7 @@ namespace Pazaak.UserControls
                 Wins = 0,
                 Hand = new Hand
                 {
-                    Cards = new ICard[]
+                    Cards = new System.Collections.ObjectModel.ObservableCollection<ICard>
                     {
                         new ValueCard(0),
                         new ValueCard(1),
@@ -71,11 +84,13 @@ namespace Pazaak.UserControls
                 }
             };
 
-            playerOne.RegisterNextPlayer(playerTwo);
-            playerTwo.RegisterNextPlayer(playerOne);
+            playerOne.Initialize(playerTwo, MainDeck);
+            playerTwo.Initialize(playerOne, MainDeck);
 
             pctrlPlayerOne.DataContext = playerOne;
             pctrlPlayerTwo.DataContext = playerTwo;
+
+            playerOne.BeginTurn();
         }
     }
 }

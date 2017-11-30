@@ -93,5 +93,11 @@ namespace Pazaak
 		{
 			Cards.Add(addedCard);
 		}
+
+        public Deck()
+        {
+            Cards = new ObservableCollection<ICard>();
+            RemovedCards = new ObservableCollection<ICard>();
+        }
 	}
 }
