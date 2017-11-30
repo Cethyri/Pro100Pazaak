@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Pazaak
@@ -9,10 +10,8 @@ namespace Pazaak
     {
 		//Remember, this is an instanced class.
 
-		private List<ICard> cards;
-		private List<ICard> removedCards;
-
-		public List<ICard> RemovedCards { get => removedCards; set => removedCards = value; }
+		public ObservableCollection<ICard> RemovedCards { get; set; }
+		public ObservableCollection<ICard> Cards { get; set; }
 
 		/// <summary>
 		/// Initializes this deck as the main deck.
@@ -23,7 +22,7 @@ namespace Pazaak
 			{
 				for (int ii = 0; ii < 10; ii++)
 				{
-					cards.Add(new ValueCard(ii + 1));
+					Cards.Add(new ValueCard(ii + 1));
 				}
 			}
 		}
@@ -32,9 +31,9 @@ namespace Pazaak
 		/// Initializes this deck as a player's deck.
 		/// </summary>
 		/// <param name="personalDeck">List of player's cards</param>
-		public void InitializeAsSideDeck(List<ICard> personalDeck)
+		public void InitializeAsSideDeck(ObservableCollection<ICard> personalDeck)
 		{
-			cards = personalDeck;
+			Cards = personalDeck;
 		}
 
 		/// <summary>
@@ -43,35 +42,35 @@ namespace Pazaak
 		public void Shuffle()
 		{
 			//First, replace the cards in removedCards back into cards
-			foreach (ICard x in removedCards)
+			foreach (ICard x in RemovedCards)
 			{
-				cards.Add(x);
+				Cards.Add(x);
 			}
-			removedCards.Clear();
+			RemovedCards.Clear();
 
 			//
-			List<ICard> shuffled = new List<ICard>();
+			ObservableCollection<ICard> shuffled = new ObservableCollection<ICard>();
 			Random rand = new Random();
 			int n = 0;
-			bool[] hasBeenShuffledBackIn = new bool[cards.Count];
+			bool[] hasBeenShuffledBackIn = new bool[Cards.Count];
 
 			for (int i = 0; i < hasBeenShuffledBackIn.Length; i++)
 			{
 				hasBeenShuffledBackIn[i] = false;
 			}
 
-			while (n < this.cards.Count)
+			while (n < this.Cards.Count)
 			{
-				int k = rand.Next(cards.Count);
+				int k = rand.Next(Cards.Count);
 				if (!hasBeenShuffledBackIn[k])
 				{
 					hasBeenShuffledBackIn[k] = true;
-					shuffled.Add(cards.ElementAt(k));
+					shuffled.Add(Cards.ElementAt(k));
 					n++;
 				}
 			}
 
-			cards = shuffled;
+			Cards = shuffled;
 		}
 
 		/// <summary>
@@ -80,9 +79,9 @@ namespace Pazaak
 		/// <returns>ICard</returns>
 		public ICard DrawNextCard()
 		{
-			ICard returned = cards.First();
-			removedCards.Add(returned);
-			cards.RemoveAt(0);
+			ICard returned = Cards.First();
+			RemovedCards.Add(returned);
+			Cards.RemoveAt(0);
 			return returned;
 		}
 
@@ -92,7 +91,7 @@ namespace Pazaak
 		/// <param name="addedCard">Self-explanatory</param>
 		public void AddCard(ICard addedCard)
 		{
-			cards.Add(addedCard);
+			Cards.Add(addedCard);
 		}
 	}
 }

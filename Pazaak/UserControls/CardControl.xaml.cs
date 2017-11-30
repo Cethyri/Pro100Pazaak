@@ -60,6 +60,9 @@ namespace Pazaak.UserControls
             ((Grid)sender).Background = new SolidColorBrush(Colors.White);
         }
 
+		private void Grid_MouseLeftButtonDown(object sender, MouseEventArgs e)
+		{
 
+		}
     }
 }
