@@ -71,8 +71,10 @@ namespace Pazaak.UserControls
                 }
             };
 
-            pctrlPlayerOne.DataContext = playerOne;
+            playerOne.RegisterNextPlayer(playerTwo);
+            playerTwo.RegisterNextPlayer(playerOne);
 
+            pctrlPlayerOne.DataContext = playerOne;
             pctrlPlayerTwo.DataContext = playerTwo;
         }
     }
