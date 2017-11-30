@@ -49,20 +49,5 @@ namespace Pazaak.UserControls
                 hasHeightChanged = true;
             }
         }
-
-        private void Grid_MouseEnter(object sender, MouseEventArgs e)
-        {
-            ((Grid)sender).Background = new SolidColorBrush(Colors.LightBlue);
-        }
-
-        private void Grid_MouseLeave(object sender, MouseEventArgs e)
-        {
-            ((Grid)sender).Background = new SolidColorBrush(Colors.White);
-        }
-
-		private void Grid_MouseLeftButtonDown(object sender, MouseEventArgs e)
-		{
-
-		}
     }
 }

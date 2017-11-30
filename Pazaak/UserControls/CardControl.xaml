@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="50" BorderBrush="Purple" BorderThickness="1" MinWidth="{Binding Width, ElementName=labelDisplay}" MinHeight="{Binding Height, ElementName=labelDisplay}">
-    <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+    <Grid>
         <Label x:Name="labelDisplay" Padding="0"
                Content="{Binding Display}" 
                FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
