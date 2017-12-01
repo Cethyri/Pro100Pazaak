@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600">
     <UniformGrid Columns="2">
-        <local:PlayerControl x:Name="pctrlPlayerOne"/>
-        <local:PlayerControl x:Name="pctrlPlayerTwo"/>
+        <local:PlayerControl x:Name="pctrlPlayerOne" IsEnabled="{Binding IsActive}"/>
+        <local:PlayerControl x:Name="pctrlPlayerTwo" IsEnabled="{Binding IsActive}"/>
     </UniformGrid>
 </UserControl>
