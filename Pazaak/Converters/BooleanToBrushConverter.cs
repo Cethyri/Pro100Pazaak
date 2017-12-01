@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace Pazaak.Converters
 {
-    public class BooleanIsActiveToBrushForegroundConverter : IValueConverter
+    public class BooleanToBrushConverter : IValueConverter
     {
         public static SolidColorBrush trueColor = new SolidColorBrush(Color.FromArgb(255, 127, 127, 127));
         public static SolidColorBrush falseColor = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
