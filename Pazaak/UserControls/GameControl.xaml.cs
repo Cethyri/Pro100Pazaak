@@ -88,8 +88,8 @@ namespace Pazaak.UserControls
             };
              
 
-            playerOne.Initialize(playerTwo, MainDeck);
-            playerTwo.Initialize(playerOne, MainDeck);
+            playerOne.Initialize(playerTwo, MainDeck, WinChecks);
+            playerTwo.Initialize(playerOne, MainDeck, WinChecks);
 
             pctrlPlayerOne.DataContext = playerOne;
             pctrlPlayerTwo.DataContext = playerTwo;

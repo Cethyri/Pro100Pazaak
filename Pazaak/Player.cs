@@ -48,6 +48,9 @@ namespace Pazaak
         {
             IsActive = false;
 
+            checksDelegate();
+
+            checksDelegate();
             nextPlayerBeginTurn();
         }
 
@@ -56,9 +59,11 @@ namespace Pazaak
         /// </summary>
         /// <param name="nextPlayer"> the next player in turn order </param>
         /// <param name="mainDeck"> a reference to the main deck to draw cards from </param>
-        public void Initialize(Player nextPlayer, Deck mainDeck)
+        public void Initialize(Player nextPlayer, Deck mainDeck, EndTurnDelegate checksDelegate)
         {
             MainDeck = mainDeck;
+
+            this.checksDelegate += checksDelegate;
             nextPlayerBeginTurn += nextPlayer.BeginTurn;
         }
 
@@ -70,7 +75,8 @@ namespace Pazaak
         private Deck mainDeck;
         private Hand hand;
         private Board board;
-        private NextPlayerBeginTurn nextPlayerBeginTurn;
+        private NextPlayerBeginTurnDelegate nextPlayerBeginTurn;
+        private EndTurnDelegate checksDelegate;
 
         public bool IsActive
         {
