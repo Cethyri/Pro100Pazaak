@@ -93,19 +93,21 @@ namespace Pazaak.UserControls
 
             playerOne.BeginTurn();
         }
-        bool WinChecks(int sum1, int sum2)
+        void WinChecks(int sum1, int sum2)
         {
             bool won = false;
+            int playerpoint = 0;
             if (sum1 == 20 && sum2 == 20)
             {
                 won = false;
-
+               
             }
             else if (sum1 == 20 || sum2 == 20)
             {
                 won = true;
+                playerpoint++;
             }
-            return won;
+            
 
         }
     }
