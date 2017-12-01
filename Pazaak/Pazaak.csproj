@@ -55,7 +55,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Cards\FlipValuesCard.cs" />
-    <Compile Include="Converters\DataContextToBrushConverter.cs" />
+    <Compile Include="Converters\BooleanIsActiveToBrushCardCoverConverter.cs" />
+    <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="UserControls\CardControl.xaml.cs">
       <DependentUpon>CardControl.xaml</DependentUpon>
     </Compile>

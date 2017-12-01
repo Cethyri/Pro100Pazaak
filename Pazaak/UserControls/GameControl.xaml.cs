@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Pazaak.UserControls
 {
     /// <summary>
@@ -21,6 +22,8 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class GameControl : UserControl
     {
+        Player playerOne;
+        Player playerTwo;
         private Deck mainDeck;
         public Deck MainDeck
         {
@@ -38,7 +41,7 @@ namespace Pazaak.UserControls
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
 
-            Player playerOne = new Player
+             playerOne = new Player
             {
                 Name = "Player One",
                 Wins = 0,
@@ -53,7 +56,7 @@ namespace Pazaak.UserControls
                     },
                 },
             };
-            Player playerTwo = new Player
+             playerTwo = new Player
             {
                 Name = "Player Two",
                 Wins = 0,
@@ -83,6 +86,7 @@ namespace Pazaak.UserControls
                     },
                 }
             };
+             
 
             playerOne.Initialize(playerTwo, MainDeck);
             playerTwo.Initialize(playerOne, MainDeck);
@@ -91,6 +95,24 @@ namespace Pazaak.UserControls
             pctrlPlayerTwo.DataContext = playerTwo;
 
             playerOne.BeginTurn();
+        }
+        void WinChecks()
+        {
+            bool won = false;
+            int playerpoint = 0;
+            if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
+            {
+                won = true;
+                playerOne.Wins++;
+               
+            }
+            else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }
+            
+
         }
     }
 }
