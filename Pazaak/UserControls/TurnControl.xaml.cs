@@ -24,5 +24,15 @@ namespace Pazaak.UserControls
         {
             InitializeComponent();
         }
+
+        private void ButtonEndTurn_Click(object sender, RoutedEventArgs e)
+        {
+            ((Player)DataContext).EndTurn();
+        }
+
+        private void ButtonStand_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

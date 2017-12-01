@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Pazaak
 {
     class Hand
     {
-        private ICard[] cards;
+        private ObservableCollection<ICard> cards;
 
-        public ICard[] Cards { get => cards; set { cards = value; } }
+        public ObservableCollection<ICard> Cards { get => cards; set { cards = value; } }
 
 		/// <summary>
 		/// 
@@ -25,7 +26,7 @@ namespace Pazaak
 
         public Hand()
         {
-            cards = new ICard[4];
+            cards = new ObservableCollection<ICard>();
         }
     }
 }

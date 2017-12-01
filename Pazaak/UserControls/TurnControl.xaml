@@ -8,10 +8,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <UniformGrid Columns="2">
-            <Button Name="buttonEndTurn"
+            <Button Name="buttonEndTurn" Click="ButtonEndTurn_Click"
                     Content="End Turn"
                     Height="25" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Name="buttonStand"
+            <Button Name="buttonStand" Click="ButtonStand_Click"
                     Content="Stand"
                     Height="25" Width="75" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </UniformGrid>

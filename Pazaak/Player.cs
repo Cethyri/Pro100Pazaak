@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
+    public delegate void NextPlayerBeginTurn();
+
     class Player : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -20,13 +22,47 @@ namespace Pazaak
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
 
+        /// <summary>
+        /// Starts turn by adding a card from the main deck to the player's board.
+        /// also sets IsActive to true
+        /// </summary>
+        public void BeginTurn()
+        {
+            IsActive = true;
+            
+            Board.AddCard(MainDeck.DrawNextCard());
+        }
+
+        /// <summary>
+        /// Ends the turn by turning IsActive to false 
+        /// and calling the BeginTurn method for the next player
+        /// </summary>
+        public void EndTurn()
+        {
+            IsActive = false;
+
+            nextPlayerBeginTurn();
+        }
+
+        /// <summary>
+        /// Add's the nextPlayer's begin turn method to the delegate called in EndTurn()
+        /// </summary>
+        /// <param name="nextPlayer"> the next player in turn order </param>
+        /// <param name="mainDeck"> a reference to the main deck to draw cards from </param>
+        public void Initialize(Player nextPlayer, Deck mainDeck)
+        {
+            MainDeck = mainDeck;
+            nextPlayerBeginTurn += nextPlayer.BeginTurn;
+        }
+
         private bool isActive;
         private int wins;
         private string name;
         private Deck sideDeck;
+        private Deck mainDeck;
         private Hand hand;
         private Board board;
-
+        private NextPlayerBeginTurn nextPlayerBeginTurn;
 
         public bool IsActive
         {
@@ -64,6 +100,16 @@ namespace Pazaak
                 FieldChanged("SideDeck");
             }
         }
+
+        public Deck MainDeck
+        {
+            get => mainDeck;
+            set
+            {
+                mainDeck = value;
+                FieldChanged("MainDeck");
+            }
+        }
         public Hand Hand
         {
             get => hand;
@@ -82,6 +128,7 @@ namespace Pazaak
                 FieldChanged("Board");
             }
         }
+
         public Player()
         {
             sideDeck = new Deck();
