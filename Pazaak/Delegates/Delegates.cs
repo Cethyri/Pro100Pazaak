@@ -7,5 +7,4 @@ using System.Threading.Tasks;
 namespace Pazaak.Delegates
 {
     public delegate void NextPlayerBeginTurn();
-  
 }
