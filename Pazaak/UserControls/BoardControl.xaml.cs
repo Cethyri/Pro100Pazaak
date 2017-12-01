@@ -29,7 +29,7 @@ namespace Pazaak.UserControls
         bool hasHeightChanged = false;
         private void UniformGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (e.NewSize.Height != 0 && e.NewSize.Width != 0 && !Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
+            if (!Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
             {
                 if (e.HeightChanged && !hasHeightChanged)
                 {

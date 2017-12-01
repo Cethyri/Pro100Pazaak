@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -23,19 +24,10 @@ namespace Pazaak
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
 
-        private ValueCard[] cards;
         private int sum;
         private ValueCard lastCard;
 
-        public ValueCard[] Cards
-        {
-            get => cards;
-            set
-            {
-                cards = value;
-                FieldChanged("Cards");
-            }
-        }
+        public ObservableCollection<ValueCard> Cards { get; set; }
 
         public int Sum
         {
@@ -53,9 +45,9 @@ namespace Pazaak
             {
                 for (int i = 8; i >= 0; i--)
                 {
-                    if (cards[i] != null)
+                    if (Cards[i] != null)
                     {
-                        return cards[i];
+                        return Cards[i];
                     }
                 }
                 return null;
@@ -65,18 +57,18 @@ namespace Pazaak
 
         public Board()
         {
-            Cards = new ValueCard[9];
+            Cards = new ObservableCollection<ValueCard>();
 
             Sum = 0;
         }
         public void UpdateSum()
         {
 
-            for (int i = 0; i < cards.Length; i++)
+            for (int i = 0; i < Cards.Count; i++)
             {
-                if (cards[i] != null)
+                if (Cards[i] != null)
                 {
-                    sum = sum + cards[i].Value;
+                    sum = sum + Cards[i].Value;
                 }
                 else
                 {
@@ -87,16 +79,8 @@ namespace Pazaak
 
         public void AddCard(ICard card)
         {
-            for (int i = 0; i < cards.Length; i++)
-            {
-                if (cards[i] == null)
-                {
-                    card.DoCardEffect(this);
-                    cards[i] = new ValueCard(card.Value);
-                    FieldChanged("Board.Cards");
-                    break;
-                }
-            }
+            card.DoCardEffect(this);
+            Cards.Add(new ValueCard(card.Value));
         }
     }
 }

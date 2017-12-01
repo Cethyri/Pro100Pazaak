@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace Pazaak.UserControls
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
 
-             playerOne = new Player
+            playerOne = new Player
             {
                 Name = "Player One",
                 Wins = 0,
@@ -55,6 +56,7 @@ namespace Pazaak.UserControls
                         new ValueCard(3),
                     },
                 },
+                Board = new Board()
             };
              playerTwo = new Player
             {
@@ -72,17 +74,12 @@ namespace Pazaak.UserControls
                 },
                 Board = new Board
                 {
-                    Cards = new ValueCard[9]
+                    Cards = new ObservableCollection<ValueCard>
                     {
                         new ValueCard(0),
                         new ValueCard(1),
                         new ValueCard(2),
                         new ValueCard(3),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
                     },
                 }
             };

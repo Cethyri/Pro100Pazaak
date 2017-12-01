@@ -20,9 +20,9 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControl_MouseLeftButtonDown"/>
-                        <Rectangle Fill="{Binding IsEnabled, ElementName=cardControlCard, Converter={StaticResource CardCoverConverter}}"/>
+                    <Grid MouseLeftButtonDown="CardControl_MouseLeftButtonDown">
+                        <local:CardControl x:Name="cardControlCard"/>
+                        <Rectangle Fill="{Binding IsEnabled, ElementName=cardControlCard, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

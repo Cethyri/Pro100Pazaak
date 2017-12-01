@@ -36,7 +36,7 @@ namespace Pazaak.UserControls
 		private void CardControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
 			Player thisPlayer = (Player)this.DataContext;
-			ICard thisCard = (ICard)((CardControl)sender).DataContext;
+			ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
 
 			//TODO Change Player.Hand.Cards into a List
 			thisPlayer.Board.AddCard(thisCard);
