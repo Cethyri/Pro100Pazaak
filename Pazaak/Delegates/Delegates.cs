@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pazaak.Delegates
 {
-    public delegate void NextPlayerBeginTurn();
+    public delegate void NextPlayerBeginTurnDelegate();
 
-    public delegate void WinChecksDelegate();
+    public delegate void EndTurnDelegate();
 }
