@@ -11,8 +11,8 @@ namespace Pazaak.Converters
 {
     public class BooleanIsActiveToBrushCardCoverConverter: IValueConverter
     {
-        public static SolidColorBrush trueColor = new SolidColorBrush(Color.FromArgb(255, 127, 127, 127));
-        public static SolidColorBrush falseColor = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+        public static SolidColorBrush trueColor = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+        public static SolidColorBrush falseColor = new SolidColorBrush(Color.FromArgb(255, 127, 127, 127));
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (typeof(bool) == value.GetType())

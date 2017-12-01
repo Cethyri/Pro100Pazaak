@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Delegates;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace Pazaak
 {
-    public delegate void NextPlayerBeginTurn();
-
     class Player : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
