@@ -10,7 +10,7 @@
              BorderThickness="1"
              MinWidth="{Binding ActualWidth, ElementName=labelDisplay}" MinHeight="{Binding ActualHeight, ElementName=labelDisplay}">
     
-    <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+    <Grid>
         <Label x:Name="labelDisplay" Padding="0"
                Content="{Binding Display}" 
                FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"

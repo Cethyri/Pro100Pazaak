@@ -32,7 +32,9 @@ namespace Pazaak.UserControls
 
         private void ButtonStand_Click(object sender, RoutedEventArgs e)
         {
-
+            ((Player)DataContext).EndTurn();
+            //does not stand. needs to have additional code that ends the game after getting to this player's next turn
+            //add an if statement to this player's BeginTurn()?
         }
     }
 }
