@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <converters:DataContextToBrushConverter  x:Key="BooleanIsActiveToBrushForegroundConverter"/>
+        <converters:BooleanToBrushConverter  x:Key="BooleanToBrushConverter"/>
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
         <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Hand.Cards}">
