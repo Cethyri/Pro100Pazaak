@@ -23,13 +23,21 @@ namespace Pazaak
 
         /// <summary>
         /// Starts turn by adding a card from the main deck to the player's board.
+        /// If the player has stood, instead they skip they're turn
         /// also sets IsActive to true
         /// </summary>
         public void BeginTurn()
         {
-            IsActive = true;
-            
-            Board.AddCard(MainDeck.DrawNextCard());
+            if (HasStood)
+            {
+                EndTurn();
+            }
+            else
+            {
+                IsActive = true;
+
+                Board.AddCard(MainDeck.DrawNextCard());
+            }
         }
 
         /// <summary>
@@ -55,6 +63,7 @@ namespace Pazaak
         }
 
         private bool isActive;
+        private bool hasStood;
         private int wins;
         private string name;
         private Deck sideDeck;
@@ -70,6 +79,16 @@ namespace Pazaak
             {
                 isActive = value;
                 FieldChanged("IsActive");
+            }
+        }
+
+        public bool HasStood
+        {
+            get => hasStood;
+            set
+            {
+                hasStood = value;
+                FieldChanged("HasStood");
             }
         }
         public int Wins

@@ -83,6 +83,7 @@ namespace Pazaak.UserControls
                     },
                 }
             };
+             
 
             playerOne.Initialize(playerTwo, MainDeck);
             playerTwo.Initialize(playerOne, MainDeck);
@@ -91,6 +92,23 @@ namespace Pazaak.UserControls
             pctrlPlayerTwo.DataContext = playerTwo;
 
             playerOne.BeginTurn();
+        }
+        void WinChecks(int sum1, int sum2)
+        {
+            bool won = false;
+            int playerpoint = 0;
+            if (sum1 == 20 && sum2 == 20)
+            {
+                won = false;
+               
+            }
+            else if (sum1 == 20 || sum2 == 20)
+            {
+                won = true;
+                playerpoint++;
+            }
+            
+
         }
     }
 }
