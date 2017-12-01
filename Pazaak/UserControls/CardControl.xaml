@@ -5,7 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="50" BorderBrush="Purple" BorderThickness="1" MinWidth="{Binding Width, ElementName=labelDisplay}" MinHeight="{Binding Height, ElementName=labelDisplay}">
+             d:DesignHeight="75" d:DesignWidth="50"
+             BorderBrush="Purple" 
+             BorderThickness="1"
+             MinWidth="{Binding ActualWidth, ElementName=labelDisplay}" MinHeight="{Binding ActualHeight, ElementName=labelDisplay}">
+    
     <Grid>
         <Label x:Name="labelDisplay" Padding="0"
                Content="{Binding Display}" 

@@ -21,10 +21,16 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class HandControl : UserControl
     {
+        Binding IsActive;
 
-		public HandControl()
+        public HandControl()
         {
             InitializeComponent();
+
+            IsActive = new Binding("IsActive")
+            {
+                Source = this.DataContext
+            };
         }
 
 		private void CardControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
