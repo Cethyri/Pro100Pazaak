@@ -20,8 +20,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid MouseLeftButtonDown="CardControl_MouseLeftButtonDown">
-                        <local:CardControl/>
+                    <Grid x:Name="gridCardHolder" IsEnabledChanged="GridCardHolder_IsEnabledChanged">
+                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControl_MouseLeftButtonDown" IsEnabled="{Binding IsPlayCardAllowed, Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HandControl}}}"/>
                         <Rectangle Fill="{Binding IsEnabled, Source={RelativeSource Self}, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
                     </Grid>
                 </DataTemplate>
