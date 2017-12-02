@@ -129,8 +129,7 @@ namespace Pazaak.UserControls
                 playerTwo.Wins++;
             }
 
-
-
+            NextTurn();
         }
     }
 }
