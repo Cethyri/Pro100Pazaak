@@ -63,12 +63,12 @@ namespace Pazaak
         }
         public void UpdateSum()
         {
-            sum = 0;
+            Sum = 0;
             for (int i = 0; i < Cards.Count; i++)
             {
                 if (Cards[i] != null)
                 {
-                    sum = sum + Cards[i].Value;
+                    Sum += Cards[i].Value;
                 }
                 else
                 {
