@@ -9,11 +9,15 @@
     <StackPanel 
         Background="LightGray"
         Orientation="Horizontal">
-        <Label x:Name="lblName" 
-                   Content="{Binding Name}"/>
-        <Label x:Name="lblWins" 
-                   Content="Wins :"/>
-        <Label x:Name="lblWinsValue" 
-                   Content="{Binding Wins}"/>
+        <Label x:Name="labelName" 
+               Content="{Binding Name}"/>
+        <Label x:Name="labelWins"
+               Content="Wins :"/>
+        <Label x:Name="labelWinsValue" 
+               Content="{Binding Wins}"/>
+        <Label x:Name="labelBoardSum"
+               Content="Board Sum : "/>
+        <Label x:Name="labelBoardSumValue"
+               Content="{Binding Board.Sum}"/>
     </StackPanel>
 </UserControl>

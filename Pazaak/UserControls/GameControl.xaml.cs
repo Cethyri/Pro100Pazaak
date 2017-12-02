@@ -41,6 +41,7 @@ namespace Pazaak.UserControls
 
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
+            MainDeck.Shuffle();
 
             playerOne = new Player
             {
@@ -58,7 +59,7 @@ namespace Pazaak.UserControls
                 },
                 Board = new Board()
             };
-             playerTwo = new Player
+            playerTwo = new Player
             {
                 Name = "Player Two",
                 Wins = 0,
