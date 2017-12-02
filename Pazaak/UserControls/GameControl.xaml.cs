@@ -41,6 +41,7 @@ namespace Pazaak.UserControls
 
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
+            MainDeck.Shuffle();
 
             playerOne = new Player
             {
