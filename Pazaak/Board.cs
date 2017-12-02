@@ -63,7 +63,7 @@ namespace Pazaak
         }
         public void UpdateSum()
         {
-
+            sum = 0;
             for (int i = 0; i < Cards.Count; i++)
             {
                 if (Cards[i] != null)
@@ -81,6 +81,7 @@ namespace Pazaak
         {
             card.DoCardEffect(this);
             Cards.Add(new ValueCard(card.Value));
+            UpdateSum();
         }
     }
 }

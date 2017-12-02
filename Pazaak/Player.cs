@@ -48,10 +48,7 @@ namespace Pazaak
         {
             IsActive = false;
 
-            checksDelegate();
-
-            checksDelegate();
-            nextPlayerBeginTurn();
+            checksDelegate(nextPlayerBeginTurn);
         }
 
         /// <summary>
