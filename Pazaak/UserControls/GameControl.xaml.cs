@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Pazaak.Delegates;
 
 namespace Pazaak.UserControls
 {
@@ -40,8 +41,9 @@ namespace Pazaak.UserControls
 
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
+            MainDeck.Shuffle();
 
-             playerOne = new Player
+            playerOne = new Player
             {
                 Name = "Player One",
                 Wins = 0,
@@ -55,8 +57,9 @@ namespace Pazaak.UserControls
                         new ValueCard(3),
                     },
                 },
+                Board = new Board()
             };
-             playerTwo = new Player
+            playerTwo = new Player
             {
                 Name = "Player Two",
                 Wins = 0,
@@ -72,17 +75,12 @@ namespace Pazaak.UserControls
                 },
                 Board = new Board
                 {
-                    Cards = new ValueCard[9]
+                    Cards = new ObservableCollection<ValueCard>
                     {
                         new ValueCard(0),
                         new ValueCard(1),
                         new ValueCard(2),
                         new ValueCard(3),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
                     },
                 }
             };
@@ -96,10 +94,9 @@ namespace Pazaak.UserControls
 
             playerOne.BeginTurn();
         }
-        void WinChecks()
+        void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool won = false;
-            int playerpoint = 0;
             if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 won = true;
@@ -111,7 +108,36 @@ namespace Pazaak.UserControls
                 won = true;
                 playerTwo.Wins++;
             }
-            
+            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }
+            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum < 20)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum < 20)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }
+
 
         }
     }

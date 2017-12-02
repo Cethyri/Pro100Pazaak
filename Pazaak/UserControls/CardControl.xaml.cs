@@ -30,7 +30,7 @@ namespace Pazaak.UserControls
         bool hasHeightChanged = false;
         private void CardControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (e.NewSize.Height != 0 && e.NewSize.Width != 0 && !Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
+            if (!Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
             {
                 if (e.HeightChanged && !hasHeightChanged)
                 {
@@ -42,12 +42,13 @@ namespace Pazaak.UserControls
                     hasHeightChanged = true;
                     Height = Math.Max(e.NewSize.Width / 2 * 3, MinHeight);
                 }
-                if (Width > 0) { labelDisplay.FontSize = Width / 2; }
             } else
             {
-                hasWidthChanged = true;
-                hasHeightChanged = true;
+                hasWidthChanged = false;
+                hasHeightChanged = false;
             }
+            if (Width > 0) { labelDisplay.FontSize = Width / 3; }
+            else if (Height > 0) { labelDisplay.FontSize = Height / 4.5; }
         }
     }
 }

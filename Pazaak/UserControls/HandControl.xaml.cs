@@ -36,11 +36,10 @@ namespace Pazaak.UserControls
 		private void CardControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
 			Player thisPlayer = (Player)this.DataContext;
-			ICard thisCard = (ICard)((CardControl)sender).DataContext;
+			ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
 
 			thisPlayer.Board.AddCard(thisCard);
-			thisPlayer.Hand.Cards.Remove(thisCard);
-//			thisPlayer.Hand.AddToBoard(thisCard, thisPlayer.Board);		
+            thisPlayer.Hand.Cards.Remove(thisCard);
 		}
 	}
 }
