@@ -8,5 +8,5 @@ namespace Pazaak.Delegates
 {
     public delegate void NextPlayerBeginTurnDelegate();
 
-    public delegate void EndTurnDelegate();
+    public delegate void WinChecksDelegate();
 }

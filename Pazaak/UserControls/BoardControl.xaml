@@ -4,18 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pazaak.UserControls"
+             xmlns:converters="clr-namespace:Pazaak.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}" >
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <UniformGrid IsItemsHost="True" SizeChanged="UniformGrid_SizeChanged"/>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <UserControl.Resources>
+        <converters:IntBoardCardCountToIntRowsColumns x:Key="MinRowColConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid x:Name="uniformGridCardGrid" IsItemsHost="True" SizeChanged="UniformGrid_SizeChanged" Columns="{Binding Board.Cards.Count, Converter={StaticResource MinRowColConverter}}" Rows="{Binding Board.Cards.Count, Converter={StaticResource MinRowColConverter}}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
 </UserControl>

@@ -7,12 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="50"
              BorderBrush="Purple" 
-             BorderThickness="1"
-             MinWidth="{Binding ActualWidth, ElementName=labelDisplay}" MinHeight="{Binding ActualHeight, ElementName=labelDisplay}">
+             BorderThickness="1">
     
-    <Grid>
+    <Grid x:Name="cardGrid">
         <Label x:Name="labelDisplay" Padding="0"
-               Content="{Binding Display}" 
+               Content="{Binding Display}"
                FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
