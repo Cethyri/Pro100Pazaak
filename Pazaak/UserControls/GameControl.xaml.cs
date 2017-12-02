@@ -108,7 +108,36 @@ namespace Pazaak.UserControls
                 won = true;
                 playerTwo.Wins++;
             }
-            
+            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }
+            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum < 20)
+            {
+                won = true;
+                playerOne.Wins++;
+            }
+            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum < 20)
+            {
+                won = true;
+                playerTwo.Wins++;
+            }
+
 
         }
     }
