@@ -96,7 +96,6 @@ namespace Pazaak.UserControls
         void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool won = false;
-            int playerpoint = 0;
             if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 won = true;
