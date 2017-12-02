@@ -21,8 +21,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid MouseLeftButtonDown="CardControl_MouseLeftButtonDown">
-                        <local:CardControl x:Name="cardControlCard"/>
-                        <Rectangle Fill="{Binding IsEnabled, ElementName=cardControlCard, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
+                        <local:CardControl/>
+                        <Rectangle Fill="{Binding IsEnabled, Source={RelativeSource Self}, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

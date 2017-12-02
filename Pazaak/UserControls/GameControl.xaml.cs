@@ -59,7 +59,7 @@ namespace Pazaak.UserControls
                 },
                 Board = new Board()
             };
-             playerTwo = new Player
+            playerTwo = new Player
             {
                 Name = "Player Two",
                 Wins = 0,

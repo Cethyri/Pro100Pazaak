@@ -38,11 +38,8 @@ namespace Pazaak.UserControls
 			Player thisPlayer = (Player)this.DataContext;
 			ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
 
-			//TODO Change Player.Hand.Cards into a List
 			thisPlayer.Board.AddCard(thisCard);
-			//thisPlayer.Hand.Cards.r
-
-//			thisPlayer.Hand.AddToBoard(thisCard, thisPlayer.Board);		
+            thisPlayer.Hand.Cards.Remove(thisCard);
 		}
 	}
 }
