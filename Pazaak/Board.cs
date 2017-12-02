@@ -82,5 +82,17 @@ namespace Pazaak
             card.DoCardEffect(this);
             Cards.Add(new ValueCard(card.Value));
         }
+        public int getTotalTieBreakerCards()
+        {
+            int TieBreakerCards = 0;
+            for (int i = 0; i < Cards.Count; i++)
+            {
+                if(Cards[i].IsTieBreaker)
+                {
+                    TieBreakerCards++;
+                }
+            }
+            return TieBreakerCards;
+        }
     }
 }

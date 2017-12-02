@@ -136,6 +136,16 @@ namespace Pazaak.UserControls
             {
                 won = true;
                 playerTwo.Wins++;
+            }else if(playerOne.Board.Sum == playerTwo.Board.Sum)
+            {
+                if(playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
+                {
+                    playerOne.Wins++;
+                }
+                else if (playerTwo.Board.getTotalTieBreakerCards() > playerOne.Board.getTotalTieBreakerCards())
+                {
+                    playerTwo.Wins++;
+                }
             }
 
 
