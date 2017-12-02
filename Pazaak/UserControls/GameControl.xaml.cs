@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Pazaak.Delegates;
 
 namespace Pazaak.UserControls
 {
@@ -96,7 +96,7 @@ namespace Pazaak.UserControls
 
             playerOne.BeginTurn();
         }
-        void WinChecks()
+        void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool won = false;
             int playerpoint = 0;
