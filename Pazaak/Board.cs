@@ -63,12 +63,12 @@ namespace Pazaak
         }
         public void UpdateSum()
         {
-
+            Sum = 0;
             for (int i = 0; i < Cards.Count; i++)
             {
                 if (Cards[i] != null)
                 {
-                    sum = sum + Cards[i].Value;
+                    Sum += Cards[i].Value;
                 }
                 else
                 {
@@ -81,6 +81,7 @@ namespace Pazaak
         {
             card.DoCardEffect(this);
             Cards.Add(new ValueCard(card.Value));
+            UpdateSum();
         }
         public int getTotalTieBreakerCards()
         {
