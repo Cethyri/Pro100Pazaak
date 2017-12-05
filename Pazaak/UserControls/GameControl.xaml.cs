@@ -43,37 +43,22 @@ namespace Pazaak.UserControls
             MainDeck.InitializeAsMainDeck();
             MainDeck.Shuffle();
 
-            playerOne = new Player
-            {
-                Name = "Player One",
-                Wins = 0,
-                Hand = new Hand
-                {
-                    Cards = new System.Collections.ObjectModel.ObservableCollection<ICard>
-                    {
-                        new ValueCard(0),
-                        new ValueCard(1),
-                        new ValueCard(2),
-                        new ValueCard(3),
-                    },
-                },
-                Board = new Board()
+            ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
+                new ValueCard(1),
+                new ValueCard(2),
+                new ValueCard(3),
+                new ValueCard(4),
+                new ValueCard(5),
+                new ValueCard(-1),
+                new ValueCard(-2),
+                new ValueCard(-3),
+                new ValueCard(-4),
+                new ValueCard(-5)
             };
-            playerTwo = new Player
-            {
-                Name = "Player Two",
-                Wins = 0,
-                Hand = new Hand
-                {
-                    Cards = new System.Collections.ObjectModel.ObservableCollection<ICard>
-                    {
-                        new ValueCard(0),
-                        new ValueCard(1),
-                        new ValueCard(2),
-                        new ValueCard(3),
-                    },
-                },
-            };
+
+            playerOne = new Player("Player One", sideDeck);
+
+            playerTwo = new Player("Player Two", sideDeck);
 
 
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
