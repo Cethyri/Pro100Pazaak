@@ -37,6 +37,12 @@ namespace Pazaak
                 IsActive = true;
 
                 Board.AddCard(MainDeck.DrawNextCard());
+
+                if(Board.Sum == 20)
+                {
+                    HasStood = true;
+                    EndTurn();
+                }
             }
         }
 
