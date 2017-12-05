@@ -10,7 +10,9 @@ namespace Pazaak
     {
 		//Remember, this is an instanced class.
 
-		public ObservableCollection<ICard> RemovedCards { get; set; }
+        private static Random rand = new Random();
+
+        public ObservableCollection<ICard> RemovedCards { get; set; }
 		public ObservableCollection<ICard> Cards { get; set; }
 
 		/// <summary>
@@ -50,7 +52,6 @@ namespace Pazaak
 
 			//
 			ObservableCollection<ICard> shuffled = new ObservableCollection<ICard>();
-			Random rand = new Random();
 			int n = 0;
 			bool[] hasBeenShuffledBackIn = new bool[Cards.Count];
 
