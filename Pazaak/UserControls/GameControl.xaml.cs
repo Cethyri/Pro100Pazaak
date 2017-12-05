@@ -71,12 +71,9 @@ namespace Pazaak.UserControls
             playerOne = new Player("Player One", sideDeck);
             playerTwo = new Player("Player Two", sideDeck);
 
-            playerOne.Initialize(playerTwo, MainDeck, WinChecks);
-            playerTwo.Initialize(playerOne, MainDeck, WinChecks);
-        }
-
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
+        }
 
         void BeginRound()
         {
@@ -87,7 +84,6 @@ namespace Pazaak.UserControls
             playerOne.BeginTurn();
         }
 
-        void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool hasWon = false;
