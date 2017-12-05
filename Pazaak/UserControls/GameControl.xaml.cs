@@ -72,7 +72,7 @@ namespace Pazaak.UserControls
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool hasWon = false;
-            if (playerOne.HasStood && playerTwo.HasStood)
+            if (playerOne.HasStood && playerTwo.HasStood || playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
                 hasWon = Winchecks();
 
@@ -141,6 +141,10 @@ namespace Pazaak.UserControls
                 {
                     playerTwo.Wins++;
                      won = true;
+                }
+                else
+                {
+                    won = true;
                 }
             }
             return won;
