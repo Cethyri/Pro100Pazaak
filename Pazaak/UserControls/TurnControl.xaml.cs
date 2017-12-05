@@ -32,8 +32,8 @@ namespace Pazaak.UserControls
 
         private void ButtonStand_Click(object sender, RoutedEventArgs e)
         {
-            ((Player)DataContext).EndTurn();
             ((Player)DataContext).HasStood = true;
+            ((Player)DataContext).EndTurn();
         }
     }
 }
