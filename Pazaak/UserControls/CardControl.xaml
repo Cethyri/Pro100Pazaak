@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Pazaak.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="50"
-             BorderBrush="Purple" 
-             BorderThickness="1">
+             BorderBrush="Purple" BorderThickness="1"
+             Background="Gray">
     
     <Grid x:Name="cardGrid">
         <Label x:Name="labelDisplay" Padding="0"
