@@ -71,17 +71,20 @@ namespace Pazaak.UserControls
         }
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
+            bool hasWon = false;
             if (playerOne.HasStood && playerTwo.HasStood)
             {
+                hasWon = Winchecks();
 
-               if(Winchecks())
-                {
-                    //NextRound
-                }
             }
-
+            if (hasWon)
+            {
+                //NextRound
+            }
+            else
+            {
                 NextTurn();
-            
+            }
         }
 
         private bool Winchecks()
