@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Cards\FlipValuesCard.cs" />
+    <Compile Include="Converters\BooleanIsActiveToVisibilityCardCoverConverter.cs" />
     <Compile Include="Converters\BooleanIsActiveToBrushCardCoverConverter.cs" />
     <Compile Include="Converters\IntBoardCardCountToIntRowsColumns.cs" />
     <Compile Include="Delegates\Delegates.cs" />
