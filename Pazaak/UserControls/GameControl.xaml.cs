@@ -39,9 +39,21 @@ namespace Pazaak.UserControls
         {
             InitializeComponent();
 
+            BeginMatch();
+
+            pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerTwo.DataContext = playerTwo;
+
+            while (playerOne.Wins < 3 && playerTwo.Wins < 3)
+            {
+                BeginRound();
+            }
+        }
+
+        void BeginMatch()
+        {
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
-            MainDeck.Shuffle();
 
             ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
                 new ValueCard(1),
@@ -57,18 +69,21 @@ namespace Pazaak.UserControls
             };
 
             playerOne = new Player("Player One", sideDeck);
-
             playerTwo = new Player("Player Two", sideDeck);
-
 
             playerOne.Initialize(playerTwo, MainDeck, WinChecks);
             playerTwo.Initialize(playerOne, MainDeck, WinChecks);
+        }
 
-            pctrlPlayerOne.DataContext = playerOne;
-            pctrlPlayerTwo.DataContext = playerTwo;
+        void BeginRound()
+        {
+            MainDeck.Shuffle();
+            playerOne.SideDeck.Shuffle();
+            playerTwo.SideDeck.Shuffle();
 
             playerOne.BeginTurn();
         }
+
         void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
         {
             if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
