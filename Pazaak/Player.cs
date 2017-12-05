@@ -1,6 +1,8 @@
-﻿using Pazaak.Delegates;
+﻿using Pazaak.Cards;
+using Pazaak.Delegates;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -156,11 +158,20 @@ namespace Pazaak
             }
         }
 
-        public Player()
+        public Player(string name, ObservableCollection<ICard> sideDeck)
         {
-            sideDeck = new Deck();
-            hand = new Hand();
-            board = new Board();
+            Name = name;
+            Wins = 0;
+            SideDeck = new Deck();
+            Hand = new Hand();
+            Board = new Board();
+
+            SideDeck.InitializeAsSideDeck(sideDeck);
+            SideDeck.Shuffle();
+            Hand.Cards.Add(SideDeck.DrawNextCard());
+            Hand.Cards.Add(SideDeck.DrawNextCard());
+            Hand.Cards.Add(SideDeck.DrawNextCard());
+            Hand.Cards.Add(SideDeck.DrawNextCard());
         }
     }
 }
