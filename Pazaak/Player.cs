@@ -56,7 +56,7 @@ namespace Pazaak
         /// </summary>
         /// <param name="nextPlayer"> the next player in turn order </param>
         /// <param name="mainDeck"> a reference to the main deck to draw cards from </param>
-        public void Initialize(Player nextPlayer, Deck mainDeck, WinChecksDelegate checksDelegate)
+        public void Initialize(Player nextPlayer, Deck mainDeck, TurnTransitionDelegate checksDelegate)
         {
             MainDeck = mainDeck;
 
@@ -73,7 +73,7 @@ namespace Pazaak
         private Hand hand;
         private Board board;
         private NextPlayerBeginTurnDelegate nextPlayerBeginTurn;
-        private WinChecksDelegate checksDelegate;
+        private TurnTransitionDelegate checksDelegate;
 
         public bool IsActive
         {

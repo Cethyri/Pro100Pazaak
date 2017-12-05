@@ -76,15 +76,27 @@ namespace Pazaak.UserControls
             };
 
 
-            playerOne.Initialize(playerTwo, MainDeck, WinChecks);
-            playerTwo.Initialize(playerOne, MainDeck, WinChecks);
+            playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
+            playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
 
             pctrlPlayerOne.DataContext = playerOne;
             pctrlPlayerTwo.DataContext = playerTwo;
 
             playerOne.BeginTurn();
         }
-        void WinChecks(NextPlayerBeginTurnDelegate NextTurn)
+        void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
+        {
+            if (playerOne.HasStood && playerTwo.HasStood)
+            {
+
+                Winchecks();
+            }
+
+                NextTurn();
+            
+        }
+
+        private void Winchecks()
         {
             if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
@@ -117,9 +129,10 @@ namespace Pazaak.UserControls
             else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum < 20)
             {
                 playerTwo.Wins++;
-            }else if(playerOne.Board.Sum == playerTwo.Board.Sum)
+            }
+            else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
-                if(playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
+                if (playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
                 }
@@ -128,8 +141,6 @@ namespace Pazaak.UserControls
                     playerTwo.Wins++;
                 }
             }
-
-            NextTurn();
         }
     }
 }
