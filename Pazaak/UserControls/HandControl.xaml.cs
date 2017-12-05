@@ -65,6 +65,12 @@ namespace Pazaak.UserControls
                 thisPlayer.Hand.Cards.Remove(thisCard);
 
                 IsPlayCardAllowed = false;
+
+                if(thisPlayer.Board.Sum == 20)
+                {
+                    thisPlayer.HasStood = true;
+                    thisPlayer.EndTurn();
+                }
             }
         }
 
