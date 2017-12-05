@@ -10,6 +10,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <converters:BooleanIsActiveToBrushCardCoverConverter x:Key="CardCoverConverter"/>
+        <converters:BooleanIsActiveToVisibilityCardCoverConverter x:Key="CardCoverVisibilityConverter"/>
+        <!--<DynamicResource--> 
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
         <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Hand.Cards}">
@@ -21,8 +23,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid x:Name="gridCardHolder" IsEnabledChanged="GridCardHolder_IsEnabledChanged">
-                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControl_MouseLeftButtonDown" IsEnabled="{Binding IsPlayCardAllowed, Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HandControl}}}"/>
-                        <Rectangle Fill="{Binding IsEnabled, Source={RelativeSource Self}, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
+                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControlCard_MouseLeftButtonDown" IsEnabled="{Binding IsPlayCardAllowed, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HandControl}}}"/>
+                        <Rectangle Fill="Gray" Visibility="{Binding IsEnabled, ElementName=gridCardHolder, Converter={StaticResource CardCoverVisibilityConverter}}"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
