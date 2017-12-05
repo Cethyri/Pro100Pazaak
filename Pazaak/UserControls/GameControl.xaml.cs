@@ -122,11 +122,11 @@ namespace Pazaak.UserControls
             {
                 playerTwo.Wins++;
             }
-            else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum < 20)
+            else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
             {
                 playerOne.Wins++;
             }
-            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum < 20)
+            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
             }
