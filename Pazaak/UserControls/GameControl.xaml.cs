@@ -89,58 +89,73 @@ namespace Pazaak.UserControls
             if (playerOne.HasStood && playerTwo.HasStood)
             {
 
-                Winchecks();
+               if(Winchecks())
+                {
+                    //NextRound
+                }
             }
 
                 NextTurn();
             
         }
 
-        private void Winchecks()
+        private bool Winchecks()
         {
+            bool won = false;
             if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 playerOne.Wins++;
+                won = true;
             }
             else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
             {
                 playerTwo.Wins++;
+                won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
             {
                 playerOne.Wins++;
+                 won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
             {
                 playerTwo.Wins++;
+                 won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
             {
                 playerOne.Wins++;
+                 won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
             {
                 playerTwo.Wins++;
+                 won = true;
             }
             else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
             {
                 playerOne.Wins++;
+                 won = true;
             }
             else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
+                 won = true;
             }
             else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
                 if (playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
+                     won = true;
                 }
                 else if (playerTwo.Board.getTotalTieBreakerCards() > playerOne.Board.getTotalTieBreakerCards())
                 {
                     playerTwo.Wins++;
+                     won = true;
                 }
             }
+            return won;
         }
     }
 }
