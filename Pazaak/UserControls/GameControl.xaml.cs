@@ -53,7 +53,7 @@ namespace Pazaak.UserControls
             MainDeck.InitializeAsMainDeck();
 
             ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
-                new SignCard(1),
+                new FlipValuesCard(new int[]{3, 4 }),
                 new SignCard(2),
                 new SignCard(3),
                 new SignCard(4),

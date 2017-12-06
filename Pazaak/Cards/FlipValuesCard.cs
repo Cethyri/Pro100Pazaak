@@ -49,7 +49,7 @@ namespace Pazaak.Cards
                 string allValues = "";
                 for (int i = 0; i < flipValues.Length; i++)
                 {
-                    allValues += flipValues[i] + (i != flipValues.Length ? "&" : "");
+                    allValues += flipValues[i] + (i != flipValues.Length - 1 ? "&" : "");
                 }
                 allValues.Remove(allValues.Count() - 1);
                 Display = allValues;
