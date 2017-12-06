@@ -47,9 +47,9 @@ namespace Pazaak.Cards
             {
                 this.flipValues = value;
                 string allValues = "";
-                foreach (int i in flipValues)
+                for (int i = 0; i < flipValues.Length; i++)
                 {
-                    allValues += "i&";
+                    allValues += flipValues[i] + (i != flipValues.Length ? "&" : "");
                 }
                 allValues.Remove(allValues.Count() - 1);
                 Display = allValues;
