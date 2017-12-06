@@ -45,16 +45,49 @@ namespace Pazaak.Cards
             }
             set
             {
-                this.flipValues = value;
-                string allValues = "";
-                for (int i = 0; i < flipValues.Length; i++)
-                {
-                    allValues += flipValues[i] + (i != flipValues.Length - 1 ? "&" : "");
-                }
-                allValues.Remove(allValues.Count() - 1);
-                Display = allValues;
+                this.flipValues = RemoveDuplicates(value);
+
+                Display = CreateValuesString();
                 FieldChanged("Value");
             }
+        }
+
+        private int[] RemoveDuplicates(int[] values)
+        {
+            List<int> uniqueValues = new List<int>();
+
+            bool isUnique;
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                isUnique = true;
+                for (int j = i + 1; j < values.Length; i++)
+                {
+                    if (uniqueValues[i] == uniqueValues[j])
+                    {
+                        isUnique = false;
+                        break;
+                    }
+                    if (isUnique)
+                    {
+                        uniqueValues.Add(values[i]);
+                    }
+                }
+            }
+
+            return uniqueValues.ToArray();
+        }
+
+        private string CreateValuesString()
+        {
+            string allValues = "";
+
+            for (int i = 0; i < flipValues.Length; i++)
+            {
+                allValues += $"{flipValues[i]}&";
+            }
+
+            return allValues.Remove(allValues.Count() - 1);
         }
 
         public string Display
