@@ -70,6 +70,16 @@ namespace Pazaak.UserControls
 
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
+
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
         }
 
         void BeginRound()
@@ -78,20 +88,28 @@ namespace Pazaak.UserControls
             playerOne.SideDeck.Shuffle();
             playerTwo.SideDeck.Shuffle();
 
+            playerOne.HasStood = false;
+            playerOne.Board.Cards.Clear();
+
+            playerTwo.HasStood = false;
+            playerTwo.Board.Cards.Clear();
+
             playerOne.BeginTurn();
         }
 
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {//please get this!!
             bool hasWon = false;
-            if (playerOne.HasStood && playerTwo.HasStood || playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
+            if (playerOne.HasStood && playerTwo.HasStood || 
+                playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || 
+                playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
                 hasWon = Winchecks();
 
             }
             if (hasWon)
             {
-                //NextRound
+                BeginRound();
             }
             else
             {

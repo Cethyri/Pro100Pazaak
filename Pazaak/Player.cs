@@ -168,10 +168,6 @@ namespace Pazaak
 
             SideDeck.InitializeAsSideDeck(sideDeck);
             SideDeck.Shuffle();
-            Hand.Cards.Add(SideDeck.DrawNextCard());
-            Hand.Cards.Add(SideDeck.DrawNextCard());
-            Hand.Cards.Add(SideDeck.DrawNextCard());
-            Hand.Cards.Add(SideDeck.DrawNextCard());
         }
     }
 }
