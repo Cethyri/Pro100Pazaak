@@ -41,8 +41,7 @@ namespace Pazaak.UserControls
 
             BeginMatch();
 
-            pctrlPlayerOne.DataContext = playerOne;
-            pctrlPlayerTwo.DataContext = playerTwo;
+            
 
             BeginRound();
         }
@@ -70,6 +69,19 @@ namespace Pazaak.UserControls
 
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
+
+            pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerTwo.DataContext = playerTwo;
+
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
         }
 
         void BeginRound()
@@ -78,20 +90,57 @@ namespace Pazaak.UserControls
             playerOne.SideDeck.Shuffle();
             playerTwo.SideDeck.Shuffle();
 
+            playerOne.HasStood = false;
+            playerOne.Board.Cards.Clear();
+
+            playerTwo.HasStood = false;
+            playerTwo.Board.Cards.Clear();
+
             playerOne.BeginTurn();
         }
 
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool hasWon = false;
-            if (playerOne.HasStood && playerTwo.HasStood || playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
+            if (playerOne.HasStood && playerTwo.HasStood || 
+                playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || 
+                playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
                 hasWon = Winchecks();
 
             }
             if (hasWon)
             {
-                //NextRound
+                if (playerOne.Wins > 2)
+                {
+                    MessageBox.Show($"{playerOne.Name} won!", "Winner");
+
+                    if (MessageBox.Show("Would you like to play again?", 
+                        "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        BeginMatch();
+                        BeginRound();
+                    }
+                    else
+                    {
+                        Application.Current.Shutdown();
+                    }
+                }
+                else if (playerTwo.Wins > 2)
+                {
+                    MessageBox.Show($"{playerTwo.Name} won!", "Winner");
+                    if (MessageBox.Show("Would you like to play again?",
+                        "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        BeginMatch();
+                        BeginRound();
+                    }
+                    else
+                    {
+                        Application.Current.Shutdown();
+                    }
+                }
+                else { BeginRound(); }
             }
             else
             {
@@ -102,12 +151,12 @@ namespace Pazaak.UserControls
         private bool Winchecks()
         {
             bool won = false;
-            if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
+            if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
             {
                 playerOne.Wins++;
                 won = true;
             }
-            else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
+            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
                 won = true;
@@ -132,15 +181,15 @@ namespace Pazaak.UserControls
                 playerTwo.Wins++;
                  won = true;
             }
-            else if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
+            else if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 playerOne.Wins++;
-                 won = true;
+                won = true;
             }
-            else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
+            else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
             {
                 playerTwo.Wins++;
-                 won = true;
+                won = true;
             }
             else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
