@@ -42,7 +42,7 @@ namespace Pazaak.Cards
         {
             current++;
             current %= count;
-            Value = possibleValues[current];
+            Value = possibleValues[current] * ((Value < 0)? -1: 1);
         }
     }
 }
