@@ -41,8 +41,7 @@ namespace Pazaak.UserControls
 
             BeginMatch();
 
-            pctrlPlayerOne.DataContext = playerOne;
-            pctrlPlayerTwo.DataContext = playerTwo;
+            
 
             BeginRound();
         }
@@ -70,6 +69,9 @@ namespace Pazaak.UserControls
 
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
+
+            pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerTwo.DataContext = playerTwo;
 
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
@@ -112,10 +114,31 @@ namespace Pazaak.UserControls
                 if (playerOne.Wins > 2)
                 {
                     MessageBox.Show($"{playerOne.Name} won!", "Winner");
+
+                    if (MessageBox.Show("Would you like to play again?", 
+                        "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        BeginMatch();
+                        BeginRound();
+                    }
+                    else
+                    {
+                        Application.Current.Shutdown();
+                    }
                 }
                 else if (playerTwo.Wins > 2)
                 {
                     MessageBox.Show($"{playerTwo.Name} won!", "Winner");
+                    if (MessageBox.Show("Would you like to play again?",
+                        "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        BeginMatch();
+                        BeginRound();
+                    }
+                    else
+                    {
+                        Application.Current.Shutdown();
+                    }
                 }
                 else { BeginRound(); }
             }
