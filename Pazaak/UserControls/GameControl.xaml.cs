@@ -82,7 +82,7 @@ namespace Pazaak.UserControls
         }
 
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
-        {//please get this!!
+        {
             bool hasWon = false;
             if (playerOne.HasStood && playerTwo.HasStood || playerOne.Board.Sum > 20 || playerTwo.Board.Sum > 20 || playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
