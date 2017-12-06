@@ -25,6 +25,7 @@ namespace Pazaak.UserControls
     {
         Player playerOne;
         Player playerTwo;
+        private bool playerOneGoesFirst = true;
         private Deck mainDeck;
         public Deck MainDeck
         {
@@ -96,7 +97,8 @@ namespace Pazaak.UserControls
             playerTwo.HasStood = false;
             playerTwo.Board.Cards.Clear();
 
-            playerOne.BeginTurn();
+            if (playerOneGoesFirst) { playerOne.BeginTurn(); }
+            else { playerTwo.BeginTurn(); }
         }
 
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
@@ -154,41 +156,49 @@ namespace Pazaak.UserControls
             if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
             {
                 playerOne.Wins++;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
             {
                 playerOne.Wins++;
-                 won = true;
+                playerOneGoesFirst = false;
+                won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
             {
                 playerTwo.Wins++;
-                 won = true;
+                playerOneGoesFirst = true;
+                won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
             {
                 playerOne.Wins++;
-                 won = true;
+                playerOneGoesFirst = false;
+                won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
             {
                 playerTwo.Wins++;
-                 won = true;
+                playerOneGoesFirst = true;
+                won = true;
             }
             else if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 playerOne.Wins++;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
             {
                 playerTwo.Wins++;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerOne.Board.Sum == playerTwo.Board.Sum)
@@ -196,16 +206,20 @@ namespace Pazaak.UserControls
                 if (playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
-                     won = true;
+                    playerOneGoesFirst = false;
+                    won = true;
                 }
                 else if (playerTwo.Board.getTotalTieBreakerCards() > playerOne.Board.getTotalTieBreakerCards())
                 {
                     playerTwo.Wins++;
-                     won = true;
+                    playerOneGoesFirst = true;
+                    won = true;
                 }
                 else
                 {
                     won = true;
+                    Random rand = new Random();
+                    playerOneGoesFirst = rand.Next(2) == 0;
                 }
             }
             return won;
