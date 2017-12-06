@@ -53,16 +53,16 @@ namespace Pazaak.UserControls
             MainDeck.InitializeAsMainDeck();
 
             ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
-                new ValueCard(1),
-                new ValueCard(2),
-                new ValueCard(3),
-                new ValueCard(4),
+                new SignCard(1),
+                new SignCard(2),
+                new SignCard(3),
+                new SignCard(4),
+                new MultiValueSignCard(new int[]{1, 2 }),
+                new MultiValueSignCard(new int[]{3, 4 }),
                 new ValueCard(5),
-                new ValueCard(-1),
-                new ValueCard(-2),
-                new ValueCard(-3),
-                new ValueCard(-4),
-                new ValueCard(-5)
+                new ValueCard(6),
+                new ValueCard(-5),
+                new ValueCard(-6),
             };
 
             playerOne = new Player("Player One", sideDeck);
