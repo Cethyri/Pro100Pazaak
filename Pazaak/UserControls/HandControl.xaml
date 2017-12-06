@@ -10,6 +10,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <converters:BooleanIsActiveToBrushCardCoverConverter x:Key="CardCoverConverter"/>
+        <converters:BooleanIsActiveToVisibilityCardCoverConverter x:Key="CardCoverVisibilityConverter"/>
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
         <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Hand.Cards}">
@@ -21,8 +22,15 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid x:Name="gridCardHolder" IsEnabledChanged="GridCardHolder_IsEnabledChanged">
-                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControl_MouseLeftButtonDown" IsEnabled="{Binding IsPlayCardAllowed, Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HandControl}}}"/>
-                        <Rectangle Fill="{Binding IsEnabled, Source={RelativeSource Self}, Converter={StaticResource CardCoverConverter}}" IsEnabled="False"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <local:CardControl x:Name="cardControlCard" MouseLeftButtonDown="CardControlCard_MouseLeftButtonDown"  Grid.Row="0"
+                                           IsEnabled="{Binding IsPlayCardAllowed, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:HandControl}}}"/>
+                        <local:FlipAndChangeControl Width="{Binding ActualWidth, ElementName=cardControlCard}" Grid.Row="1"/>
+                        <Rectangle Fill="Gray" Grid.RowSpan="2"
+                                   Visibility="{Binding IsEnabled, ElementName=gridCardHolder, Converter={StaticResource CardCoverVisibilityConverter}}"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

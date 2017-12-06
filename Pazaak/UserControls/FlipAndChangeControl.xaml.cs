@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,24 +17,23 @@ using System.Windows.Shapes;
 namespace Pazaak.UserControls
 {
     /// <summary>
-    /// Interaction logic for TurnControl.xaml
+    /// Interaction logic for FlipAndChangeControl.xaml
     /// </summary>
-    public partial class TurnControl : UserControl
+    public partial class FlipAndChangeControl : UserControl
     {
-        public TurnControl()
+        public FlipAndChangeControl()
         {
             InitializeComponent();
         }
 
-        private void ButtonEndTurn_Click(object sender, RoutedEventArgs e)
+        private void FlipCard_Click(object sender, RoutedEventArgs e)
         {
-            ((Player)DataContext).EndTurn();
+            (this.DataContext as SignCard)?.FlipSign();
         }
 
-        private void ButtonStand_Click(object sender, RoutedEventArgs e)
+        private void ChangeValue_Click(object sender, RoutedEventArgs e)
         {
-            ((Player)DataContext).HasStood = true;
-            ((Player)DataContext).EndTurn();
+            (this.DataContext as MultiValueSignCard)?.CycleValue();
         }
     }
 }

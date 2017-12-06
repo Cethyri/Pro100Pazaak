@@ -54,15 +54,24 @@ namespace Pazaak.UserControls
             InitializeComponent();
         }
 
-        private void CardControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void CardControlCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Player thisPlayer = (Player)this.DataContext;
-            ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
+            if (IsPlayCardAllowed)
+            {
+                Player thisPlayer = (Player)this.DataContext;
+                ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
 
-            thisPlayer.Board.AddCard(thisCard);
-            thisPlayer.Hand.Cards.Remove(thisCard);
+                thisPlayer.Board.AddCard(thisCard);
+                thisPlayer.Hand.Cards.Remove(thisCard);
 
-            IsPlayCardAllowed = false;
+                IsPlayCardAllowed = false;
+
+                if(thisPlayer.Board.Sum == 20)
+                {
+                    thisPlayer.HasStood = true;
+                    thisPlayer.EndTurn();
+                }
+            }
         }
 
         private void GridCardHolder_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
