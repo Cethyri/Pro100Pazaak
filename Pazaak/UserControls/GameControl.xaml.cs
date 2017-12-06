@@ -44,10 +44,7 @@ namespace Pazaak.UserControls
             pctrlPlayerOne.DataContext = playerOne;
             pctrlPlayerTwo.DataContext = playerTwo;
 
-            while (playerOne.Wins < 3 && playerTwo.Wins < 3)
-            {
-                BeginRound();
-            }
+            BeginRound();
         }
 
         void BeginMatch()

@@ -57,6 +57,8 @@
     <Compile Include="Cards\FlipValuesCard.cs" />
     <Compile Include="Converters\BooleanIsActiveToVisibilityCardCoverConverter.cs" />
     <Compile Include="Converters\BooleanIsActiveToBrushCardCoverConverter.cs" />
+    <Compile Include="Converters\CardDataContextToChangeValueVisibilityConverter.cs" />
+    <Compile Include="Converters\CardDataContextToFlipCardVisibilityConverter.cs" />
     <Compile Include="Converters\IntBoardCardCountToIntRowsColumns.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="UserControls\CardControl.xaml.cs">
@@ -67,6 +69,9 @@
     <Compile Include="Cards\SignCard.cs" />
     <Compile Include="UserControls\BoardControl.xaml.cs">
       <DependentUpon>BoardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FlipAndChangeControl.xaml.cs">
+      <DependentUpon>FlipAndChangeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\GameControl.xaml.cs">
       <DependentUpon>GameControl.xaml</DependentUpon>
@@ -105,6 +110,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\BoardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FlipAndChangeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
