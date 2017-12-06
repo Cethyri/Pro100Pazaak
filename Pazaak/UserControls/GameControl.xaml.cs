@@ -109,7 +109,15 @@ namespace Pazaak.UserControls
             }
             if (hasWon)
             {
-                BeginRound();
+                if (playerOne.Wins > 2)
+                {
+                    MessageBox.Show($"{playerOne.Name} won!", "Winner");
+                }
+                else if (playerTwo.Wins > 2)
+                {
+                    MessageBox.Show($"{playerTwo.Name} won!", "Winner");
+                }
+                else { BeginRound(); }
             }
             else
             {
