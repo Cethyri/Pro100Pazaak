@@ -54,9 +54,9 @@ namespace Pazaak.UserControls
 
             ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
                 new FlipValuesCard(new int[]{3, 4 }),
-                new SignCard(2),
-                new SignCard(3),
-                new SignCard(4),
+                new SignCard(2) { IsTieBreaker = true },
+                new SignCard(3) { IsTieBreaker = true },
+                new SignCard(4) { IsTieBreaker = true },
                 new MultiValueSignCard(new int[]{1, 2 }),
                 new MultiValueSignCard(new int[]{3, 4 }),
                 new ValueCard(5),

@@ -4,15 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pazaak.UserControls"
+             xmlns:converters="clr-namespace:Pazaak.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="50"
              BorderBrush="Purple" BorderThickness="1"
              Background="Gray">
     
+    <UserControl.Resources>
+        <converters:BooleanIsTieBreakerToStringTieBreakerDisplay x:Key="IsTieBreakerConverter"/>
+    </UserControl.Resources>
     <Grid x:Name="cardGrid">
         <Label x:Name="labelDisplay" Padding="0"
                Content="{Binding Display}"
                FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <Label x:Name="labelIsTieBreaker" Padding="0"
+               Content="{Binding IsTieBreaker, Converter={StaticResource IsTieBreakerConverter}}"
+               FontSize = "12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+               HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>
