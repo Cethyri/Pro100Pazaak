@@ -50,7 +50,7 @@ namespace Pazaak.Cards
             }
         }
 
-        virtual public bool IsTieBreaker { get; }
+        virtual public bool IsTieBreaker { get; set; }
 
         public ValueCard(int value)
         {

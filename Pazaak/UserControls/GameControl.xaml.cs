@@ -112,7 +112,7 @@ namespace Pazaak.UserControls
                         break;
                     case 2:
                         value = rand.Next(10);
-                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value }));
+                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value + 1 }));
                         break;
                     case 3:
                         value = rand.Next(10);
