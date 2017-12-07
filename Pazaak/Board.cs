@@ -43,12 +43,9 @@ namespace Pazaak
         {
             get
             {
-                for (int i = 8; i >= 0; i--)
+                if(Cards.Count > 0)
                 {
-                    if (Cards[i] != null)
-                    {
-                        return Cards[i];
-                    }
+                    return Cards.Last();
                 }
                 return null;
             }
