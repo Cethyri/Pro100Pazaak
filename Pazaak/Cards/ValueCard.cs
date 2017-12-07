@@ -52,9 +52,10 @@ namespace Pazaak.Cards
 
         virtual public bool IsTieBreaker { get; set; }
 
-        public ValueCard(int value)
+        public ValueCard(int value, bool isTieBreaker = false)
         {
             Value = value;
+            IsTieBreaker = isTieBreaker;
         }
 
         virtual public void DoCardEffect(Board board) { }
