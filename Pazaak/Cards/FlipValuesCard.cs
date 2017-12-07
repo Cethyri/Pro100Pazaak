@@ -87,7 +87,7 @@ namespace Pazaak.Cards
                 allValues += $"{flipValues[i]}&";
             }
 
-            return allValues.Remove(allValues.Count() - 1);
+            return allValues.Remove(allValues.Length - 1);
         }
 
         public string Display
