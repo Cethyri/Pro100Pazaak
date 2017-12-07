@@ -62,6 +62,7 @@
     <Compile Include="Converters\CardDataContextToFlipCardVisibilityConverter.cs" />
     <Compile Include="Converters\IntBoardCardCountToIntRowsColumns.cs" />
     <Compile Include="Delegates\Delegates.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="UserControls\CardControl.xaml.cs">
       <DependentUpon>CardControl.xaml</DependentUpon>
     </Compile>

@@ -43,14 +43,14 @@ namespace Pazaak.Cards
             {
                 return display;
             }
-            protected set
+            set
             {
                 this.display = value;
                 FieldChanged("Display");
             }
         }
 
-        public bool IsTieBreaker { get; set; }
+        virtual public bool IsTieBreaker { get; }
 
         public ValueCard(int value)
         {
