@@ -108,8 +108,7 @@ namespace Pazaak.Cards
         public FlipValuesCard(int[] flipValues)
         {
             Value = 0;
-            int[] test = { 3, 4 };
-            FlipValues = test; // flipValues;
+            FlipValues = flipValues;
         }
 
         public void DoCardEffect(Board board)

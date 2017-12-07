@@ -52,18 +52,7 @@ namespace Pazaak.UserControls
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
 
-            ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
-                new FlipValuesCard(new int[]{3, 4 }),
-                new SignCard(2) { IsTieBreaker = true },
-                new SignCard(3) { IsTieBreaker = true },
-                new SignCard(4) { IsTieBreaker = true },
-                new MultiValueSignCard(new int[]{1, 2 }),
-                new MultiValueSignCard(new int[]{3, 4 }),
-                new ValueCard(5),
-                new ValueCard(6),
-                new ValueCard(-5),
-                new ValueCard(-6),
-            };
+            ObservableCollection<ICard> sideDeck = RandomizeSideDeck();
 
             playerOne = new Player("Player One", sideDeck);
             playerTwo = new Player("Player Two", sideDeck);
@@ -101,6 +90,44 @@ namespace Pazaak.UserControls
 
             if (playerOneGoesFirst) { playerOne.BeginTurn(); }
             else { playerTwo.BeginTurn(); }
+        }
+
+        ObservableCollection<ICard> RandomizeSideDeck()
+        {
+            ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>();
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                int cardType = rand.Next(6);
+                int value;
+                switch (cardType)
+                {
+                    case 0:
+                        value = rand.Next(1, 9);
+                        sideDeck.Add(new FlipValuesCard(new int[] { value, value + 2 }));
+                        break;
+                    case 1:
+                        value = rand.Next(2, 4);
+                        sideDeck.Add(new MultiplyLastCard(value));
+                        break;
+                    case 2:
+                        value = rand.Next(10);
+                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value }));
+                        break;
+                    case 3:
+                        value = rand.Next(10);
+                        sideDeck.Add(new SignCard(value));
+                        break;
+                    case 4:
+                        value = rand.Next(10);
+                        sideDeck.Add(new ValueCard(value));
+                        break;
+                    case 5:
+                        sideDeck.Add(new MultiValueSignCard(new int[] { 1, 2 }) { IsTieBreaker = true });
+                        break;
+                }
+            }
+            return sideDeck;
         }
 
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
