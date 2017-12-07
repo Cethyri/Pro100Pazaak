@@ -13,7 +13,7 @@ namespace Pazaak.Cards
 
         string Display { get; }
 
-        bool IsTieBreaker { get; set;  }
+        bool IsTieBreaker { get; set; }
 
         /// <summary>
         /// Method to be called when a card is played. Allows card to affect the board

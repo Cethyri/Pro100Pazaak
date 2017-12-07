@@ -111,15 +111,15 @@ namespace Pazaak.UserControls
                         sideDeck.Add(new MultiplyLastCard(value));
                         break;
                     case 2:
-                        value = rand.Next(10);
-                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value }));
+                        value = rand.Next(1, 10);
+                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value + 1 }));
                         break;
                     case 3:
-                        value = rand.Next(10);
+                        value = rand.Next(1, 10);
                         sideDeck.Add(new SignCard(value));
                         break;
                     case 4:
-                        value = rand.Next(10);
+                        value = rand.Next(1, 10);
                         sideDeck.Add(new ValueCard(value));
                         break;
                     case 5:

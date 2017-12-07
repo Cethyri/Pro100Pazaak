@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,8 @@ namespace Pazaak.Cards
 {
     public class MultiValueSignCard : SignCard
     {
-        private int[] possibleValues;
-        private int count;
-        private int current;
+        protected int[] possibleValues;
+        protected int current;
 
         public MultiValueSignCard(int[] possibleValues) : base(0)
         {
@@ -30,10 +30,9 @@ namespace Pazaak.Cards
             }
             set
             {
-                possibleValues = value;
-                count = value.Count();
+                possibleValues = value.RemoveDuplicatesAndMakePositive();
                 current = 0;
-                Value = value[current];
+                Value = possibleValues[current];
                 FieldChanged("PossibleValues");
             }
         }
@@ -41,7 +40,7 @@ namespace Pazaak.Cards
         public void CycleValue()
         {
             current++;
-            current %= count;
+            current %= possibleValues.Length;
             Value = possibleValues[current] * ((Value < 0)? -1: 1);
         }
     }
