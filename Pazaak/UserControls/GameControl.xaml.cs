@@ -93,9 +93,11 @@ namespace Pazaak.UserControls
 
             playerOne.HasStood = false;
             playerOne.Board.Cards.Clear();
+            playerOne.Board.UpdateSum();
 
             playerTwo.HasStood = false;
             playerTwo.Board.Cards.Clear();
+            playerTwo.Board.UpdateSum();
 
             if (playerOneGoesFirst) { playerOne.BeginTurn(); }
             else { playerTwo.BeginTurn(); }
