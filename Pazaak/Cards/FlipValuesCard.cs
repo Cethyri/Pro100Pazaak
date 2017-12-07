@@ -63,7 +63,7 @@ namespace Pazaak.Cards
                 isUnique = true;
                 for (int j = i + 1; j < values.Length; i++)
                 {
-                    if (uniqueValues[i] == uniqueValues[j])
+                    if (values[i] == values[j])
                     {
                         isUnique = false;
                         break;
