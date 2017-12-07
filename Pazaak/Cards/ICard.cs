@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Pazaak.Cards
 {
     public interface ICard : INotifyPropertyChanged
-    { 
+    {
         int Value { get; }
 
         string Display { get; }

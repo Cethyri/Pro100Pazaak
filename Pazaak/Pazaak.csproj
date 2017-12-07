@@ -57,6 +57,7 @@
     <Compile Include="Cards\FlipValuesCard.cs" />
     <Compile Include="Converters\BooleanIsActiveToVisibilityCardCoverConverter.cs" />
     <Compile Include="Converters\BooleanIsActiveToBrushCardCoverConverter.cs" />
+    <Compile Include="Converters\BooleanIsTieBreakerToStringTieBreakerDisplay.cs" />
     <Compile Include="Converters\CardDataContextToChangeValueVisibilityConverter.cs" />
     <Compile Include="Converters\CardDataContextToFlipCardVisibilityConverter.cs" />
     <Compile Include="Converters\IntBoardCardCountToIntRowsColumns.cs" />
