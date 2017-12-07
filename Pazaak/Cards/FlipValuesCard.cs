@@ -61,17 +61,17 @@ namespace Pazaak.Cards
             for (int i = 0; i < values.Length; i++)
             {
                 isUnique = true;
-                for (int j = i + 1; j < values.Length; i++)
+                for (int j = i + 1; j < values.Length; j++)
                 {
                     if (values[i] == values[j])
                     {
                         isUnique = false;
                         break;
                     }
-                    if (isUnique)
-                    {
-                        uniqueValues.Add(values[i]);
-                    }
+                }
+                if (isUnique)
+                {
+                    uniqueValues.Add(values[i]);
                 }
             }
 
@@ -108,7 +108,8 @@ namespace Pazaak.Cards
         public FlipValuesCard(int[] flipValues)
         {
             Value = 0;
-            FlipValues = flipValues;
+            int[] test = { 3, 4 };
+            FlipValues = test; // flipValues;
         }
 
         public void DoCardEffect(Board board)
