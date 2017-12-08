@@ -9,6 +9,11 @@ namespace Pazaak.Cards
 {
     public class MultiplyLastCard : ValueCard
     {
+        public override void DoCardEffect(Board board)
+        {
+            board.LastCard.Value *= multValue;
+        }
+
         protected int multValue;
 
         public override int Value
@@ -54,11 +59,6 @@ namespace Pazaak.Cards
         public MultiplyLastCard(int multValue) : base(0)
         {
             MultValue = multValue;
-        }
-
-        public override void DoCardEffect(Board board)
-        {
-            board.LastCard.Value *= multValue;
         }
     }
 }

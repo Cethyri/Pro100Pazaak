@@ -20,6 +20,9 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class PlayerStatusControl : UserControl
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public PlayerStatusControl()
         {
             InitializeComponent();

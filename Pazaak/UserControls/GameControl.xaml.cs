@@ -23,28 +23,9 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class GameControl : UserControl
     {
-        Player playerOne;
-        Player playerTwo;
-        private bool playerOneGoesFirst = true;
-        private Deck mainDeck;
-        public Deck MainDeck
-        {
-            get => mainDeck;
-            set
-            {
-                mainDeck = value;
-            }
-        }
-
-        public GameControl()
-        {
-            InitializeComponent();
-
-            BeginMatch();
- 
-            BeginRound();
-        }
-
+        /// <summary>
+        /// Logic for when a new Match begins
+        /// </summary>
         void BeginMatch()
         {
             MainDeck = new Deck();
@@ -74,6 +55,9 @@ namespace Pazaak.UserControls
             playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
         }
 
+        /// <summary>
+        /// Logic for when a new round begins
+        /// </summary>
         void BeginRound()
         {
             MainDeck.Shuffle();
@@ -92,6 +76,11 @@ namespace Pazaak.UserControls
             else { playerTwo.BeginTurn(); }
         }
 
+        /// <summary>
+        /// Creates a random SideDeck so we don't 
+        /// have to pick out cards for it
+        /// </summary>
+        /// <returns> An ObservableCollection of randomly chosen Cards </returns>
         ObservableCollection<ICard> RandomizeSideDeck()
         {
             ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>();
@@ -130,6 +119,11 @@ namespace Pazaak.UserControls
             return sideDeck;
         }
 
+        /// <summary>
+        /// Checks if a player has won the 
+        /// round and/or the match and does the correct logic
+        /// </summary>
+        /// <param name="NextTurn"> Delegate for the next player's turn </param>
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool hasWon = false;
@@ -138,7 +132,6 @@ namespace Pazaak.UserControls
                 playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
                 hasWon = Winchecks();
-
             }
             if (hasWon)
             {
@@ -179,6 +172,10 @@ namespace Pazaak.UserControls
             }
         }
 
+        /// <summary>
+        /// Checks which player has won if any
+        /// </summary>
+        /// <returns></returns>
         private bool Winchecks()
         {
             bool won = false;
@@ -252,6 +249,31 @@ namespace Pazaak.UserControls
                 }
             }
             return won;
+        }
+
+        Player playerOne;
+        Player playerTwo;
+        private bool playerOneGoesFirst = true;
+        private Deck mainDeck;
+        public Deck MainDeck
+        {
+            get => mainDeck;
+            set
+            {
+                mainDeck = value;
+            }
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public GameControl()
+        {
+            InitializeComponent();
+
+            BeginMatch();
+
+            BeginRound();
         }
     }
 }

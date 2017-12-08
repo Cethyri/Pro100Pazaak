@@ -20,14 +20,12 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class PlayerControl : UserControl
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public PlayerControl()
         {
             InitializeComponent();
         }
-
-		private void button_stand_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
 	}
 }

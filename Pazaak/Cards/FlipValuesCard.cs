@@ -10,6 +10,32 @@ namespace Pazaak.Cards
 {
     class FlipValuesCard : ValueCard
     {
+        private string CreateValuesString()
+        {
+            string allValues = "";
+
+            for (int i = 0; i < flipValues.Length; i++)
+            {
+                allValues += $"{flipValues[i]}&";
+            }
+
+            return allValues.Remove(allValues.Length - 1);
+        }
+
+        public override void DoCardEffect(Board board)
+        {
+            foreach (ValueCard card in board.Cards)
+            {
+                foreach (int flipVal in flipValues)
+                {
+                    if (Math.Abs(card.Value) == flipVal)
+                    {
+                        card.Value *= -1;
+                    }
+                }
+            }
+        }
+
         protected int[] flipValues;
 
         public override int Value
@@ -40,35 +66,9 @@ namespace Pazaak.Cards
             }
         }
 
-        private string CreateValuesString()
-        {
-            string allValues = "";
-
-            for (int i = 0; i < flipValues.Length; i++)
-            {
-                allValues += $"{flipValues[i]}&";
-            }
-
-            return allValues.Remove(allValues.Length - 1);
-        }
-
         public FlipValuesCard(int[] flipValues) : base(0)
         {
             FlipValues = flipValues;
-        }
-
-        public override void DoCardEffect(Board board)
-        {
-            foreach (ValueCard card in board.Cards)
-            {
-                foreach (int flipVal in flipValues)
-                {
-                    if (Math.Abs(card.Value) == flipVal)
-                    {
-                        card.Value *= -1;
-                    }
-                }
-            }
         }
     }
 }
