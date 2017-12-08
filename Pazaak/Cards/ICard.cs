@@ -8,17 +8,19 @@ using System.Threading.Tasks;
 namespace Pazaak.Cards
 {
     public interface ICard : INotifyPropertyChanged
-    { 
-        int Value { get; }
-
-        string Display { get; }
-
-        bool IsTieBreaker { get; set;  }
+    {
+        ICard Copy();
 
         /// <summary>
-        /// Method to be called when a card is played. Allows card to affect the board
+        /// Method to be called when a card is played. Allows card to affect the board.
         /// </summary>
         /// <param name="board"></param>
         void DoCardEffect(Board board);
+
+        int Value { get; set; }
+
+        string Display { get; }
+
+        bool IsTieBreaker { get; set; }
     }
 }

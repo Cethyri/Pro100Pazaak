@@ -19,14 +19,15 @@ namespace Pazaak.UserControls
 	/// Interaction logic for BoardControl.xaml
 	/// </summary>
 	public partial class BoardControl : UserControl
-	{
-		public BoardControl()
-		{
-			InitializeComponent();
-		}
-
+    { 
         bool hasWidthChanged = false;
         bool hasHeightChanged = false;
+
+        /// <summary>
+        /// Logic for when the UniformGrid is changed
+        /// </summary>
+        /// <param name="sender"> sender </param>
+        /// <param name="e"> event arguments </param>
         private void UniformGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
@@ -47,6 +48,11 @@ namespace Pazaak.UserControls
                 hasWidthChanged = false;
                 hasHeightChanged = false;
             }
+        }
+
+        public BoardControl()
+        {
+            InitializeComponent();
         }
     }
 }

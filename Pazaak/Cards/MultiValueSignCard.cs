@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +9,25 @@ namespace Pazaak.Cards
 {
     public class MultiValueSignCard : SignCard
     {
-        private int[] possibleValues;
-        private int count;
-        private int current;
-
-        public MultiValueSignCard(int[] possibleValues) : base(0)
+        public void CycleValue()
         {
-            if (possibleValues.Count() == 0)
-            {
-                throw new ArgumentNullException("possibleValues can't be empty");
-            }
-
-            PossibleValues = possibleValues;
+            current++;
+            current %= possibleValues.Length;
+            Value = possibleValues[current] * ((Value < 0)? -1: 1);
         }
+
+        public override ICard Copy()
+        {
+            return new MultiValueSignCard(PossibleValues)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+                current = current,
+            };
+        }
+
+        protected int[] possibleValues;
+        protected int current;
 
         public int[] PossibleValues
         {
@@ -30,19 +37,21 @@ namespace Pazaak.Cards
             }
             set
             {
-                possibleValues = value;
-                count = value.Count();
+                possibleValues = value.RemoveDuplicatesAndMakePositive();
                 current = 0;
-                Value = value[current];
+                Value = possibleValues[current];
                 FieldChanged("PossibleValues");
             }
         }
 
-        public void CycleValue()
+        public MultiValueSignCard(int[] possibleValues) : base(0)
         {
-            current++;
-            current %= count;
-            Value = possibleValues[current] * ((Value < 0)? -1: 1);
+            if (possibleValues.Count() == 0)
+            {
+                throw new ArgumentNullException("possibleValues can't be empty");
+            }
+
+            PossibleValues = possibleValues;
         }
     }
 }

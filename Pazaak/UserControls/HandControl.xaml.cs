@@ -22,8 +22,6 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class HandControl : UserControl, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -32,6 +30,43 @@ namespace Pazaak.UserControls
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
+
+        /// <summary>
+        /// Logic for when a CardControl is clicked with the left button
+        /// </summary>
+        /// <param name="sender"> Hopefully a CardControl </param>
+        /// <param name="e"> event arguments </param>
+        private void CardControlCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Player thisPlayer = (Player)this.DataContext;
+            ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
+
+            thisPlayer.Board.AddCard(thisCard);
+            thisPlayer.Hand.Cards.Remove(thisCard);
+
+            IsPlayCardAllowed = false;
+
+            if (thisPlayer.Board.Sum == 20)
+            {
+                thisPlayer.HasStood = true;
+                thisPlayer.EndTurn();
+            }
+        }
+
+        /// <summary>
+        /// Logic for when IsEnabled is Changed
+        /// </summary>
+        /// <param name="sender"> an object </param>
+        /// <param name="e"> necessary event arguments </param>
+        private void GridCardHolder_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (!((bool)e.OldValue) && (bool)e.NewValue)
+            {
+                IsPlayCardAllowed = true;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool isPlayCardAllowed = true;
 
@@ -52,34 +87,6 @@ namespace Pazaak.UserControls
         public HandControl()
         {
             InitializeComponent();
-        }
-
-        private void CardControlCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (IsPlayCardAllowed)
-            {
-                Player thisPlayer = (Player)this.DataContext;
-                ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
-
-                thisPlayer.Board.AddCard(thisCard);
-                thisPlayer.Hand.Cards.Remove(thisCard);
-
-                IsPlayCardAllowed = false;
-
-                if(thisPlayer.Board.Sum == 20)
-                {
-                    thisPlayer.HasStood = true;
-                    thisPlayer.EndTurn();
-                }
-            }
-        }
-
-        private void GridCardHolder_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (!((bool)e.OldValue) && (bool)e.NewValue)
-            {
-                IsPlayCardAllowed = true;
-            }
         }
     }
 }

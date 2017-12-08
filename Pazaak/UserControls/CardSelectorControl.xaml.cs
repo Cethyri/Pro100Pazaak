@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,17 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pazaak.UserControls
+namespace UserControls
 {
     /// <summary>
-    /// Interaction logic for PlayerControl.xaml
+    /// Interaction logic for CardSelectorControl.xaml
     /// </summary>
-    public partial class PlayerStatusControl : UserControl
+    public partial class CardSelectorControl : UserControl
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public PlayerStatusControl()
+        public CardSelectorControl()
         {
             InitializeComponent();
         }

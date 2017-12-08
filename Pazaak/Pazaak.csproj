@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85490C22-E9AD-4DBE-B7A8-8D093B82BC9B}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Pazaak</RootNamespace>
-    <AssemblyName>Pazaak</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -33,9 +19,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2CD5E4EBAA4FB54FFD21F1A73DFDDC42E2E1D6BB</ManifestCertificateThumbprint>
+    <ProjectGuid>{85490C22-E9AD-4DBE-B7A8-8D093B82BC9B}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Pazaak_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,10 +67,12 @@
     <Compile Include="Cards\FlipValuesCard.cs" />
     <Compile Include="Converters\BooleanIsActiveToVisibilityCardCoverConverter.cs" />
     <Compile Include="Converters\BooleanIsActiveToBrushCardCoverConverter.cs" />
+    <Compile Include="Converters\BooleanIsTieBreakerToStringTieBreakerDisplay.cs" />
     <Compile Include="Converters\CardDataContextToChangeValueVisibilityConverter.cs" />
     <Compile Include="Converters\CardDataContextToFlipCardVisibilityConverter.cs" />
     <Compile Include="Converters\IntBoardCardCountToIntRowsColumns.cs" />
     <Compile Include="Delegates\Delegates.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="UserControls\CardControl.xaml.cs">
       <DependentUpon>CardControl.xaml</DependentUpon>
     </Compile>
@@ -69,6 +81,9 @@
     <Compile Include="Cards\SignCard.cs" />
     <Compile Include="UserControls\BoardControl.xaml.cs">
       <DependentUpon>BoardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CardSelectorControl.xaml.cs">
+      <DependentUpon>CardSelectorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FlipAndChangeControl.xaml.cs">
       <DependentUpon>FlipAndChangeControl.xaml</DependentUpon>
@@ -110,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\BoardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CardSelectorControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +183,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

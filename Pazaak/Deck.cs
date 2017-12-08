@@ -8,13 +8,6 @@ namespace Pazaak
 {
     public class Deck
     {
-		//Remember, this is an instanced class.
-
-        private static Random rand = new Random();
-
-        public ObservableCollection<ICard> RemovedCards { get; set; }
-		public ObservableCollection<ICard> Cards { get; set; }
-
 		/// <summary>
 		/// Initializes this deck as the main deck.
 		/// </summary>
@@ -50,7 +43,6 @@ namespace Pazaak
 			}
 			RemovedCards.Clear();
 
-			//
 			ObservableCollection<ICard> shuffled = new ObservableCollection<ICard>();
 			int n = 0;
 			bool[] hasBeenShuffledBackIn = new bool[Cards.Count];
@@ -95,6 +87,15 @@ namespace Pazaak
 			Cards.Add(addedCard);
 		}
 
+        private static Random rand = new Random();
+
+        public ObservableCollection<ICard> RemovedCards { get; set; }
+        public ObservableCollection<ICard> Cards { get; set; }
+
+        /// <summary>
+        /// Constructor for Deck. 
+        /// Creates new Collections so Cards and RemovedCards aren't null
+        /// </summary>
         public Deck()
         {
             Cards = new ObservableCollection<ICard>();

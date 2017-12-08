@@ -26,11 +26,21 @@ namespace Pazaak.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Calls FlipSign() if the sender is a SignCard
+        /// </summary>
+        /// <param name="sender"> sender </param>
+        /// <param name="e"> event arguments </param>
         private void FlipCard_Click(object sender, RoutedEventArgs e)
         {
             (this.DataContext as SignCard)?.FlipSign();
         }
 
+        /// <summary>
+        /// Calls CycleValue() if the sender is a MultiValueSignCard
+        /// </summary>
+        /// <param name="sender"> sender </param>
+        /// <param name="e"> event arguments </param>
         private void ChangeValue_Click(object sender, RoutedEventArgs e)
         {
             (this.DataContext as MultiValueSignCard)?.CycleValue();

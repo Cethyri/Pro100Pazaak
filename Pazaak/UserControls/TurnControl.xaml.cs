@@ -25,11 +25,21 @@ namespace Pazaak.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Logic for when buttonEndTurn is clicked
+        /// </summary>
+        /// <param name="sender"> presumably buttonEndTurn </param>
+        /// <param name="e"> pertinent event arguments </param>
         private void ButtonEndTurn_Click(object sender, RoutedEventArgs e)
         {
             ((Player)DataContext).EndTurn();
         }
 
+        /// <summary>
+        /// Logic for when buttonStand is clicked
+        /// </summary>
+        /// <param name="sender"> presumably buttonStand </param>
+        /// <param name="e"> pertinent event arguments </param>
         private void ButtonStand_Click(object sender, RoutedEventArgs e)
         {
             ((Player)DataContext).HasStood = true;

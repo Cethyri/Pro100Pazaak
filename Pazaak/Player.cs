@@ -7,13 +7,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Pazaak
 {
     class Player : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -38,6 +37,7 @@ namespace Pazaak
             {
                 IsActive = true;
 
+                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 Board.AddCard(MainDeck.DrawNextCard());
 
                 if(Board.Sum == 20)
@@ -71,6 +71,8 @@ namespace Pazaak
             this.checksDelegate += checksDelegate;
             nextPlayerBeginTurn += nextPlayer.BeginTurn;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool isActive;
         private bool hasStood;
@@ -158,6 +160,11 @@ namespace Pazaak
             }
         }
 
+        /// <summary>
+        /// Constructor for player
+        /// </summary>
+        /// <param name="name"> player's name </param>
+        /// <param name="sideDeck"> whatever deck the player's hand will be drawn from </param>
         public Player(string name, ObservableCollection<ICard> sideDeck)
         {
             Name = name;

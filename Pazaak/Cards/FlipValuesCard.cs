@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pazaak.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,24 +8,46 @@ using System.Threading.Tasks;
 
 namespace Pazaak.Cards
 {
-    class FlipValuesCard : ICard
+    class FlipValuesCard : ValueCard
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies all bindings that a property has changed
-        /// </summary>
-        /// <param name="field"> Name of property changed </param>
-        protected void FieldChanged(string field = null)
+        private string CreateValuesString()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+            string allValues = "";
+
+            for (int i = 0; i < flipValues.Length; i++)
+            {
+                allValues += $"{flipValues[i]}&";
+            }
+
+            return allValues.Remove(allValues.Length - 1);
         }
 
-        private int value;
-        private int[] flipValues;
-        private string display;
+        public override void DoCardEffect(Board board)
+        {
+            foreach (ValueCard card in board.Cards)
+            {
+                foreach (int flipVal in flipValues)
+                {
+                    if (Math.Abs(card.Value) == flipVal)
+                    {
+                        card.Value *= -1;
+                    }
+                }
+            }
+        }
 
-        public int Value
+        public override ICard Copy()
+        {
+            return new FlipValuesCard(FlipValues)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
+        }
+
+        protected int[] flipValues;
+
+        public override int Value
         {
             get
             {
@@ -45,84 +68,16 @@ namespace Pazaak.Cards
             }
             set
             {
-                this.flipValues = RemoveDuplicates(value);
+                flipValues = value.RemoveDuplicatesAndMakePositive();
 
                 Display = CreateValuesString();
                 FieldChanged("Value");
             }
         }
 
-        private int[] RemoveDuplicates(int[] values)
+        public FlipValuesCard(int[] flipValues) : base(0)
         {
-            List<int> uniqueValues = new List<int>();
-
-            bool isUnique;
-
-            for (int i = 0; i < values.Length; i++)
-            {
-                isUnique = true;
-                for (int j = i + 1; j < values.Length; i++)
-                {
-                    if (uniqueValues[i] == uniqueValues[j])
-                    {
-                        isUnique = false;
-                        break;
-                    }
-                    if (isUnique)
-                    {
-                        uniqueValues.Add(values[i]);
-                    }
-                }
-            }
-
-            return uniqueValues.ToArray();
-        }
-
-        private string CreateValuesString()
-        {
-            string allValues = "";
-
-            for (int i = 0; i < flipValues.Length; i++)
-            {
-                allValues += $"{flipValues[i]}&";
-            }
-
-            return allValues.Remove(allValues.Count() - 1);
-        }
-
-        public string Display
-        {
-            get
-            {
-                return display;
-            }
-            set
-            {
-                display = value;
-                FieldChanged("Display");
-            }
-        }
-
-        public bool IsTieBreaker { get; set; }
-
-        public FlipValuesCard(int[] flipValues)
-        {
-            Value = 0;
             FlipValues = flipValues;
-        }
-
-        public void DoCardEffect(Board board)
-        {
-            foreach (ValueCard card in board.Cards)
-            {
-                foreach (int flipVal in flipValues)
-                {
-                    if (card.Value == flipVal)
-                    {
-                        card.Value *= -1;
-                    }
-                }
-            }
         }
     }
 }

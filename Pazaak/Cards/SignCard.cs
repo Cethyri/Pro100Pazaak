@@ -8,11 +8,11 @@ namespace Pazaak.Cards
 {
     public class SignCard: ValueCard
     {
-        public SignCard(int value) : base(value) { }
-
         public void FlipSign()
         {
             Value *= -1;
         }
+
+        public SignCard(int value) : base(value) { }
     }
 }

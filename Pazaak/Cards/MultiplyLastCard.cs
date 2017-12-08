@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace Pazaak.Cards
 {
-    public class MultiplyLastCard : ICard
+    public class MultiplyLastCard : ValueCard
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Notifies all bindings that a property has changed
-        /// </summary>
-        /// <param name="field"> Name of property changed </param>
-        protected void FieldChanged(string field = null)
+        public override void DoCardEffect(Board board)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
+            board.LastCard.Value *= multValue;
+        }
+        public override ICard Copy()
+        {
+            return new MultiplyLastCard(MultValue)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
         }
 
-        private int value;
-        private int multValue;
-        private string display;
+        protected int multValue;
 
-        public int Value
+        public override int Value
         {
             get
             {
@@ -34,6 +34,19 @@ namespace Pazaak.Cards
             {
                 this.value = value;
                 FieldChanged("Value");
+            }
+        }
+
+        public override string Display
+        {
+            get
+            {
+                return display;
+            }
+            set
+            {
+                display = $"x{value}";
+                FieldChanged("Display");
             }
         }
 
@@ -51,30 +64,9 @@ namespace Pazaak.Cards
             }
         }
 
-        public string Display
+        public MultiplyLastCard(int multValue) : base(0)
         {
-            get
-            {
-                return display;
-            }
-            set
-            {
-                display = $"Mult ({value})";
-                FieldChanged("Display");
-            }
-        }
-
-        public bool IsTieBreaker { get; set; }
-
-        public MultiplyLastCard(int multValue)
-        {
-            Value = 0;
             MultValue = multValue;
-        }
-
-        public void DoCardEffect(Board board)
-        {
-            board.LastCard.Value *= multValue;
         }
     }
 }

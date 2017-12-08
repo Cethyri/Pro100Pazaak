@@ -23,47 +23,15 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class GameControl : UserControl
     {
-        Player playerOne;
-        Player playerTwo;
-        private bool playerOneGoesFirst = true;
-        private Deck mainDeck;
-        public Deck MainDeck
-        {
-            get => mainDeck;
-            set
-            {
-                mainDeck = value;
-            }
-        }
-
-        public GameControl()
-        {
-            InitializeComponent();
-
-            BeginMatch();
-
-            
-
-            BeginRound();
-        }
-
+        /// <summary>
+        /// Logic for when a new Match begins
+        /// </summary>
         void BeginMatch()
         {
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
 
-            ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>{
-                new FlipValuesCard(new int[]{3, 4 }),
-                new SignCard(2),
-                new SignCard(3),
-                new SignCard(4),
-                new MultiValueSignCard(new int[]{1, 2 }),
-                new MultiValueSignCard(new int[]{3, 4 }),
-                new ValueCard(5),
-                new ValueCard(6),
-                new ValueCard(-5),
-                new ValueCard(-6),
-            };
+            ObservableCollection<ICard> sideDeck = RandomizeSideDeck();
 
             playerOne = new Player("Player One", sideDeck);
             playerTwo = new Player("Player Two", sideDeck);
@@ -72,7 +40,9 @@ namespace Pazaak.UserControls
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
 
             pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
             pctrlPlayerTwo.DataContext = playerTwo;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
 
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
@@ -85,6 +55,9 @@ namespace Pazaak.UserControls
             playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
         }
 
+        /// <summary>
+        /// Logic for when a new round begins
+        /// </summary>
         void BeginRound()
         {
             MainDeck.Shuffle();
@@ -93,14 +66,64 @@ namespace Pazaak.UserControls
 
             playerOne.HasStood = false;
             playerOne.Board.Cards.Clear();
+            playerOne.Board.UpdateSum();
 
             playerTwo.HasStood = false;
             playerTwo.Board.Cards.Clear();
+            playerTwo.Board.UpdateSum();
 
             if (playerOneGoesFirst) { playerOne.BeginTurn(); }
             else { playerTwo.BeginTurn(); }
         }
 
+        /// <summary>
+        /// Creates a random SideDeck so we don't 
+        /// have to pick out cards for it
+        /// </summary>
+        /// <returns> An ObservableCollection of randomly chosen Cards </returns>
+        ObservableCollection<ICard> RandomizeSideDeck()
+        {
+            ObservableCollection<ICard> sideDeck = new ObservableCollection<ICard>();
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                int cardType = rand.Next(6);
+                int value;
+                switch (cardType)
+                {
+                    case 0:
+                        value = rand.Next(1, 9);
+                        sideDeck.Add(new FlipValuesCard(new int[] { value, value + 2 }));
+                        break;
+                    case 1:
+                        value = rand.Next(2, 4);
+                        sideDeck.Add(new MultiplyLastCard(value));
+                        break;
+                    case 2:
+                        value = rand.Next(1, 10);
+                        sideDeck.Add(new MultiValueSignCard(new int[] { value, value + 1 }));
+                        break;
+                    case 3:
+                        value = rand.Next(1, 10);
+                        sideDeck.Add(new SignCard(value));
+                        break;
+                    case 4:
+                        value = rand.Next(1, 10);
+                        sideDeck.Add(new ValueCard(value));
+                        break;
+                    case 5:
+                        sideDeck.Add(new MultiValueSignCard(new int[] { 1, 2 }) { IsTieBreaker = true });
+                        break;
+                }
+            }
+            return sideDeck;
+        }
+
+        /// <summary>
+        /// Checks if a player has won the 
+        /// round and/or the match and does the correct logic
+        /// </summary>
+        /// <param name="NextTurn"> Delegate for the next player's turn </param>
         void TurnTransition(NextPlayerBeginTurnDelegate NextTurn)
         {
             bool hasWon = false;
@@ -109,7 +132,6 @@ namespace Pazaak.UserControls
                 playerOne.Board.Cards.Count >= 9 || playerTwo.Board.Cards.Count >= 9)
             {
                 hasWon = Winchecks();
-
             }
             if (hasWon)
             {
@@ -150,69 +172,73 @@ namespace Pazaak.UserControls
             }
         }
 
+        /// <summary>
+        /// Checks which player has won if any
+        /// </summary>
+        /// <returns></returns>
         private bool Winchecks()
         {
             bool won = false;
             if (playerOne.Board.Cards.Count >= 9 && playerOne.Board.Sum <= 20)
             {
                 playerOne.Wins++;
-                playerOneGoesFirst = false;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
-                playerOneGoesFirst = true;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
             {
                 playerOne.Wins++;
-                playerOneGoesFirst = false;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
             {
                 playerTwo.Wins++;
-                playerOneGoesFirst = true;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
             {
                 playerOne.Wins++;
-                playerOneGoesFirst = false;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
             {
                 playerTwo.Wins++;
-                playerOneGoesFirst = true;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 playerOne.Wins++;
-                playerOneGoesFirst = false;
+                playerOneGoesFirst = true;
                 won = true;
             }
             else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
             {
                 playerTwo.Wins++;
-                playerOneGoesFirst = true;
+                playerOneGoesFirst = false;
                 won = true;
             }
             else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
-                if (playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
+                if (playerOne.Board.GetTotalTieBreakerCards() > playerTwo.Board.GetTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
-                    playerOneGoesFirst = false;
+                    playerOneGoesFirst = true;
                     won = true;
                 }
-                else if (playerTwo.Board.getTotalTieBreakerCards() > playerOne.Board.getTotalTieBreakerCards())
+                else if (playerTwo.Board.GetTotalTieBreakerCards() > playerOne.Board.GetTotalTieBreakerCards())
                 {
                     playerTwo.Wins++;
-                    playerOneGoesFirst = true;
+                    playerOneGoesFirst = false;
                     won = true;
                 }
                 else
@@ -223,6 +249,31 @@ namespace Pazaak.UserControls
                 }
             }
             return won;
+        }
+
+        Player playerOne;
+        Player playerTwo;
+        private bool playerOneGoesFirst = true;
+        private Deck mainDeck;
+        public Deck MainDeck
+        {
+            get => mainDeck;
+            set
+            {
+                mainDeck = value;
+            }
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public GameControl()
+        {
+            InitializeComponent();
+
+            BeginMatch();
+
+            BeginRound();
         }
     }
 }
