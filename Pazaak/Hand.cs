@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace Pazaak
 {
-    class Hand
+    public class Hand
     {
         private ObservableCollection<ICard> cards;
 
