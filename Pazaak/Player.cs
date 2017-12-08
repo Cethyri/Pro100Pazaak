@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Pazaak
 {
@@ -38,6 +39,7 @@ namespace Pazaak
             {
                 IsActive = true;
 
+                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 Board.AddCard(MainDeck.DrawNextCard());
 
                 if(Board.Sum == 20)

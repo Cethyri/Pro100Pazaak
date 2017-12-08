@@ -59,7 +59,9 @@ namespace Pazaak.UserControls
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
 
             pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
             pctrlPlayerTwo.DataContext = playerTwo;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
 
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
             playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
@@ -173,7 +175,6 @@ namespace Pazaak.UserControls
             }
             else
             {
-                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 NextTurn();
             }
         }
