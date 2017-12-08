@@ -21,6 +21,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>2CD5E4EBAA4FB54FFD21F1A73DFDDC42E2E1D6BB</ManifestCertificateThumbprint>
+    <ProjectGuid>{85490C22-E9AD-4DBE-B7A8-8D093B82BC9B}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Pazaak_TemporaryKey.pfx</ManifestKeyFile>
@@ -30,6 +31,15 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
