@@ -56,21 +56,18 @@ namespace Pazaak.UserControls
 
         private void CardControlCard_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsPlayCardAllowed)
+            Player thisPlayer = (Player)this.DataContext;
+            ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
+
+            thisPlayer.Board.AddCard(thisCard);
+            thisPlayer.Hand.Cards.Remove(thisCard);
+
+            IsPlayCardAllowed = false;
+
+            if (thisPlayer.Board.Sum == 20)
             {
-                Player thisPlayer = (Player)this.DataContext;
-                ICard thisCard = (ICard)((FrameworkElement)sender).DataContext;
-
-                thisPlayer.Board.AddCard(thisCard);
-                thisPlayer.Hand.Cards.Remove(thisCard);
-
-                IsPlayCardAllowed = false;
-
-                if(thisPlayer.Board.Sum == 20)
-                {
-                    thisPlayer.HasStood = true;
-                    thisPlayer.EndTurn();
-                }
+                thisPlayer.HasStood = true;
+                thisPlayer.EndTurn();
             }
         }
 
