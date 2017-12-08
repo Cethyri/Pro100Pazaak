@@ -41,9 +41,7 @@ namespace Pazaak.UserControls
             InitializeComponent();
 
             BeginMatch();
-
-            
-
+ 
             BeginRound();
         }
 
@@ -175,6 +173,7 @@ namespace Pazaak.UserControls
             }
             else
             {
+                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 NextTurn();
             }
         }
@@ -232,13 +231,13 @@ namespace Pazaak.UserControls
             }
             else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
-                if (playerOne.Board.getTotalTieBreakerCards() > playerTwo.Board.getTotalTieBreakerCards())
+                if (playerOne.Board.GetTotalTieBreakerCards() > playerTwo.Board.GetTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
                     playerOneGoesFirst = true;
                     won = true;
                 }
-                else if (playerTwo.Board.getTotalTieBreakerCards() > playerOne.Board.getTotalTieBreakerCards())
+                else if (playerTwo.Board.GetTotalTieBreakerCards() > playerOne.Board.GetTotalTieBreakerCards())
                 {
                     playerTwo.Wins++;
                     playerOneGoesFirst = false;
