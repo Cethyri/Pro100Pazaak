@@ -25,5 +25,20 @@ namespace Pazaak
         {
             InitializeComponent();
         }
+
+        private void ButtonQuickPlay_Click(object sender, RoutedEventArgs e)
+        {
+            uniformgridMain.Children.Clear();
+            uniformgridMain.Rows = 1;
+            uniformgridMain.Children.Add(new GameControl { Name = "gamecontrolGame" });
+        }
+
+        private void ButtonCustomDecks_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Custom Deck option is not currently available", "WARNING");
+            uniformgridMain.Children.Clear();
+            uniformgridMain.Rows = 1;
+            uniformgridMain.Children.Add(new GameControl { Name = "gamecontrolGame" });
+        }
     }
 }
