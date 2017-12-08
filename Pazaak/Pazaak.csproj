@@ -44,6 +44,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -79,6 +81,9 @@
     <Compile Include="Cards\SignCard.cs" />
     <Compile Include="UserControls\BoardControl.xaml.cs">
       <DependentUpon>BoardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CardSelectorControl.xaml.cs">
+      <DependentUpon>CardSelectorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FlipAndChangeControl.xaml.cs">
       <DependentUpon>FlipAndChangeControl.xaml</DependentUpon>
@@ -120,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\BoardControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CardSelectorControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
