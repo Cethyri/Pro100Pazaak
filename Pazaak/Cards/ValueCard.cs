@@ -9,8 +9,6 @@ namespace Pazaak.Cards
 {
     public class ValueCard : ICard
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -19,6 +17,15 @@ namespace Pazaak.Cards
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
+
+        public ICard MakeCopy()
+        {
+            throw new NotImplementedException();
+        }
+
+        virtual public void DoCardEffect(Board board) { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected int value;
         protected string display;
@@ -57,7 +64,5 @@ namespace Pazaak.Cards
             Value = value;
             IsTieBreaker = isTieBreaker;
         }
-
-        virtual public void DoCardEffect(Board board) { }
     }
 }

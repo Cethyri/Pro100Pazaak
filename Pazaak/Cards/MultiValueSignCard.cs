@@ -9,18 +9,15 @@ namespace Pazaak.Cards
 {
     public class MultiValueSignCard : SignCard
     {
+        public void CycleValue()
+        {
+            current++;
+            current %= possibleValues.Length;
+            Value = possibleValues[current] * ((Value < 0)? -1: 1);
+        }
+
         protected int[] possibleValues;
         protected int current;
-
-        public MultiValueSignCard(int[] possibleValues) : base(0)
-        {
-            if (possibleValues.Count() == 0)
-            {
-                throw new ArgumentNullException("possibleValues can't be empty");
-            }
-
-            PossibleValues = possibleValues;
-        }
 
         public int[] PossibleValues
         {
@@ -37,11 +34,14 @@ namespace Pazaak.Cards
             }
         }
 
-        public void CycleValue()
+        public MultiValueSignCard(int[] possibleValues) : base(0)
         {
-            current++;
-            current %= possibleValues.Length;
-            Value = possibleValues[current] * ((Value < 0)? -1: 1);
+            if (possibleValues.Count() == 0)
+            {
+                throw new ArgumentNullException("possibleValues can't be empty");
+            }
+
+            PossibleValues = possibleValues;
         }
     }
 }
