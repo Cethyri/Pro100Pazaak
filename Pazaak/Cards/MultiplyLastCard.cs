@@ -13,6 +13,14 @@ namespace Pazaak.Cards
         {
             board.LastCard.Value *= multValue;
         }
+        public override ICard Copy()
+        {
+            return new MultiplyLastCard(MultValue)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
+        }
 
         protected int multValue;
 

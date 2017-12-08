@@ -18,9 +18,13 @@ namespace Pazaak.Cards
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
 
-        public ICard MakeCopy()
+        virtual public ICard Copy()
         {
-            throw new NotImplementedException();
+            return new ValueCard(Value)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
         }
 
         virtual public void DoCardEffect(Board board) { }
