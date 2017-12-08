@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Pazaak.UserControls.CardSelectorControl"
+﻿<Window x:Class="Pazaak.UserControls.CardSelectorControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,10 +7,10 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <ItemsControl x:Name="listBoxCards" ItemsSource="{Binding Board.Cards}" >
+        <ItemsControl x:Name="listBoxSelectionCards" ItemsSource="{Binding SelectionCards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CardSelectorControl}}}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid x:Name="uniformGridCardGrid" IsItemsHost="True" Columns="6" Rows="4"/>
+                    <UniformGrid x:Name="uniformGridSelectionCards" IsItemsHost="True" Columns="6" Rows="4"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
@@ -19,6 +19,18 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <local:HandControl/>
+
+        <ItemsControl x:Name="listBoxSideDeck" ItemsSource="{Binding Cards}" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid x:Name="uniformGridSideDeck" IsItemsHost="True" Columns="6" Rows="4"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="CardControlSideDeck_MouseDown"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </StackPanel>
-</UserControl>
+</Window>
