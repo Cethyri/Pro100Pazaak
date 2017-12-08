@@ -13,8 +13,6 @@ namespace Pazaak
 {
     class Player : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -73,6 +71,8 @@ namespace Pazaak
             this.checksDelegate += checksDelegate;
             nextPlayerBeginTurn += nextPlayer.BeginTurn;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool isActive;
         private bool hasStood;
