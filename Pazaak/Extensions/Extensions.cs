@@ -8,6 +8,7 @@ namespace Pazaak.Extensions
 {
     public static class Extensions
     {
+
         public static int[] RemoveDuplicatesAndMakePositive(this int[] values)
         {
             List<int> uniqueValues = new List<int>();
@@ -22,17 +23,17 @@ namespace Pazaak.Extensions
             for (int i = 0; i < values.Length; i++)
             {
                 isUnique = true;
-                for (int j = i + 1; j < values.Length; i++)
+                for (int j = i + 1; j < values.Length; j++)
                 {
                     if (values[i] == values[j])
                     {
                         isUnique = false;
                         break;
                     }
-                    if (isUnique)
-                    {
-                        uniqueValues.Add(values[i]);
-                    }
+                }
+                if (isUnique)
+                {
+                    uniqueValues.Add(values[i]);
                 }
             }
 
