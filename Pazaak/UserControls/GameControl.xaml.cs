@@ -173,7 +173,6 @@ namespace Pazaak.UserControls
             }
             else
             {
-                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 NextTurn();
             }
         }
