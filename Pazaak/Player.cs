@@ -160,6 +160,11 @@ namespace Pazaak
             }
         }
 
+        /// <summary>
+        /// Constructor for player
+        /// </summary>
+        /// <param name="name"> player's name </param>
+        /// <param name="sideDeck"> whatever deck the player's hand will be drawn from </param>
         public Player(string name, ObservableCollection<ICard> sideDeck)
         {
             Name = name;

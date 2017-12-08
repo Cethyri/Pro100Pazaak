@@ -13,8 +13,6 @@ namespace Pazaak
 
     public class Board : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Notifies all bindings that a property has changed
         /// </summary>
@@ -23,6 +21,55 @@ namespace Pazaak
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
+
+        /// <summary>
+        /// Updates the sum of all Cards stored in Cards
+        /// </summary>
+        public void UpdateSum()
+        {
+            Sum = 0;
+            for (int i = 0; i < Cards.Count; i++)
+            {
+                if (Cards[i] != null)
+                {
+                    Sum += Cards[i].Value;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds a card to Cards
+        /// </summary>
+        /// <param name="card"></param>
+        public void AddCard(ICard card)
+        {
+            card.DoCardEffect(this);
+            Cards.Add(card);
+            UpdateSum();
+        }
+
+        /// <summary>
+        /// Counts every card with IsTieBreaker being true
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalTieBreakerCards()
+        {
+            int TieBreakerCards = 0;
+            for (int i = 0; i < Cards.Count; i++)
+            {
+                if (Cards[i].IsTieBreaker)
+                {
+                    TieBreakerCards++;
+                }
+            }
+            return TieBreakerCards;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private int sum;
         private ICard lastCard;
@@ -49,48 +96,17 @@ namespace Pazaak
                 }
                 return null;
             }
-            set => lastCard = value;
         }
 
+        /// <summary>
+        /// Constructor for board
+        /// Initializes variables so they aren't null
+        /// </summary>
         public Board()
         {
             Cards = new ObservableCollection<ICard>();
 
             Sum = 0;
-        }
-        public void UpdateSum()
-        {
-            Sum = 0;
-            for (int i = 0; i < Cards.Count; i++)
-            {
-                if (Cards[i] != null)
-                {
-                    Sum += Cards[i].Value;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-
-        public void AddCard(ICard card)
-        {
-            card.DoCardEffect(this);
-            Cards.Add(card);
-            UpdateSum();
-        }
-        public int GetTotalTieBreakerCards()
-        {
-            int TieBreakerCards = 0;
-            for (int i = 0; i < Cards.Count; i++)
-            {
-                if(Cards[i].IsTieBreaker)
-                {
-                    TieBreakerCards++;
-                }
-            }
-            return TieBreakerCards;
         }
     }
 }
