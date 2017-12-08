@@ -20,14 +20,11 @@ namespace Pazaak.UserControls
     /// </summary>
     public partial class CardControl : UserControl
     {
-        public CardControl()
-        {
-            InitializeComponent();
-            SizeChanged += CardControl_SizeChanged;
-        }
-
-        bool hasWidthChanged = false;
-        bool hasHeightChanged = false;
+        /// <summary>
+        /// Whenever the CardControl Size Changes, the ratio is enforced again
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CardControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (!Double.IsNaN(e.NewSize.Height) && !Double.IsNaN(e.NewSize.Width))
@@ -49,6 +46,18 @@ namespace Pazaak.UserControls
             }
             if (Width > 0) { labelDisplay.FontSize = Width / 3; }
             else if (Height > 0) { labelDisplay.FontSize = Height / 4.5; }
+        }
+
+        bool hasWidthChanged = false;
+        bool hasHeightChanged = false;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public CardControl()
+        {
+            InitializeComponent();
+            SizeChanged += CardControl_SizeChanged;
         }
     }
 }
