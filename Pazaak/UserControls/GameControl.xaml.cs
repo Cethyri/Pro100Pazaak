@@ -172,7 +172,12 @@ namespace Pazaak.UserControls
                     }
                     else
                     {
-                        Application.Current.Shutdown();
+                        MainWindow newWindow = new MainWindow();
+                        newWindow.Show();
+
+                        MainWindow oldWindow = (MainWindow)Window.GetWindow(this);
+                        oldWindow.Close();
+                        //Application.Current.Shutdown();
                     }
                 }
                 else if (playerTwo.Wins > 2)
