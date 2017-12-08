@@ -36,6 +36,15 @@ namespace Pazaak.Cards
             }
         }
 
+        public override ICard Copy()
+        {
+            return new FlipValuesCard(FlipValues)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
+        }
+
         protected int[] flipValues;
 
         public override int Value

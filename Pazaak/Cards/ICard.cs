@@ -9,7 +9,7 @@ namespace Pazaak.Cards
 {
     public interface ICard : INotifyPropertyChanged
     {
-        ICard MakeCopy();
+        ICard Copy();
 
         /// <summary>
         /// Method to be called when a card is played. Allows card to affect the board.

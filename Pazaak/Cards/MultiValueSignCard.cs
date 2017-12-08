@@ -16,6 +16,16 @@ namespace Pazaak.Cards
             Value = possibleValues[current] * ((Value < 0)? -1: 1);
         }
 
+        public override ICard Copy()
+        {
+            return new MultiValueSignCard(PossibleValues)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+                current = current,
+            };
+        }
+
         protected int[] possibleValues;
         protected int current;
 

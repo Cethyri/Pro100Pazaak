@@ -48,7 +48,7 @@ namespace Pazaak
         public void AddCard(ICard card)
         {
             card.DoCardEffect(this);
-            Cards.Add(card);
+            Cards.Add(card.Copy());
             UpdateSum();
         }
 
