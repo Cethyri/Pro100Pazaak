@@ -9,6 +9,11 @@ namespace Pazaak.Extensions
     public static class Extensions
     {
 
+        /// <summary>
+        /// Makes all the integers in values absolute before createing and returns
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns>an int array containing only the absolute and unique values from the integers in values</returns>
         public static int[] RemoveDuplicatesAndMakePositive(this int[] values)
         {
             List<int> uniqueValues = new List<int>();
