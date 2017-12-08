@@ -13,6 +13,10 @@ namespace Pazaak.Cards
 
         public override int Value
         {
+            get
+            {
+                return value;
+            }
             set
             {
                 this.value = value;
@@ -22,6 +26,10 @@ namespace Pazaak.Cards
 
         public override string Display
         {
+            get
+            {
+                return display;
+            }
             set
             {
                 display = $"x{value}";

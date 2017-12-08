@@ -14,6 +14,10 @@ namespace Pazaak.Cards
 
         public override int Value
         {
+            get
+            {
+                return value;
+            }
             set
             {
                 this.value = value;
