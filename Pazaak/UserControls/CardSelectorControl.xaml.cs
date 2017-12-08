@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UserControls
+namespace Pazaak.UserControls
 {
     /// <summary>
     /// Interaction logic for CardSelectorControl.xaml
@@ -22,6 +22,16 @@ namespace UserControls
         public CardSelectorControl()
         {
             InitializeComponent();
+        }
+
+        private void CardControlSelection_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CardControlSideDeck_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
