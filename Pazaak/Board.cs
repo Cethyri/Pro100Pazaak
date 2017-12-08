@@ -25,9 +25,9 @@ namespace Pazaak
         }
 
         private int sum;
-        private ValueCard lastCard;
+        private ICard lastCard;
 
-        public ObservableCollection<ValueCard> Cards { get; set; }
+        public ObservableCollection<ICard> Cards { get; set; }
 
         public int Sum
         {
@@ -39,7 +39,7 @@ namespace Pazaak
             }
         }
 
-        public ValueCard LastCard
+        public ICard LastCard
         {
             get
             {
@@ -54,7 +54,7 @@ namespace Pazaak
 
         public Board()
         {
-            Cards = new ObservableCollection<ValueCard>();
+            Cards = new ObservableCollection<ICard>();
 
             Sum = 0;
         }
@@ -77,10 +77,10 @@ namespace Pazaak
         public void AddCard(ICard card)
         {
             card.DoCardEffect(this);
-            Cards.Add(new ValueCard(card.Value));
+            Cards.Add(card);
             UpdateSum();
         }
-        public int getTotalTieBreakerCards()
+        public int GetTotalTieBreakerCards()
         {
             int TieBreakerCards = 0;
             for (int i = 0; i < Cards.Count; i++)
