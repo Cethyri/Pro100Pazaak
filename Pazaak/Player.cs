@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace Pazaak
 {
-    class Player : INotifyPropertyChanged
+    public class Player : INotifyPropertyChanged
     {
         /// <summary>
         /// Notifies all bindings that a property has changed

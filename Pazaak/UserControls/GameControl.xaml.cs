@@ -26,15 +26,40 @@ namespace Pazaak.UserControls
         /// <summary>
         /// Logic for when a new Match begins
         /// </summary>
-        void BeginMatch()
+        void BeginMatch(ObservableCollection<ICard> playerOneSideDeck, ObservableCollection<ICard> playerTwoSideDeck)
         {
             MainDeck = new Deck();
             MainDeck.InitializeAsMainDeck();
 
-            ObservableCollection<ICard> sideDeck = RandomizeSideDeck();
+            playerOne = new Player("Player One", playerOneSideDeck);
+            playerTwo = new Player("Player Two", playerTwoSideDeck);
 
-            playerOne = new Player("Player One", sideDeck);
-            playerTwo = new Player("Player Two", sideDeck);
+            playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
+            playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
+
+            pctrlPlayerOne.DataContext = playerOne;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
+            pctrlPlayerTwo.DataContext = playerTwo;
+            pctrlPlayerOne.handControl.IsPlayCardAllowed = true;
+
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+            playerOne.Hand.Cards.Add(playerOne.SideDeck.DrawNextCard());
+
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+            playerTwo.Hand.Cards.Add(playerTwo.SideDeck.DrawNextCard());
+        }
+
+        public void BeginMatchCustomDecks(Player playerOne, Player playerTwo)
+        {
+            MainDeck = new Deck();
+            MainDeck.InitializeAsMainDeck();
+
+            this.playerOne = playerOne;
+            this.playerTwo = playerTwo;
 
             playerOne.Initialize(playerTwo, MainDeck, TurnTransition);
             playerTwo.Initialize(playerOne, MainDeck, TurnTransition);
@@ -142,12 +167,17 @@ namespace Pazaak.UserControls
                     if (MessageBox.Show("Would you like to play again?", 
                         "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
-                        BeginMatch();
+                        BeginMatch(playerOne.SideDeck.Cards, playerTwo.SideDeck.Cards);
                         BeginRound();
                     }
                     else
                     {
-                        Application.Current.Shutdown();
+                        MainWindow newWindow = new MainWindow();
+                        newWindow.Show();
+
+                        MainWindow oldWindow = (MainWindow)Window.GetWindow(this);
+                        oldWindow.Close();
+                        //Application.Current.Shutdown();
                     }
                 }
                 else if (playerTwo.Wins > 2)
@@ -156,7 +186,7 @@ namespace Pazaak.UserControls
                     if (MessageBox.Show("Would you like to play again?",
                         "Play Again", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
-                        BeginMatch();
+                        BeginMatch(playerOne.SideDeck.Cards, playerTwo.SideDeck.Cards);
                         BeginRound();
                     }
                     else
@@ -271,7 +301,18 @@ namespace Pazaak.UserControls
         {
             InitializeComponent();
 
-            BeginMatch();
+            ObservableCollection<ICard> sideDeck = RandomizeSideDeck();
+
+            BeginMatch(sideDeck, sideDeck);
+
+            BeginRound();
+        }
+
+        public GameControl(Player playerOne, Player playerTwo)
+        {
+            InitializeComponent();
+
+            BeginMatchCustomDecks(playerOne, playerTwo);
 
             BeginRound();
         }
