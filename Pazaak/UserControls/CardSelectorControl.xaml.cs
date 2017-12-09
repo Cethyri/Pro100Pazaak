@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -53,21 +54,37 @@ namespace Pazaak.UserControls
             sideDeck.Cards.Remove(card.DataContext as ICard);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ICard[] selectionCards;
-
-        public ICard[] SelectionCards
+        public void InitializeSelectionCardsWithAll()
         {
-            get
+            for (int i = 1; i <= 6; i++)
             {
-                return selectionCards;
+                SelectionCards.Add(new ValueCard(i));
             }
-            set
+
+            for (int i = 1; i <= 6; i++)
             {
-                selectionCards = value;
-                FieldChanged("SelectionCards");
+                SelectionCards.Add(new ValueCard(-i));
             }
+
+            for (int i = 1; i <= 6; i++)
+            {
+                SelectionCards.Add(new SignCard(i));
+            }
+
+            SelectionCards.Add(new SignCard(1) { IsTieBreaker = true });
+
+            SelectionCards.Add(new MultiplyLastCard(2));
+
+            SelectionCards.Add(new FlipValuesCard(new int[] { 2, 4 }));
+
+            SelectionCards.Add(new FlipValuesCard(new int[] { 3, 6 }));
+
+            SelectionCards.Add(new MultiValueSignCard(new int[] { 1, 2 }));
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<ICard> SelectionCards { get; set; }
 
         public CardSelectorControl()
         {
