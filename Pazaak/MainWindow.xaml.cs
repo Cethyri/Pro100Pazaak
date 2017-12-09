@@ -52,6 +52,9 @@ namespace Pazaak
             cardSelectorOne.DataContext = playerOne.SideDeck;
             cardSelectorTwo.DataContext = playerTwo.SideDeck;
 
+            cardSelectorOne.InitializeSelectionCardsWithAll();
+            cardSelectorTwo.InitializeSelectionCardsWithAll();
+
             Hide();
 
             cardSelectorOne.ShowDialog();

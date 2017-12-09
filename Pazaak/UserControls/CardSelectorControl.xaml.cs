@@ -105,6 +105,8 @@ namespace Pazaak.UserControls
         {
             InitializeComponent();
 
+            SelectionCards = new ObservableCollection<ICard>();
+
             Closing += CardSelectorControl_Closing;
         }
     }
