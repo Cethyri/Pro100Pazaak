@@ -1,5 +1,4 @@
 ﻿"DeployProject"
-
 {
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
@@ -16,14 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_75C6D3AFDD4747E8A0E5AA02C504F601"
+        "MsmKey" = "8:_1A3EB79B97944CC09BD58902D7AAD1FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_60F16A233C294EBDA491BDB8126D4745"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EDBE6D96D8CF4A0096E1B201DDF7A89F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_75C6D3AFDD4747E8A0E5AA02C504F601"
+        "OwnerKey" = "8:_EDBE6D96D8CF4A0096E1B201DDF7A89F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -44,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -60,6 +79,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -81,7 +116,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.1"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -89,6 +124,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A3EB79B97944CC09BD58902D7AAD1FF"
+            {
+            "SourcePath" = "8:..\\cardSetup.ico"
+            "TargetName" = "8:cardSetup.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_60F16A233C294EBDA491BDB8126D4745"
+            {
+            "SourcePath" = "8:..\\card.ico"
+            "TargetName" = "8:card.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -155,26 +230,26 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:PazaakSetup"
+        "ProductName" = "8:Pazaak"
         "ProductCode" = "8:{4E09C613-4474-4152-B6BE-5A0169624E1B}"
-        "PackageCode" = "8:{46A19C78-D6DC-4C92-B8AE-328FA6317261}"
+        "PackageCode" = "8:{123DEA6C-33B4-4E60-9F0A-F47BD9A39807}"
         "UpgradeCode" = "8:{4F93C7CB-E719-477E-8F7A-1A08BE5F51C3}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:Members of Pro100 Pazaak Group"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:PazaakSetup"
+        "Title" = "8:Pazaak"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
-        "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCONTACT" = "8:Members of Pro100 Pazaak Group"
+        "Keywords" = "8:Pazaak KotOR StarWars Cool"
+        "ARPCOMMENTS" = "8:A recreation of KotOR's Pazaak card game made in 5 weeks for the Application Developement Projects course"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_1A3EB79B97944CC09BD58902D7AAD1FF"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -277,17 +352,17 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_81D61E1D2C444E1E81E37C321CB815EA"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A26B8D1FA7934DB8A875DC7507670B1F"
             {
-            "Name" = "8:Shortcut to Primary output from Pazaak (Active)"
+            "Name" = "8:Pazaak"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_75C6D3AFDD4747E8A0E5AA02C504F601"
+            "Target" = "8:_EDBE6D96D8CF4A0096E1B201DDF7A89F"
             "Folder" = "8:_A2796DFE9C2449F99FC706C8B8E8247C"
-            "WorkingFolder" = "8:_A2796DFE9C2449F99FC706C8B8E8247C"
+            "WorkingFolder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
             "Icon" = "8:"
             "Feature" = "8:"
             }
@@ -690,9 +765,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_75C6D3AFDD4747E8A0E5AA02C504F601"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_EDBE6D96D8CF4A0096E1B201DDF7A89F"
             {
-            "SourcePath" = "8:..\\Pazaak\\obj\\Debug\\Pazaak.exe"
+            "SourcePath" = "8:..\\Pazaak\\obj\\Release\\Pazaak.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"

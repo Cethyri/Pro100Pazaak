@@ -70,9 +70,8 @@ namespace Pazaak
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         private int sum;
-        private ICard lastCard;
 
         public ObservableCollection<ICard> Cards { get; set; }
 
