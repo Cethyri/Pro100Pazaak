@@ -13,6 +13,15 @@ namespace Pazaak.Cards
             Value *= -1;
         }
 
+        override public ICard Copy()
+        {
+            return new SignCard(Value)
+            {
+                display = Display,
+                IsTieBreaker = IsTieBreaker,
+            };
+        }
+
         public SignCard(int value) : base(value) { }
     }
 }

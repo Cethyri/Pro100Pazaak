@@ -9,11 +9,11 @@
              Closing="CardSelectorControl_Closing">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <ItemsControl x:Name="listBoxSelectionCards" ItemsSource="{Binding SelectionCards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CardSelectorControl}}}" Grid.Row="0">
+        <ItemsControl x:Name="listBoxSelectionCards" BorderBrush="Gold" BorderThickness="3" ItemsSource="{Binding SelectionCards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CardSelectorControl}}}" Grid.Row="0">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid x:Name="uniformGridSelectionCards" IsItemsHost="True" Columns="6" Rows="4"/>
@@ -21,12 +21,20 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="CardControlSelection_MouseDown"/>
+                    <Grid x:Name="gridCardHolder">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <local:CardControl x:Name="cardControlCard" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="CardControlSelection_MouseDown"/>
+                        <local:FlipAndChangeControl Width="{Binding ActualWidth, ElementName=cardControlCard}" Grid.Row="1"/>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <ItemsControl x:Name="listBoxSideDeck" ItemsSource="{Binding Cards}" Grid.Row="1">
+        <ItemsControl x:Name="listBoxSideDeck" BorderBrush="Navy" BorderThickness="3" ItemsSource="{Binding Cards}" Grid.Row="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid x:Name="uniformGridSideDeck" IsItemsHost="True" Columns="6" Rows="4"/>
@@ -34,7 +42,15 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:CardControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="CardControlSideDeck_MouseDown"/>
+                    <Grid x:Name="gridCardHolder">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <local:CardControl x:Name="cardControlCard" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="CardControlSideDeck_MouseDown"/>
+                        <local:FlipAndChangeControl Width="{Binding ActualWidth, ElementName=cardControlCard}" Grid.Row="1"/>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
