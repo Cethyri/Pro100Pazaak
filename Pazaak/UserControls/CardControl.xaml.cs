@@ -46,6 +46,8 @@ namespace Pazaak.UserControls
             }
             if (Width > 0) { labelDisplay.FontSize = Width / 3; }
             else if (Height > 0) { labelDisplay.FontSize = Height / 4.5; }
+            if (Width > 0) { labelIsTieBreaker.FontSize = Width / 4; }
+            else if (Height > 0) { labelIsTieBreaker.FontSize = Height / 6; }
         }
 
         bool hasWidthChanged = false;

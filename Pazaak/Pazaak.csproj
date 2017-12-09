@@ -107,6 +107,9 @@
     <Compile Include="UserControls\TurnControl.xaml.cs">
       <DependentUpon>TurnControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TurnTransitionControl.xaml.cs">
+      <DependentUpon>TurnTransitionControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="UserControls\CardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\TurnControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TurnTransitionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

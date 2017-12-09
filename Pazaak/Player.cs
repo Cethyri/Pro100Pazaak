@@ -1,5 +1,6 @@
 ﻿using Pazaak.Cards;
 using Pazaak.Delegates;
+using Pazaak.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,9 +36,14 @@ namespace Pazaak
             }
             else
             {
+                //MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
+                TurnTransitionControl ttc = new TurnTransitionControl();
+
+                ttc.StartCountDown(2);
+                ttc.ShowDialog();
+
                 IsActive = true;
 
-                MessageBox.Show("Click OK when you are ready to start your turn", "Next Turn", MessageBoxButton.OK);
                 Board.AddCard(MainDeck.DrawNextCard());
 
                 if(Board.Sum == 20)

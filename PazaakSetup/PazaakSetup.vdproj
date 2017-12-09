@@ -129,7 +129,7 @@
             "SourcePath" = "8:..\\cardSetup.ico"
             "TargetName" = "8:cardSetup.ico"
             "Tag" = "8:"
-            "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
+            "Folder" = "8:_19A2B96289574775932910D02DF6BB43"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -149,7 +149,7 @@
             "SourcePath" = "8:..\\card.ico"
             "TargetName" = "8:card.ico"
             "Tag" = "8:"
-            "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
+            "Folder" = "8:_19A2B96289574775932910D02DF6BB43"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -180,6 +180,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_19A2B96289574775932910D02DF6BB43"
+                    {
+                    "Name" = "8:PazaakData"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_588EAE554B17400590BD3104BC3BD090"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_50CE7804027040A8BEEB6E8C5DBCB1EC"
@@ -202,17 +213,6 @@
             "Property" = "8:DesktopFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_B5B3531E2E8C440E81310CCE69FFB6E8"
-                    {
-                    "Name" = "8:PazaakData"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_588EAE554B17400590BD3104BC3BD090"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
         }
@@ -232,12 +232,12 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pazaak"
         "ProductCode" = "8:{4E09C613-4474-4152-B6BE-5A0169624E1B}"
-        "PackageCode" = "8:{123DEA6C-33B4-4E60-9F0A-F47BD9A39807}"
+        "PackageCode" = "8:{006FAE16-14FC-462A-8111-42561220F606}"
         "UpgradeCode" = "8:{4F93C7CB-E719-477E-8F7A-1A08BE5F51C3}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:TRUE"
-        "DetectNewerInstalledVersion" = "11:TRUE"
+        "RemovePreviousVersions" = "11:FALSE"
+        "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Members of Pro100 Pazaak Group"
@@ -362,8 +362,8 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_EDBE6D96D8CF4A0096E1B201DDF7A89F"
             "Folder" = "8:_A2796DFE9C2449F99FC706C8B8E8247C"
-            "WorkingFolder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
-            "Icon" = "8:"
+            "WorkingFolder" = "8:_19A2B96289574775932910D02DF6BB43"
+            "Icon" = "8:_60F16A233C294EBDA491BDB8126D4745"
             "Feature" = "8:"
             }
         }
@@ -770,7 +770,7 @@
             "SourcePath" = "8:..\\Pazaak\\obj\\Release\\Pazaak.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_B5B3531E2E8C440E81310CCE69FFB6E8"
+            "Folder" = "8:_19A2B96289574775932910D02DF6BB43"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

@@ -20,7 +20,7 @@ namespace Pazaak.UserControls
     /// <summary>
     /// Interaction logic for CardSelectorControl.xaml
     /// </summary>
-    public partial class CardSelectorControl : INotifyPropertyChanged
+    public partial class CardSelectorControl : Window, INotifyPropertyChanged
     {
         /// <summary>
         /// Notifies all bindings that a property has changed
