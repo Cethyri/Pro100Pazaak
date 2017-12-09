@@ -214,71 +214,82 @@ namespace Pazaak.UserControls
                 playerOne.Wins++;
                 playerOneGoesFirst = true;
                 won = true;
+				MessageBox.Show("This round goes to Player One for filling their board without busting!");
             }
             else if (playerTwo.Board.Cards.Count >= 9 && playerTwo.Board.Sum <= 20)
             {
                 playerTwo.Wins++;
                 playerOneGoesFirst = false;
                 won = true;
-            }
-            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
+				MessageBox.Show("This round goes to Player Two for filling their board without busting!");
+			}
+			else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum < playerOne.Board.Sum)
             {
                 playerOne.Wins++;
                 playerOneGoesFirst = true;
                 won = true;
-            }
-            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
+				MessageBox.Show("This round goes to Player One. They beat Player Two by " + (playerOne.Board.Sum - playerTwo.Board.Sum) + " points!");
+			}
+			else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum < playerTwo.Board.Sum)
             {
                 playerTwo.Wins++;
                 playerOneGoesFirst = false;
                 won = true;
-            }
-            else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
+				MessageBox.Show("This round goes to Player Two. They beat Player One by " + (playerTwo.Board.Sum - playerOne.Board.Sum) + " points!");
+			}
+			else if (playerOne.Board.Sum <= 19 && playerTwo.Board.Sum > 20)
             {
                 playerOne.Wins++;
                 playerOneGoesFirst = true;
                 won = true;
-            }
-            else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
+				MessageBox.Show("This round goes to Player One. Player Two busted by " + (playerTwo.Board.Sum - 20) + " points!");
+			}
+			else if (playerTwo.Board.Sum <= 19 && playerOne.Board.Sum > 20)
             {
                 playerTwo.Wins++;
                 playerOneGoesFirst = false;
                 won = true;
-            }
-            else if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
+				MessageBox.Show("This round goes to Player Two. Player One busted by " + (playerOne.Board.Sum - 20) + " points!");
+			}
+			else if (playerOne.Board.Sum == 20 && playerTwo.Board.Sum != 20)
             {
                 playerOne.Wins++;
                 playerOneGoesFirst = true;
                 won = true;
-            }
-            else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
+				MessageBox.Show("This round goes to Player One for getting exactly 20 points!");
+			}
+			else if (playerTwo.Board.Sum == 20 && playerOne.Board.Sum != 20)
             {
                 playerTwo.Wins++;
                 playerOneGoesFirst = false;
                 won = true;
-            }
-            else if (playerOne.Board.Sum == playerTwo.Board.Sum)
+				MessageBox.Show("This round goes to Player Two for getting exactly 20 points!");
+			}
+			else if (playerOne.Board.Sum == playerTwo.Board.Sum)
             {
                 if (playerOne.Board.GetTotalTieBreakerCards() > playerTwo.Board.GetTotalTieBreakerCards())
                 {
                     playerOne.Wins++;
                     playerOneGoesFirst = true;
                     won = true;
-                }
-                else if (playerTwo.Board.GetTotalTieBreakerCards() > playerOne.Board.GetTotalTieBreakerCards())
+					MessageBox.Show("This round goes to Player One for having more tiebreaker cards!");
+				}
+				else if (playerTwo.Board.GetTotalTieBreakerCards() > playerOne.Board.GetTotalTieBreakerCards())
                 {
                     playerTwo.Wins++;
                     playerOneGoesFirst = false;
                     won = true;
-                }
-                else
+					MessageBox.Show("This round goes to Player Two for having more tiebreaker cards!");
+				}
+				else
                 {
                     won = true;
                     Random rand = new Random();
                     playerOneGoesFirst = rand.Next(2) == 0;
-                }
-            }
-            return won;
+					MessageBox.Show("This round has resulted in a draw.");
+				}
+			}
+			return won;
         }
 
         Player playerOne;
