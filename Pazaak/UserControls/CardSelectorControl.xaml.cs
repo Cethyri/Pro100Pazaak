@@ -35,7 +35,7 @@ namespace Pazaak.UserControls
         {
             if (!buttonFinishedBuildingDeck.IsEnabled)
             {
-                Application.Current.Shutdown();
+                Environment.Exit(0);
             }
         }
 
