@@ -33,7 +33,10 @@ namespace Pazaak.UserControls
 
         private void CardSelectorControl_Closing(object sender, CancelEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!buttonFinishedBuildingDeck.IsEnabled)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private void CardControlSelection_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,7 +45,13 @@ namespace Pazaak.UserControls
 
             Deck sideDeck = DataContext as Deck;
 
-            sideDeck.AddCard((card.DataContext as ICard).Copy());
+            if (sideDeck.Cards.Count() < 10)
+            {
+                sideDeck.AddCard((card.DataContext as ICard).Copy());
+            } else
+            {
+                buttonFinishedBuildingDeck.IsEnabled = true;
+            }
         }
 
         private void CardControlSideDeck_MouseDown(object sender, MouseButtonEventArgs e)
@@ -52,6 +61,13 @@ namespace Pazaak.UserControls
             Deck sideDeck = DataContext as Deck;
 
             sideDeck.Cards.Remove(card.DataContext as ICard);
+
+            buttonFinishedBuildingDeck.IsEnabled = (sideDeck.Cards.Count() == 10);
+        }
+
+        private void ButtonFinishedBuildingDeck_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         public void InitializeSelectionCardsWithAll()
