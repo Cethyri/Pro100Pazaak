@@ -37,25 +37,35 @@ namespace Pazaak
 
         private void ButtonCustomDecks_Click(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<ICard> playerOneSideDeck = new ObservableCollection<ICard>()
+            Player playerOne = new Player("Player One", new ObservableCollection<ICard>());
+            Player playerTwo = new Player("Player Two", new ObservableCollection<ICard>());
+
+            CardSelectorControl cardSelectorOne = new CardSelectorControl()
             {
-                new ValueCard(1),
-                new ValueCard(1),
-                new ValueCard(1),
-                new ValueCard(1),
+                Title = "Player One Card Selection",
             };
-            ObservableCollection<ICard> playerTwoSideDeck = new ObservableCollection<ICard>()
+            CardSelectorControl cardSelectorTwo = new CardSelectorControl()
             {
-                new ValueCard(1),
-                new ValueCard(1),
-                new ValueCard(1),
-                new ValueCard(1),
+                Title = "Player Two Card Selection",
             };
-            Player playerOne = new Player("Player One", playerOneSideDeck);
-            Player playerTwo = new Player("Player Two", playerTwoSideDeck);
+
+            cardSelectorOne.DataContext = playerOne.SideDeck;
+            cardSelectorTwo.DataContext = playerTwo.SideDeck;
+
+            Hide();
+
+            cardSelectorOne.ShowDialog();
+            cardSelectorTwo.ShowDialog();
+
+            Show();
+
             uniformgridMain.Children.Clear();
             uniformgridMain.Rows = 1;
-            uniformgridMain.Children.Add(new GameControl(playerOne, playerTwo) { Name = "gamecontrolGame" });
+            uniformgridMain.Children.Add(
+                new GameControl(playerOne, playerTwo)
+                {
+                    Name = "gamecontrolGame"
+                });
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Pazaak.Cards;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,10 @@ namespace Pazaak.UserControls
 
         private void CardSelectorControl_Closing(object sender, CancelEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!buttonFinishedBuildingDeck.IsEnabled)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private void CardControlSelection_MouseDown(object sender, MouseButtonEventArgs e)
@@ -41,7 +45,13 @@ namespace Pazaak.UserControls
 
             Deck sideDeck = DataContext as Deck;
 
-            sideDeck.AddCard((card.DataContext as ICard).Copy());
+            if (sideDeck.Cards.Count() < 10)
+            {
+                sideDeck.AddCard((card.DataContext as ICard).Copy());
+            } else
+            {
+                buttonFinishedBuildingDeck.IsEnabled = true;
+            }
         }
 
         private void CardControlSideDeck_MouseDown(object sender, MouseButtonEventArgs e)
@@ -51,23 +61,46 @@ namespace Pazaak.UserControls
             Deck sideDeck = DataContext as Deck;
 
             sideDeck.Cards.Remove(card.DataContext as ICard);
+
+            buttonFinishedBuildingDeck.IsEnabled = (sideDeck.Cards.Count() == 10);
+        }
+
+        private void ButtonFinishedBuildingDeck_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        public void InitializeSelectionCardsWithAll()
+        {
+            for (int i = 1; i <= 6; i++)
+            {
+                SelectionCards.Add(new ValueCard(i));
+            }
+
+            for (int i = 1; i <= 6; i++)
+            {
+                SelectionCards.Add(new ValueCard(-i));
+            }
+
+            for (int i = 1; i <= 6; i++)
+            {
+                SelectionCards.Add(new SignCard(i));
+            }
+
+            SelectionCards.Add(new SignCard(1) { IsTieBreaker = true });
+
+            SelectionCards.Add(new MultiplyLastCard(2));
+
+            SelectionCards.Add(new FlipValuesCard(new int[] { 2, 4 }));
+
+            SelectionCards.Add(new FlipValuesCard(new int[] { 3, 6 }));
+
+            SelectionCards.Add(new MultiValueSignCard(new int[] { 1, 2 }));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICard[] selectionCards;
 
-        public ICard[] SelectionCards
-        {
-            get
-            {
-                return selectionCards;
-            }
-            set
-            {
-                selectionCards = value;
-                FieldChanged("SelectionCards");
-            }
-        }
+        public ObservableCollection<ICard> SelectionCards { get; set; }
 
         public CardSelectorControl()
         {
