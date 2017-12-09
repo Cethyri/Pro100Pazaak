@@ -37,7 +37,7 @@
         <ItemsControl x:Name="listBoxSideDeck" BorderBrush="Navy" BorderThickness="3" ItemsSource="{Binding Cards}" Grid.Row="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid x:Name="uniformGridSideDeck" IsItemsHost="True" Columns="6" Rows="4"/>
+                    <UniformGrid x:Name="uniformGridSideDeck" IsItemsHost="True" Columns="5" Rows="2"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
