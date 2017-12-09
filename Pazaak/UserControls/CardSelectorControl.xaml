@@ -7,8 +7,13 @@
              mc:Ignorable="d"
              Title="CardSelector" Height="600" Width="800"
              Closing="CardSelectorControl_Closing">
-    <StackPanel>
-        <ItemsControl x:Name="listBoxSelectionCards" ItemsSource="{Binding SelectionCards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CardSelectorControl}}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <ItemsControl x:Name="listBoxSelectionCards" ItemsSource="{Binding SelectionCards, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CardSelectorControl}}}" Grid.Row="0">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid x:Name="uniformGridSelectionCards" IsItemsHost="True" Columns="6" Rows="4"/>
@@ -21,7 +26,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <ItemsControl x:Name="listBoxSideDeck" ItemsSource="{Binding Cards}" >
+        <ItemsControl x:Name="listBoxSideDeck" ItemsSource="{Binding Cards}" Grid.Row="1">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid x:Name="uniformGridSideDeck" IsItemsHost="True" Columns="6" Rows="4"/>
@@ -34,6 +39,6 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Button x:Name="buttonFinishedBuildingDeck" Content="Apply" IsEnabled="False" Click="ButtonFinishedBuildingDeck_Click"/>
-    </StackPanel>
+        <Button x:Name="buttonFinishedBuildingDeck" Content="Apply" IsEnabled="False" Click="ButtonFinishedBuildingDeck_Click" Grid.Row="2"/>
+    </Grid>
 </Window>

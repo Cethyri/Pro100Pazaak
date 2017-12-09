@@ -48,10 +48,9 @@ namespace Pazaak.UserControls
             if (sideDeck.Cards.Count() < 10)
             {
                 sideDeck.AddCard((card.DataContext as ICard).Copy());
-            } else
-            {
-                buttonFinishedBuildingDeck.IsEnabled = true;
             }
+
+            buttonFinishedBuildingDeck.IsEnabled = (sideDeck.Cards.Count() == 10);
         }
 
         private void CardControlSideDeck_MouseDown(object sender, MouseButtonEventArgs e)
