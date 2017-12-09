@@ -40,18 +40,32 @@ namespace Pazaak
             Player playerOne = new Player("Player One", new ObservableCollection<ICard>());
             Player playerTwo = new Player("Player Two", new ObservableCollection<ICard>());
 
-            CardSelectorControl cardSelectorOne = new CardSelectorControl();
-            CardSelectorControl cardSelectorTwo = new CardSelectorControl();
+            CardSelectorControl cardSelectorOne = new CardSelectorControl()
+            {
+                Title = "Player One Card Selection",
+            };
+            CardSelectorControl cardSelectorTwo = new CardSelectorControl()
+            {
+                Title = "Player Two Card Selection",
+            };
 
             cardSelectorOne.DataContext = playerOne.SideDeck;
-            cardSelectorOne.ShowDialog();
-
             cardSelectorTwo.DataContext = playerTwo.SideDeck;
+
+            Hide();
+
+            cardSelectorOne.ShowDialog();
             cardSelectorTwo.ShowDialog();
+
+            Show();
 
             uniformgridMain.Children.Clear();
             uniformgridMain.Rows = 1;
-            uniformgridMain.Children.Add(new GameControl(playerOne, playerTwo) { Name = "gamecontrolGame" });
+            uniformgridMain.Children.Add(
+                new GameControl(playerOne, playerTwo)
+                {
+                    Name = "gamecontrolGame"
+                });
         }
     }
 }
