@@ -17,6 +17,7 @@ namespace Pazaak.Cards
         {
             return new MultiplyLastCard(MultValue)
             {
+                value = Value,
                 display = Display,
                 IsTieBreaker = IsTieBreaker,
             };

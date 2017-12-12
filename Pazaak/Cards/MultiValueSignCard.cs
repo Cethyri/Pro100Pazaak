@@ -20,6 +20,7 @@ namespace Pazaak.Cards
         {
             return new MultiValueSignCard(PossibleValues)
             {
+                value = Value,
                 display = Display,
                 IsTieBreaker = IsTieBreaker,
                 current = current,

@@ -40,6 +40,7 @@ namespace Pazaak.Cards
         {
             return new FlipValuesCard(FlipValues)
             {
+                value = Value,
                 display = Display,
                 IsTieBreaker = IsTieBreaker,
             };
